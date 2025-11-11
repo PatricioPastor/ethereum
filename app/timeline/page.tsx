@@ -1,8 +1,7 @@
 "use client"
 
-import { useState, useRef, useEffect, useCallback, useMemo } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import type { CSSProperties } from "react"
-import { useSearchParams } from "next/navigation"
 import { YearSidebar } from "@/components/year-sidebar"
 import { ContinuousReadingView } from "@/components/continuous-reading-view"
 import { EntitySidePanel } from "@/components/entity-side-panel"
@@ -17,7 +16,6 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sh
 import { PanelLeft } from "lucide-react"
 
 export default function TimelinePage() {
-  const searchParams = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams()
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedEntity, setSelectedEntity] = useState<string | null>(null)
   const [searchModalOpen, setSearchModalOpen] = useState(false)
@@ -33,8 +31,6 @@ export default function TimelinePage() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const navigationInProgressRef = useRef(false)
   const hasCollapsedOnceRef = useRef(false)
-  const deepLinkHandledRef = useRef<string | null>(null)
-  const allTimelineEvents = useMemo(() => timelineData.flatMap((group) => group.events), [])
 
   const { years, filteredData } = useYears({
     timelineData,
@@ -63,16 +59,6 @@ export default function TimelinePage() {
     container?.addEventListener("scroll", handleScroll)
     return () => container?.removeEventListener("scroll", handleScroll)
   }, [])
-
-const deepLinkEventId = searchParams.get("event")
-
-useEffect(() => {
-  if (!deepLinkEventId || deepLinkHandledRef.current === deepLinkEventId) return
-  const event = allTimelineEvents.find((evt) => evt.id === deepLinkEventId)
-  if (!event) return
-  deepLinkHandledRef.current = deepLinkEventId
-  handleSearchEventSelect(event.year, event)
-}, [deepLinkEventId, allTimelineEvents, handleSearchEventSelect])
 
   const getRelatedEvents = (event: TimelineEvent): TimelineEvent[] => {
     const allEvents = timelineData.flatMap((group) => group.events)
@@ -141,7 +127,6 @@ useEffect(() => {
     },
     [handleYearClick],
   )
-  const searchParams = useSearchParams()
 
   const handleEventView = (eventTitle: string) => {
     viewedEventsRef.current.add(eventTitle)

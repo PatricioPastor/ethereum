@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef } from "react"
 import type { ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -86,55 +86,66 @@ export default function HomePage() {
   return (
     <div className="bg-[#F2F3E1] text-[#191919]">
       <main className="flex flex-col gap-0">
-        <HeroSection totalEvents={totalEvents} builderCount={entities.length} />
+        <HeroSection />
         <EraPreviewSection />
         <WhyItMattersSection builderCount={entities.length} milestones={milestoneEvents} />
-        <Footer totalEvents={totalEvents} builderCount={entities.length} />
+        <Footer />
       </main>
     </div>
   )
 }
 
-function HeroSection({ totalEvents, builderCount }: { totalEvents: number; builderCount: number }) {
+function HeroSection() {
   const pathname = usePathname()
 
   return (
-    <section className="panel section section--hero relative isolate text-white" id="sec-1" tabIndex={-1}>
+    <section className="panel section section--hero relative isolate px-6 text-white" id="sec-1" tabIndex={-1}>
       <div className="section__bg" aria-hidden="true">
-        <div
-          className="absolute inset-0"
-          style={{ backgroundImage: "url(/HERO.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
-        />
+        <video className="absolute inset-0 h-full w-full object-cover" autoPlay loop muted playsInline poster="/HERO.jpg">
+          <source src="/Hero Timeline (1).mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-[#c17b62]/10 via-[#a05946]/10 to-[#3a170f]/10" />
       </div>
 
-      <div className="absolute top-8 left-1/2 z-20 -translate-x-1/2">
-        <nav
-          aria-label="Primary"
-          className="flex items-center rounded-full bg-black p-1 text-xs font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.45)]"
-        >
-          {primaryNavLinks.map((link) => {
-            const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive ? "page" : undefined}
-                className={`rounded-full px-6 py-1.5 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                  isActive
-                    ? "bg-[#FF5728] text-white shadow-[0_12px_30px_rgba(255,87,40,0.35)]"
-                    : "text-white/70 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </nav>
+      <div className="px-6 pt-6">
+        <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <Image
+            src="/crecimiento-logo-header.svg"
+            alt="Crecimiento Logo"
+            width={220}
+            height={70}
+            priority
+            className="h-12 w-auto sm:h-16"
+          />
+          <div className="flex justify-end">
+            <nav
+              aria-label="Primary"
+              className="flex items-center rounded-full bg-black/90 p-1 text-xs font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.45)]"
+            >
+              {primaryNavLinks.map((link) => {
+                const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`rounded-full px-6 py-1.5 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                      isActive
+                        ? "bg-[#FF5728] text-white shadow-[0_12px_30px_rgba(255,87,40,0.35)]"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
+            </nav>
+          </div>
+        </div>
       </div>
 
-        <div className="container relative">
-          <div className="pointer-events-none absolute right-0 top-1/2 z-20 hidden translate-y-[-60%] items-start gap-4 text-white sm:flex sm:right-3 lg:right-0">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-col px-0">
+        <div className="pointer-events-none absolute right-0 top-1/2 z-20 hidden translate-y-[-60%] items-start gap-4 text-white sm:flex">
             <ArrowUpRight className="h-10 w-10 text-white" />
             <div className="flex flex-col text-left text-sm font-semibold uppercase tracking-[-0.01em] leading-tight sm:text-base">
               <span>Bring</span>
@@ -143,10 +154,10 @@ function HeroSection({ totalEvents, builderCount }: { totalEvents: number; build
             </div>
           </div>
 
-          <div className="relative z-10 flex min-h-[inherit] flex-col justify-center gap-8 pt-24 pb-40 sm:pb-48 lg:pb-56">
+          <div className="relative z-10 flex min-h-[inherit] flex-col justify-center gap-8 py-32 sm:py-36 lg:py-40">
             <div className="max-w-2xl space-y-6 text-left">
-              <span className="inline-flex items-center rounded-full bg-[#FF5728] px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_10px_25px_rgba(255,87,40,0.35)]">
-                2008 - 2025
+              <span className="inline-flex items-center rounded-full border border-white/80 bg-white/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+                2008 – 2025
               </span>
             <motion.h1
               {...fadeIn}
@@ -171,23 +182,13 @@ function HeroSection({ totalEvents, builderCount }: { totalEvents: number; build
           >
             <Button
               asChild
-              className="group w-fit rounded-full border border-transparent bg-[#FF5728] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-white shadow-[0_15px_35px_rgba(255,87,40,0.35)] transition hover:bg-[#e74f22]"
+              className="group w-fit rounded-full border border-black/50 bg-black/90 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-white shadow-[0_12px_30px_rgba(0,0,0,0.4)] transition hover:bg-black"
             >
               <Link href="/timeline">
                 Explore timeline
                 <ArrowUpRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1 group-hover:-translate-y-0.5" />
               </Link>
             </Button>
-            <div className="flex gap-10 text-sm uppercase tracking-[0.05em] text-white/70">
-              <div className="flex flex-col">
-                <span className="text-[11px]">Events logged</span>
-                <span className="text-lg font-semibold text-white">{totalEvents.toLocaleString("en-US")}</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-[11px]">Contributors</span>
-                <span className="text-lg font-semibold text-white">{builderCount.toLocaleString("en-US")}</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
@@ -229,35 +230,39 @@ function EraPreviewSection() {
           </div>
         </motion.div>
 
-        <div className="relative">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-[#d7cdc0] via-[#b5a799] to-transparent"
-          />
-          <div className="flex flex-col gap-16">
-            {eraPreviewData.map((era, index) => {
-              const alignRight = index % 2 === 1
-              const isLast = index === eraPreviewData.length - 1
+          <div className="relative">
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-[#d7cdc0] via-[#b5a799] to-transparent"
+            />
+            <div className="flex flex-col gap-16">
+              {eraPreviewData.map((era, index) => {
+                const alignRight = index % 2 === 1
+                const isLast = index === eraPreviewData.length - 1
 
-              return (
-                <motion.article
-                  key={era.title}
-                  {...fadeIn}
-                  transition={{ ...fadeIn.transition, delay: index * 0.1 }}
-                  className="relative grid gap-6 md:grid-cols-[minmax(0,1fr)_120px_minmax(0,1fr)]"
-                >
-                  <div
-                    className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3 md:justify-self-start" : "md:col-start-1 md:justify-self-end"}`}
+                return (
+                  <motion.article
+                    key={era.title}
+                    {...fadeIn}
+                    transition={{ ...fadeIn.transition, delay: index * 0.1 }}
+                    className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:items-center"
                   >
                     <div
-                      className={`max-w-xl space-y-3 text-left transition duration-300 md:max-w-[420px] ${
+                      className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3" : "md:col-start-1"} w-full`}
+                    >
+                      <div
+                      className={`space-y-3 transition duration-300 ${alignRight ? "md:text-right text-left" : "text-left"} ${
                         isLast ? "text-[#b3a395]" : "text-[#1d1c1a]"
                       }`}
                     >
                       <div className={`text-xs uppercase tracking-[0.2em] ${isLast ? "text-[#c0b1a3]" : "text-[#7a7267]"}`}>{era.years}</div>
                       <h3 className="text-xl font-title-medium uppercase tracking-[0.1em] text-[#191919]">{era.title}</h3>
                       <p className={`text-sm leading-relaxed ${isLast ? "text-[#c7b7ac]" : "text-[#4d463d]"}`}>{era.summary}</p>
-                      <div className={`mt-4 flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.2em] ${isLast ? "text-[#d1c1b4]" : "text-[#a59c90]"}`}>
+                      <div
+                        className={`mt-4 flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.2em] ${
+                          alignRight ? "md:justify-end" : ""
+                        } ${isLast ? "text-[#d1c1b4]" : "text-[#a59c90]"}`}
+                      >
                         {era.logos.map((logo) => (
                           <span key={logo} className={`font-semibold ${isLast ? "text-[#e0d3c9]" : "text-[#c8beb3]"}`}>
                             {logo}
@@ -267,12 +272,12 @@ function EraPreviewSection() {
                     </div>
                   </div>
 
-                  <div className="relative order-1 flex items-center md:order-2 md:col-start-2 md:row-span-1 md:justify-center">
-                    <span
-                      className={`relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 ${
-                        era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : "border-[#d7c9bf] bg-[#fff9f3]"
-                      }`}
-                    >
+                    <div className="relative order-1 flex items-center justify-center md:order-2 md:col-start-2 md:w-20">
+                      <span
+                        className={`relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 ${
+                          era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : "border-[#d7c9bf] bg-[#fff9f3]"
+                        }`}
+                      >
                       {!era.active && <span className="h-2 w-2 rounded-full bg-[#d7c9bf]" />}
                     </span>
                   </div>
@@ -359,6 +364,7 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
     if (!sliderRef.current) return
     sliderRef.current.scrollBy({ left: delta, behavior: "smooth" })
   }
+  const router = useRouter()
 
   const handleScroll = () => {
     const slider = sliderRef.current
@@ -405,13 +411,8 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
     <div className="relative" role="region" aria-label="Key timeline milestones">
       <button
         type="button"
-<<<<<<< ours
         onClick={() => scrollByAmount(-(setWidthRef.current || 400))}
         className="pointer-events-auto absolute left-0 top-1/2 z-30 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/60 p-2 text-white transition hover:bg-black/80 sm:flex"
-=======
-        onClick={() => scrollByAmount(-setWidthRef.current || -400)}
-        className="absolute left-0 top-1/2 z-20 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/60 p-2 text-white transition hover:bg-black/80 sm:flex"
->>>>>>> theirs
         aria-label="Scroll milestones left"
       >
         <ChevronLeft className="h-5 w-5" />
@@ -429,52 +430,24 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
         onScroll={handleScroll}
         className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-6 sm:mx-0 sm:px-0"
       >
-<<<<<<< ours
         {loopedMilestones.map((milestone, index) => {
-          const normalizedIndex = index % milestones.length
-          const isActive = normalizedIndex === activeIndex
           return (
-            <Link
+            <button
               key={`${milestone.id}-${index}`}
-              href={`/timeline?event=${encodeURIComponent(milestone.id)}`}
-              className="snap-center shrink-0 basis-[90%] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF5728]/60 sm:basis-[70%] lg:basis-[55%]"
-              prefetch={false}
-              data-milestone-index={normalizedIndex}
+              type="button"
+              onClick={() => router.push("/timeline")}
+              className="snap-center shrink-0 basis-[90%] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF5728]/60 sm:basis-[70%] lg:basis-[55%]"
             >
-              <article
-                className={`h-full rounded-[40px] border border-white/10 bg-gradient-to-br from-[#151515] to-[#0a0a0a] px-8 py-10 text-white shadow-[0_25px_70px_rgba(0,0,0,0.3)] transition ${
-                  isActive
-                    ? "ring-2 ring-[#FF5728]/70 shadow-[0_35px_90px_rgba(255,87,40,0.25)]"
-                    : "hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.35)]"
-                }`}
-              >
+              <article className="h-full rounded-[40px] border border-white/10 bg-gradient-to-br from-[#151515] to-[#0a0a0a] px-8 py-10 text-white shadow-[0_25px_70px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
                 <div className="mb-5 text-[11px] uppercase text-white/60">
                   <span>{formatMilestoneDate(milestone)}</span>
                 </div>
                 <h3 className="text-2xl font-semibold uppercase text-white">{milestone.title}</h3>
                 <p className="mt-4 text-base leading-relaxed text-white/80">{formatHandles(milestone.description)}</p>
               </article>
-            </Link>
+            </button>
           )
         })}
-=======
-        {loopedMilestones.map((milestone, index) => (
-          <Link
-            key={`${milestone.id}-${index}`}
-            href={`/timeline#e-${milestone.title.toLowerCase().replace(/\s+/g, "-")}`}
-            className="snap-center shrink-0 basis-[90%] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF5728]/60 sm:basis-[70%] lg:basis-[55%]"
-            prefetch={false}
-          >
-            <article className="h-full rounded-[40px] border border-white/10 bg-gradient-to-br from-[#151515] to-[#0a0a0a] px-8 py-10 text-white shadow-[0_40px_120px_rgba(0,0,0,0.35)] transition hover:-translate-y-1">
-              <div className="mb-5 text-[11px] uppercase text-white/60">
-                <span>{formatMilestoneDate(milestone)}</span>
-              </div>
-              <h3 className="text-2xl font-semibold uppercase text-white">{milestone.title}</h3>
-              <p className="mt-4 text-base leading-relaxed text-white/80">{formatHandles(milestone.description)}</p>
-            </article>
-          </Link>
-        ))}
->>>>>>> theirs
       </div>
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#0b0b0b] via-[#0b0b0b]/80 to-transparent" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#0b0b0b] via-[#0b0b0b]/80 to-transparent" aria-hidden="true" />
@@ -507,46 +480,42 @@ function formatMilestoneDate(event: TimelineEvent) {
   return matchedMonth ? `${matchedMonth} ${event.year}` : `${event.year}`
 }
 
-function Footer({ totalEvents, builderCount }: { totalEvents: number; builderCount: number }) {
+function Footer() {
   return (
     <footer className="bg-[#050505] text-white">
       <div className="container flex flex-col gap-10 py-16">
-        <div className="flex flex-col gap-4">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Builders Archive</span>
-          <p className="max-w-2xl text-base text-white/80">
-            Documenting Argentina&apos;s crypto ingenuity, from the first experiments to today&apos;s global-scale infrastructure. Keep exploring the
-            timeline or share the next chapter.
-          </p>
-        </div>
-        <div className="grid gap-8 md:grid-cols-[1fr_auto_auto] md:items-center">
-          <div className="flex gap-10 text-sm uppercase tracking-[0.1em] text-white/70">
-            <div>
-              <div className="text-[11px]">Recorded events</div>
-              <div className="text-2xl font-semibold text-white">{totalEvents.toLocaleString("en-US")}</div>
-            </div>
-            <div>
-              <div className="text-[11px]">Contributors</div>
-              <div className="text-2xl font-semibold text-white">{builderCount.toLocaleString("en-US")}</div>
-            </div>
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div className="flex max-w-2xl flex-col gap-4">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Builders Archive</span>
+            <p className="text-base text-white/80">
+              Documenting Argentina&apos;s crypto ingenuity, from the first experiments to today&apos;s global-scale infrastructure. Keep exploring the
+              timeline or share the next chapter.
+            </p>
           </div>
-          <Button
-            asChild
-            className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/20"
-          >
-            <Link href="/timeline">
-              View full timeline
-              <ArrowUpRight className="ml-3 h-4 w-4" />
+          <div className="flex flex-col items-center gap-4 text-center md:items-end md:text-right">
+            <Link href="https://crecimiento.build/" target="_blank" rel="noreferrer">
+              <Image src="/crecimiento-logo-footer.svg" alt="Crecimiento Logo" width={180} height={50} className="w-36 md:w-44" />
             </Link>
-          </Button>
-          <Button
-            asChild
-            variant="ghost"
-            className="justify-start rounded-full border border-transparent px-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70 hover:text-white"
-          >
-            <Link href="https://tally.so/r/5BKdMP" target="_blank" rel="noreferrer">
-              Share a story
-            </Link>
-          </Button>
+            <Button
+              asChild
+              className="w-full max-w-[260px] rounded-full border border-white/20 bg-white/10 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/20"
+            >
+              <Link href="/timeline">
+                View full timeline
+                <ArrowUpRight className="ml-3 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70 transition hover:text-white md:self-end"
+            >
+              <Link href="https://tally.so/r/5BKdMP" target="_blank" rel="noreferrer">
+                Share a story
+                <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </footer>

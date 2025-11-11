@@ -37,11 +37,11 @@
   --sidebar-accent-foreground: #000000;
   --sidebar-border: #e3e3e3;
   --sidebar-ring: #000000;
-  --font-title-family: var(--font-inter);
+  --font-title-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   --font-title-regular: 400;
   --font-title-medium: 500;
   --font-title-medium-italic: 500;
-  --font-body-family: var(--font-geist);
+  --font-body-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   --peek: 72px;
 }
 
@@ -148,6 +148,11 @@
     scroll-behavior: smooth;
   }
 
+  body {
+    font-family: var(--font-body-family);
+    letter-spacing: -0.01em;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -164,7 +169,7 @@
     font-family: var(--font-title-family);
     font-size: 32px;
     font-weight: var(--font-title-regular);
-    
+    letter-spacing: -0.04em;
     line-height: 1.3;
     text-transform: uppercase;
   }
@@ -173,7 +178,7 @@
     font-family: var(--font-title-family);
     font-size: 24px;
     font-weight: var(--font-title-regular);
-    
+    letter-spacing: -0.04em;
     line-height: 1.4;
     text-transform: uppercase;
   }

@@ -40,6 +40,8 @@ export function EventCard({
     low: "border-l-muted-foreground/30",
   }
 
+  const primaryLink = event.links?.[0] ?? event.sources?.[0]
+
   return (
     <Card
       className={cn(
@@ -108,11 +110,11 @@ export function EventCard({
             )}
           </Button>
 
-          {event.sources && event.sources.length > 0 && (
+          {primaryLink && (
             <Button variant="ghost" size="sm" className="text-xs" asChild>
-              <a href={event.sources[0]} target="_blank" rel="noopener noreferrer">
+              <a href={primaryLink.url} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-3 w-3 mr-1" />
-                Source
+                {primaryLink.label ?? "Source"}
               </a>
             </Button>
           )}

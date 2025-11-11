@@ -1,12 +1,102 @@
-"use client"
+﻿"use client"
 
 import { motion, useReducedMotion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowUp, Bookmark, Share2 } from "lucide-react"
-import type { TimelineYear } from "@/lib/data-parser"
-import { useState, useEffect, useMemo, type RefObject } from "react"
-import { Badge } from "@/components/ui/badge"
+import { ArrowUp, ArrowUpRight } from "lucide-react"
+import type { TimelineEvent, TimelineYear } from "@/lib/data-parser"
+import { useState, useEffect, useMemo, type RefObject, type ReactNode } from "react"
 import { ERAS } from "@/lib/era-data"
+
+type TimelineLink = NonNullable<TimelineEvent["links"]>[number]
+
+const TRAILING_PUNCTUATION = new Set([",", ".", ";", ":", ")", "]"])
+
+function stripTrailingPunctuation(value: string) {
+  let trimmed = value
+  let suffix = ""
+  while (trimmed && TRAILING_PUNCTUATION.has(trimmed.charAt(trimmed.length - 1))) {
+    suffix = trimmed.slice(-1) + suffix
+    trimmed = trimmed.slice(0, -1)
+  }
+  return { trimmed, suffix }
+}
+
+function ensureProtocol(url: string) {
+  if (url.startsWith("http://") || url.startsWith("https://")) return url
+  return `https://${url}`
+}
+
+function formatLinkLabel(link: TimelineLink) {
+  if (link.label) return link.label
+  try {
+    const parsed = new URL(ensureProtocol(link.url))
+    return parsed.hostname.replace(/^www\./, "")
+  } catch {
+    return link.url
+  }
+}
+
+function linkifyDescription(text: string): ReactNode[] {
+  const pattern = /(@[a-zA-Z0-9_]+)|(https?:\/\/[^\s]+)|(www\.[^\s]+)/g
+  const nodes: ReactNode[] = []
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+  let key = 0
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index))
+    }
+
+    const rawMatch = match[0]
+    const { trimmed, suffix } = stripTrailingPunctuation(rawMatch)
+    if (!trimmed) continue
+
+    let href = trimmed
+    let label = trimmed
+
+    if (trimmed.startsWith("@")) {
+      const handle = trimmed.slice(1)
+      href = `https://twitter.com/${handle}`
+      label = `@${handle}`
+    } else {
+      href = ensureProtocol(trimmed)
+      if (trimmed.startsWith("www.")) {
+        label = trimmed
+      }
+    }
+
+    nodes.push(
+      <a
+        key={`auto-link-${key++}`}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold text-[#b44521] decoration-transparent underline-offset-4 hover:text-[color:var(--accent)] hover:underline"
+      >
+        {label}
+      </a>,
+    )
+
+    if (suffix) {
+      nodes.push(suffix)
+    }
+
+    lastIndex = match.index + rawMatch.length
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex))
+  }
+
+  return nodes
+}
+
+function getEventLinks(event: TimelineEvent): TimelineLink[] {
+  if (event.links && event.links.length > 0) return event.links
+  if (event.sources && event.sources.length > 0) return event.sources
+  return []
+}
 
 interface ContinuousReadingViewProps {
   yearGroups: TimelineYear[]
@@ -23,6 +113,7 @@ export function ContinuousReadingView({
 }: ContinuousReadingViewProps) {
   const [showScrollTop, setShowScrollTop] = useState(false)
   const prefersReducedMotion = useReducedMotion()
+  const [hasMounted, setHasMounted] = useState(false)
 
   useEffect(() => {
     const container = scrollContainerRef?.current ?? null
@@ -73,6 +164,10 @@ export function ContinuousReadingView({
     }
   }, [onEventView, scrollContainerRef, yearGroups])
 
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
+
   const scrollToTop = () => {
     if (scrollContainerRef?.current) {
       scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" })
@@ -80,13 +175,6 @@ export function ContinuousReadingView({
     }
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
-
-  const yearContexts = useMemo(() => {
-    return yearGroups.map((group) => ({
-      year: group.year,
-      context: `In ${group.year}, ${group.events.length} significant ${group.events.length === 1 ? "event" : "events"} shaped the crypto landscape in Argentina.`,
-    }))
-  }, [yearGroups])
 
   const eraLookup = useMemo(() => {
     const map = new Map<number, { title: string; range: string; id: string }>()
@@ -100,17 +188,29 @@ export function ContinuousReadingView({
     return map
   }, [])
   const renderedEraIds = new Set<string>()
+  const canAnimate = hasMounted && !prefersReducedMotion
+  const animationMode = canAnimate ? "animate" : "static"
+  const getRevealProps = (offset = 12, duration = 0.35) =>
+    canAnimate
+      ? {
+          initial: { opacity: 0, y: offset },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, margin: "-60px" },
+          transition: { duration },
+        }
+      : {
+          initial: { opacity: 1, y: 0 },
+        }
 
   return (
     <>
-      <article className="mx-auto w-full max-w-5xl snap-y px-5 text-slate-700 md:px-6 lg:px-0">
+      <article className="mx-auto w-full max-w-5xl snap-y px-5 text-[#4f473e] md:px-6 lg:px-0">
         {yearGroups.map((group) => {
           const eraMeta = eraLookup.get(group.year)
           const shouldRenderEraHeading = eraMeta && !renderedEraIds.has(eraMeta.id)
           if (shouldRenderEraHeading && eraMeta) {
             renderedEraIds.add(eraMeta.id)
           }
-          const yearContext = yearContexts.find((c) => c.year === group.year)
 
           return (
             <section
@@ -121,122 +221,90 @@ export function ContinuousReadingView({
               aria-labelledby={`year-${group.year}`}
             >
               {shouldRenderEraHeading && eraMeta && (
-                <motion.div
-                  className="mb-6 flex flex-col gap-2"
-                  initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={prefersReducedMotion ? undefined : { duration: 0.45 }}
-                >
-                  <span className="text-xs font-semibold uppercase tracking-[-0.04em] text-slate-400">
-                    {eraMeta.range}
-                  </span>
-                  <h2 className="text-3xl font-bold uppercase leading-tight text-slate-900 md:text-[34px]">
-                    {eraMeta.title}
-                  </h2>
-                </motion.div>
+                <>
+                  <span
+                    data-era-sentinel-id={eraMeta.id}
+                    aria-hidden="true"
+                    className="-mt-24 block h-px w-full opacity-0"
+                  />
+                  <motion.div
+                    key={`${animationMode}-era-${eraMeta.id}-${group.year}`}
+                    className="mb-4 flex flex-col gap-1"
+                    {...getRevealProps(12, 0.35)}
+                  >
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.01em] text-[#8a8176]">
+                      {eraMeta.range} {" · "} {eraMeta.title}
+                    </p>
+                  </motion.div>
+                </>
               )}
 
               <motion.div
-                className="mb-6 flex flex-col gap-2"
-                initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={prefersReducedMotion ? undefined : { duration: 0.35 }}
+                key={`${animationMode}-year-${group.year}`}
+                className="mb-6 flex flex-col gap-1"
+                {...getRevealProps(10, 0.3)}
               >
-                <span className="text-xs font-semibold uppercase tracking-[-0.04em] text-slate-500">
-                  Year {group.year}
+                <span className="text-[13px] font-semibold uppercase tracking-[0.01em] text-[#6b5f55]">
+                  {group.year}
                 </span>
-                {yearContext?.context && (
-                  <p className="max-w-prose text-sm leading-[1.7] text-slate-500">{yearContext.context}</p>
-                )}
               </motion.div>
 
-              <div className="mt-8 space-y-6">
-                {group.events.map((event) => (
-                  <article
-                    key={event.title}
-                    id={`e-${event.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    data-event-id={event.title}
-                    role="article"
-                    tabIndex={-1}
-                    className="group scroll-mt-12 rounded-3xl border border-slate-200 bg-white px-6 py-7 shadow-sm transition hover:border-[color:var(--accent)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
-                  >
-                    <div className="flex flex-col gap-4">
-                      <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[-0.02em] text-slate-400">
-                        <span className="font-semibold text-[color:var(--accent)]">{event.date}</span>
-                        {event.tags.slice(0, 3).map((tag) => (
-                          <Badge
-                            key={tag}
-                            variant="outline"
-                            className="rounded-full border border-[color:var(--accent)]/20 bg-[color:var(--accent)]/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[-0.02em] text-slate-600"
-                          >
-                            #{tag}
-                          </Badge>
-                        ))}
+              <div className="mt-8 space-y-5">
+                {group.events.map((event) => {
+                  const relatedLinks = getEventLinks(event)
+                  return (
+                    <article
+                      key={event.id}
+                      id={`e-${event.title.toLowerCase().replace(/\s+/g, "-")}`}
+                      data-event-id={event.id}
+                      role="article"
+                      tabIndex={-1}
+                      className="group scroll-mt-12 rounded-[34px] border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] px-8 py-8 shadow-[0_22px_35px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+                    >
+                      <div className="flex flex-col gap-4">
+                        <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.01em] text-[#a29385]">
+                          <span>{event.date}</span>
+                        </div>
+                        <h3 className="text-[20px] font-title-medium leading-snug text-[#191919] transition-colors group-hover:text-[#0f0f0f] md:text-[22px]">
+                          {event.title}
+                        </h3>
+                        <p className="text-[15px] leading-7 text-[rgba(25,25,25,0.78)]">{linkifyDescription(event.description)}</p>
                       </div>
 
-                      <h3 className="text-2xl font-semibold leading-tight text-slate-900 transition-colors group-hover:text-slate-950 md:text-[28px]">
-                        {event.title}
-                      </h3>
+                      {event.entities.length > 0 && (
+                        <div className="mt-5 flex flex-wrap gap-2">
+                          {event.entities.map((entity) => (
+                            <button
+                              key={entity}
+                              onClick={() => onEntityClick?.(entity)}
+                            className="rounded-full border border-[rgba(0,0,0,0.15)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.01em] text-[#6d645a] transition hover:border-[#FF5728]/50 hover:text-[#191919]"
+                              aria-label={`View ${entity}`}
+                            >
+                              @{entity}
+                            </button>
+                          ))}
+                        </div>
+                      )}
 
-                      <p className="max-w-prose text-base leading-[1.7] text-slate-600">{event.description}</p>
-                    </div>
-
-                    {event.entities.length > 0 && (
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        {event.entities.map((entity) => (
-                          <button
-                            key={entity}
-                            onClick={() => onEntityClick?.(entity)}
-                            className="text-sm font-semibold uppercase tracking-[-0.02em] text-slate-500 hover:text-[color:var(--accent)]"
-                            aria-label={`View ${entity}`}
-                          >
-                            {entity}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-
-                    {event.sources && event.sources.length > 0 && (
-                      <div className="mt-4 text-sm text-slate-500">
-                        <span className="font-semibold uppercase tracking-[-0.02em] text-slate-500">Sources:</span>{" "}
-                        {event.sources.map((source, i) => (
-                          <span key={i}>
+                      {relatedLinks.length > 0 && (
+                        <div className="mt-6 flex flex-wrap gap-2">
+                          {relatedLinks.map((link) => (
                             <a
-                              href={source.url}
+                              key={`${event.id}-${link.url}`}
+                              href={ensureProtocol(link.url)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="underline decoration-slate-300 underline-offset-4 hover:text-[color:var(--accent)]"
+                              className="inline-flex items-center gap-1 rounded-full border border-[rgba(0,0,0,0.12)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.01em] text-[#6d645a] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
                             >
-                              {source.name}
+                              <ArrowUpRight className="h-3.5 w-3.5" />
+                              {formatLinkLabel(link)}
                             </a>
-                            {i < event.sources.length - 1 && ", "}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    <div className="mt-5 flex gap-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        aria-label="Bookmark event"
-                        className="h-8 rounded-full border border-slate-200 bg-transparent px-2 text-slate-500 hover:bg-[color:var(--accent)] hover:text-white"
-                      >
-                        <Bookmark className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        aria-label="Share event"
-                        className="h-8 rounded-full border border-slate-200 bg-transparent px-2 text-slate-500 hover:bg-[color:var(--accent)] hover:text-white"
-                      >
-                        <Share2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </article>
-                ))}
+                          ))}
+                        </div>
+                      )}
+                    </article>
+                  )
+                })}
               </div>
             </section>
           )
@@ -253,7 +321,7 @@ export function ContinuousReadingView({
           <Button
             onClick={scrollToTop}
             size="icon"
-            className="rounded-full border border-slate-300 bg-[color:var(--accent)] px-4 py-4 text-white shadow-lg hover:bg-slate-900"
+            className="rounded-full border border-transparent bg-[color:var(--accent)] px-4 py-4 text-white shadow-[0_14px_30px_rgba(255,87,40,0.35)] hover:bg-[#e74f22]"
             aria-label="Scroll to top"
           >
             <ArrowUp className="h-5 w-5" />
@@ -263,4 +331,6 @@ export function ContinuousReadingView({
     </>
   )
 }
+
+
 

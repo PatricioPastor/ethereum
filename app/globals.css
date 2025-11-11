@@ -183,7 +183,6 @@
   }
 
   .panel {
-    height: var(--section-min-h);
     min-height: var(--section-min-h);
     position: relative;
   }
@@ -211,18 +210,29 @@
     margin-top: calc(-1 * var(--peek-height));
   }
 
+  .panel {
+    position: relative;
+    z-index: 1;
+  }
+
   .section.section--auto {
     padding-bottom: var(--section-gap);
   }
 
   .section--hero {
+    z-index: 3;
     min-height: max(620px, calc(100vh - var(--peek-height)));
     padding-block-end: calc(120px + var(--section-gap) + var(--peek-height));
     padding-block-start: max(var(--section-gap), var(--header-h));
   }
 
   .section--eras {
+    z-index: 2;
     padding-block: var(--section-gap);
+  }
+
+  .section--info {
+    z-index: 1;
   }
 
   .section__bg {
@@ -232,16 +242,17 @@
   }
 
   .era-card {
-    width: min(100%, var(--container-max));
-    margin-inline: auto;
+    width: 100%;
     border-radius: var(--card-radius);
-    background: linear-gradient(180deg, #fbfbf6 0%, #f2efe5 100%);
-    box-shadow: var(--card-shadow);
+    background: linear-gradient(180deg, #fefefe 0%, #fff7ef 60%, #ffe6d4 100%);
+    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.18);
     overflow: hidden;
   }
 
   .era-card__inner {
-    padding: clamp(24px, 4vw, 56px);
+    width: min(100%, var(--container-max));
+    margin-inline: auto;
+    padding: clamp(28px, 5vw, 72px);
   }
 
   .section > .container {

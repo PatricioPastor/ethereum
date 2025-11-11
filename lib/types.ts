@@ -6,6 +6,12 @@ export interface Entity {
   description?: string
 }
 
+export interface EventLink {
+  label?: string
+  url: string
+  type?: "source" | "project" | "article" | "twitter" | "other"
+}
+
 export interface Event {
   id: string
   date: string
@@ -16,7 +22,8 @@ export interface Event {
   entities: string[]
   tags: string[]
   importance: 'low' | 'medium' | 'high'
-  sources?: string[]
+  links?: EventLink[]
+  sources?: EventLink[]
 }
 
 export interface YearGroup {

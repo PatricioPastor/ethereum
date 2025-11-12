@@ -31,6 +31,7 @@ export default function TimelinePage() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const navigationInProgressRef = useRef(false)
   const hasCollapsedOnceRef = useRef(false)
+  const hasNavigatedToEventRef = useRef(false)
 
   const { years, filteredData } = useYears({
     timelineData,
@@ -72,7 +73,7 @@ export default function TimelinePage() {
       .slice(0, 10)
   }
 
-  const headerScrollPadding = isScrolled ? 120 : 240
+  const headerScrollPadding = isScrolled ? 140 : 260
 
   const handleYearClick = useCallback(
     (year: number, options?: { forceCollapse?: boolean; trigger?: "arrow" | "manual" }) => {
@@ -95,18 +96,29 @@ export default function TimelinePage() {
       const container = scrollContainerRef.current
       const element = container?.querySelector<HTMLElement>(`[data-year="${year}"]`)
       if (element) {
+        if (container) {
+          // Calcular el offset exacto considerando el header
+          const containerRect = container.getBoundingClientRect()
+          const elementRect = element.getBoundingClientRect()
+          const currentScroll = container.scrollTop
+
+          // Posición del elemento relativa al viewport del container
+          const elementOffsetInContainer = elementRect.top - containerRect.top
+
+          // Scroll target con padding del header
+          const target = currentScroll + elementOffsetInContainer - headerScrollPadding
+
+          container.scrollTo({
+            top: Math.max(0, target),
+            behavior: "smooth",
+          })
+        }
+
         setTimeout(() => {
           const firstCard = element.querySelector<HTMLElement>('[role="article"]')
           firstCard?.focus({ preventScroll: true })
           navigationInProgressRef.current = false
-        }, 350)
-        if (container) {
-          const target = Math.max(0, element.offsetTop - headerScrollPadding)
-          container.scrollTo({
-            top: target,
-            behavior: "smooth",
-          })
-        }
+        }, 400)
         return
       }
 
@@ -123,9 +135,21 @@ export default function TimelinePage() {
         if (eventElement && scrollContainerRef.current) {
           eventElement.scrollIntoView({ behavior: "smooth", block: "center" })
         }
-      }, 350)
+      }, 450)
     },
     [handleYearClick],
+  )
+
+  const navigateToEvent = useCallback(
+    (eventId: string) => {
+      const allEvents = timelineData.flatMap((group) => group.events)
+      const event = allEvents.find((e) => e.id === eventId)
+
+      if (event) {
+        handleSearchEventSelect(event.year, event)
+      }
+    },
+    [handleSearchEventSelect],
   )
 
   const handleEventView = (eventTitle: string) => {
@@ -155,6 +179,22 @@ export default function TimelinePage() {
     }
   }, [searchModalOpen])
 
+  // Handle navigation from URL params (e.g., from milestone cards)
+  useEffect(() => {
+    if (hasNavigatedToEventRef.current) return
+
+    const params = new URLSearchParams(window.location.search)
+    const eventId = params.get("event")
+
+    if (eventId) {
+      hasNavigatedToEventRef.current = true
+      // Wait for initial render to complete
+      setTimeout(() => {
+        navigateToEvent(eventId)
+      }, 500)
+    }
+  }, [navigateToEvent])
+
   useEffect(() => {
     const container = scrollContainerRef.current
     if (!container) return
@@ -183,7 +223,9 @@ export default function TimelinePage() {
       },
       {
         root: container,
-        threshold: [0.4, 0.6, 0.9],
+        // Mejorar detección usando rootMargin para que sea más responsivo
+        rootMargin: `-${headerScrollPadding}px 0px -40% 0px`,
+        threshold: [0, 0.1, 0.25, 0.5],
       },
     )
 
@@ -193,7 +235,7 @@ export default function TimelinePage() {
       sections.forEach((section) => observer.unobserve(section))
       observer.disconnect()
     }
-  }, [filteredData, activeYear])
+  }, [filteredData, activeYear, headerScrollPadding])
 
   useEffect(() => {
     if (!fallbackEra) return
@@ -278,7 +320,7 @@ export default function TimelinePage() {
 
         <main className="flex h-screen flex-1 flex-col overflow-hidden border-l border-[rgba(0,0,0,0.08)] bg-[#FFFDF7]">
           <div
-            className={`sticky top-0 z-40 border-b border-[rgba(0,0,0,0.08)] bg-gradient-to-b from-[#FEE8D1]/95 via-[#FFF5E6]/95 to-[#FFFDF7]/95 backdrop-blur-lg transition-all duration-300 ${
+            className={`sticky top-0 z-50 border-b border-[rgba(0,0,0,0.08)] bg-gradient-to-b from-[#FEE8D1]/98 via-[#FFF5E6]/98 to-[#FFFDF7]/98 backdrop-blur-xl transition-all duration-300 ${
               isScrolled ? "py-3" : "py-6"
             }`}
           >
@@ -306,7 +348,7 @@ export default function TimelinePage() {
                 </Button>
               </div>
 
-              <div className={`${isScrolled ? "mt-1" : "mt-4"} grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5`}>
+              <div className={`${isScrolled ? "mt-1" : "mt-4"} grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4`}>
                 {ERAS.map((era) => {
                   const isEraActive = currentEra?.id === era.id
                   const range = `${era.yearStart}\u2013${era.yearEnd}`
@@ -349,7 +391,7 @@ export default function TimelinePage() {
             className="flex-1 overflow-y-auto snap-y snap-proximity scroll-smooth"
             style={{ scrollPaddingTop: `${headerScrollPadding}px` }}
           >
-            <div className="mx-auto w-full max-w-5xl px-6 py-10 md:px-8">
+            <div className="mx-auto w-full max-w-5xl px-6 pt-16 pb-10 md:px-8">
               <div className="w-full">
                 <ContinuousReadingView
                   yearGroups={filteredData}

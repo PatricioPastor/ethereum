@@ -13,68 +13,55 @@
 export const ERAS: Era[] = [
   {
     id: "genesis",
-    name: "Genesis & Early Builders",
-    nameEs: "Genesis y primeros builders",
+    name: "Genesis",
+    nameEs: "Génesis",
     description:
-      "Bitcoin lands, the first wallets emerge, and Argentine pioneers begin shaping what will become a thriving crypto landscape.",
+      "Early bitcoin experiments, Xapo, the first Argentinian crypto security firms, exchanges, and Casa Voltaire.",
     descriptionEs:
-      "Llega Bitcoin, aparecen las primeras wallets y los pioneros argentinos empiezan a moldear lo que sera un ecosistema crypto vibrante.",
+      "Primeros experimentos con Bitcoin, Xapo, las primeras firmas de seguridad crypto argentinas, exchanges y Casa Voltaire.",
     yearStart: 2008,
-    yearEnd: 2013,
+    yearEnd: 2015,
     color: "from-blue-950 to-blue-900",
     accentColor: "text-blue-400",
   },
   {
-    id: "ecosystem-foundations",
-    name: "Emergence & Ecosystem Foundations",
-    nameEs: "Fundaciones del ecosistema",
+    id: "emergence",
+    name: "Emergence",
+    nameEs: "Emergencia",
     description:
-      "Communities organize, cultural landmarks appear, and the groundwork for Argentinas Ethereum presence solidifies.",
+      "Community meetups emerge, early contributions to ERC standards and DeFi, decentralized justice, ETHBuenosAires.",
     descriptionEs:
-      "Las comunidades se organizan, surgen hitos culturales y se consolida la base de la presencia argentina en Ethereum.",
-    yearStart: 2014,
-    yearEnd: 2016,
+      "Surgen meetups comunitarios, primeras contribuciones a estándares ERC y DeFi, justicia descentralizada, ETHBuenosAires.",
+    yearStart: 2016,
+    yearEnd: 2020,
     color: "from-purple-950 to-purple-900",
     accentColor: "text-purple-400",
   },
   {
-    id: "ethereum-era",
-    name: "Expansion & Ethereum Era",
-    nameEs: "Expansion y era Ethereum",
+    id: "growth",
+    name: "Growth",
+    nameEs: "Crecimiento",
     description:
-      "Builders rally around Ethereum, new protocols launch, and Argentina gains a reputation for world-class engineering.",
+      "DeFi, security, identity, node infrastructure, and data products ripple outward. Argentine contributions scale globally.",
     descriptionEs:
-      "Los builders se unen alrededor de Ethereum, nacen nuevos protocolos y Argentina gana reputacion por su ingenieria de clase mundial.",
-    yearStart: 2017,
-    yearEnd: 2020,
+      "DeFi, seguridad, identidad, infraestructura de nodos y productos de datos se expanden. Las contribuciones argentinas escalan globalmente.",
+    yearStart: 2021,
+    yearEnd: 2022,
     color: "from-violet-950 to-violet-900",
     accentColor: "text-violet-400",
   },
   {
-    id: "defi-nft-growth",
-    name: "DeFi, NFTs & Institutional Growth",
-    nameEs: "DeFi, NFTs y crecimiento institucional",
+    id: "scaling",
+    name: "Scaling",
+    nameEs: "Escalando",
     description:
-      "DeFi Summer, NFT experimentation, and institutional adoption put Argentine teams in the global spotlight.",
+      "Zero-knowledge proofs, L2 solutions, institutional adoption, and regulatory frameworks position Argentina as a global crypto hub.",
     descriptionEs:
-      "DeFi Summer, la experimentacion con NFTs y la adopcion institucional ponen a los equipos argentinos en el foco global.",
-    yearStart: 2021,
-    yearEnd: 2023,
+      "Pruebas de conocimiento cero, soluciones L2, adopción institucional y marcos regulatorios posicionan a Argentina como un hub crypto global.",
+    yearStart: 2023,
+    yearEnd: 2025,
     color: "from-primary/20 to-primary/10",
     accentColor: "text-primary",
-  },
-  {
-    id: "zk-ai-leadership",
-    name: "ZK, AI & Global Leadership",
-    nameEs: "ZK, IA y liderazgo global",
-    description:
-      "Zero-knowledge, artificial intelligence, and public goods collide, with Argentine contributors leading international coalitions.",
-    descriptionEs:
-      "Zero-knowledge, inteligencia artificial y bienes publicos convergen con contribuciones argentinas liderando coaliciones internacionales.",
-    yearStart: 2024,
-    yearEnd: 2025,
-    color: "from-orange-950 to-orange-900",
-    accentColor: "text-orange-400",
   },
 ];
 

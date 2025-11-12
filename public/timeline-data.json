@@ -1,0 +1,2573 @@
+{
+  "metadata": {
+    "generatedAt": "2025-11-12T20:27:14.049Z",
+    "totalEvents": 187,
+    "yearRange": {
+      "start": 2008,
+      "end": 2025
+    }
+  },
+  "eras": [
+    {
+      "id": "genesis",
+      "name": "Genesis",
+      "nameEs": "Génesis",
+      "description": "Early bitcoin experiments, Xapo, the first Argentinian crypto security firms, exchanges, and Casa Voltaire.",
+      "descriptionEs": "Primeros experimentos con Bitcoin, Xapo, las primeras firmas de seguridad crypto argentinas, exchanges y Casa Voltaire.",
+      "yearStart": 2008,
+      "yearEnd": 2015
+    },
+    {
+      "id": "emergence",
+      "name": "Emergence",
+      "nameEs": "Emergencia",
+      "description": "Community meetups emerge, early contributions to ERC standards and DeFi, decentralized justice, ETHBuenosAires.",
+      "descriptionEs": "Surgen meetups comunitarios, primeras contribuciones a estándares ERC y DeFi, justicia descentralizada, ETHBuenosAires.",
+      "yearStart": 2016,
+      "yearEnd": 2020
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "nameEs": "Crecimiento",
+      "description": "DeFi, security, identity, node infrastructure, and data products ripple outward. Argentine contributions scale globally.",
+      "descriptionEs": "DeFi, seguridad, identidad, infraestructura de nodos y productos de datos se expanden. Las contribuciones argentinas escalan globalmente.",
+      "yearStart": 2021,
+      "yearEnd": 2022
+    },
+    {
+      "id": "scaling",
+      "name": "Scaling",
+      "nameEs": "Escalando",
+      "description": "Zero-knowledge proofs, L2 solutions, institutional adoption, and regulatory frameworks position Argentina as a global crypto hub.",
+      "descriptionEs": "Pruebas de conocimiento cero, soluciones L2, adopción institucional y marcos regulatorios posicionan a Argentina como un hub crypto global.",
+      "yearStart": 2023,
+      "yearEnd": 2025
+    }
+  ],
+  "timeline": [
+    {
+      "year": 2008,
+      "eraId": "genesis",
+      "events": [
+        {
+          "id": "event-0",
+          "title": "Seventeen years ago, Bitcoin was introduced via a white paper by Satoshi Nakamoto",
+          "description": "Seventeen years ago, Bitcoin was introduced via a white paper by Satoshi Nakamoto.",
+          "date": "October 2008",
+          "year": 2008,
+          "month": 10,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "community"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-2",
+          "title": "In 2011, Wenceslao Casares lacked secure storage for Bitcoin, so he built a personal \"vault\" (col...",
+          "description": "In 2011, Wenceslao Casares lacked secure storage for Bitcoin, so he built a personal \"vault\" (cold storage solution). Friends and institutions soon requested access, laying the groundwork for Xapo.",
+          "date": "2008",
+          "year": 2008,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        }
+      ]
+    },
+    {
+      "year": 2009,
+      "eraId": "genesis",
+      "events": [
+        {
+          "id": "event-1",
+          "title": "The Bitcoin network officially launched with the mining of the genesis block",
+          "description": "The Bitcoin network officially launched with the mining of the genesis block.",
+          "date": "January 2009",
+          "year": 2009,
+          "month": 1,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "eraId": "genesis",
+      "events": [
+        {
+          "id": "event-3",
+          "title": "@sdlerner first proposed MavePay: a lightweight payment system designed for P2P digital currency ...",
+          "description": "@sdlerner first proposed MavePay: a lightweight payment system designed for P2P digital currency networks running on similar hardware to Bitcoin's.",
+          "date": "2012",
+          "year": 2012,
+          "entities": [
+            "sdlerner"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-4",
+          "title": "@santisiri co-founds Partido de la Red (Net Party), the first digital political party in the Amer...",
+          "description": "@santisiri co-founds Partido de la Red (Net Party), the first digital political party in the Americas. It aims to integrate internet-based decision-making into politics, inspired by local corruption issues.",
+          "date": "April 2012",
+          "year": 2012,
+          "month": 4,
+          "entities": [
+            "santisiri"
+          ],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-5",
+          "title": "The earliest open and registered meeting was held in Belgrano, Buenos Aires, led by early adopter...",
+          "description": "The earliest open and registered meeting was held in Belgrano, Buenos Aires, led by early adopters like Wenceslao Casares after the first Bitcoin Halvening.",
+          "date": "December 2012",
+          "year": 2012,
+          "month": 12,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "eraId": "genesis",
+      "events": [
+        {
+          "id": "event-6",
+          "title": "QixCoin: the first Turing-complete cryptocurrency was launched by @sdlerner",
+          "description": "QixCoin: the first Turing-complete cryptocurrency was launched by @sdlerner. It had smart contracts similar to Ethereum, but was only used to implement Sergio's p2p card gaming platform.",
+          "date": "May 2013",
+          "year": 2013,
+          "month": 5,
+          "entities": [
+            "sdlerner"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-7",
+          "title": "Proof of Existence was one of the world's first non-financial blockchain applications, and it was...",
+          "description": "Proof of Existence was one of the world's first non-financial blockchain applications, and it was created by @maraoz. It allowed anyone to verify that a document existed at a certain point in time. Demonstrating ownership, without revealing data.",
+          "date": "May 2013",
+          "year": 2013,
+          "month": 5,
+          "entities": [
+            "maraoz"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-8",
+          "title": "@sdlerner and  @julianor co-founded the auditing company Coinspect",
+          "description": "@sdlerner and  @julianor co-founded the auditing company Coinspect. The firm audited the initial codebase for zCash and its forks, Ledger's wallet firmwares and Grin's cryptocurrency.",
+          "date": "Mid 2013",
+          "year": 2013,
+          "entities": [
+            "sdlerner",
+            "julianor"
+          ],
+          "tags": [
+            "security"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-9",
+          "title": "Ripio (f",
+          "description": "Ripio (f.k.a BitPagos) was founded. The Exchange was first a payments processor for merchants, allowing Argentinians to sell pesos for bitcoin. It later launched one of the most known local Bitcoin wallets.",
+          "date": "2013",
+          "year": 2013,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-10",
+          "title": "Xapo was founded by Casares (CEO) and Murrone (COO/co-founder)",
+          "description": "Xapo was founded by Casares (CEO) and Murrone (COO/co-founder). It started as a Bitcoin wallet and vault service, headquartered initially in Palo Alto, CA.",
+          "date": "Late 2013",
+          "year": 2013,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-11",
+          "title": "First classes around crypto within ITBA and UTN",
+          "description": "First classes around crypto within ITBA and UTN. Classes covered how to create Bitcoin wallets with Rodolfo Andragnes (ITBA), and general crypto education with Pablo Iglesias (UTN).",
+          "date": "2013",
+          "year": 2013,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "education"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-12",
+          "title": "Vitalik introduced Ethereum to the world",
+          "description": "Vitalik introduced Ethereum to the world. The whitepaper presented the world computer with flexibility to create new tokens, DAOs, and financial applications.",
+          "date": "November 2013",
+          "year": 2013,
+          "month": 11,
+          "entities": [],
+          "tags": [
+            "governance",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-13",
+          "title": "The first LaBitConf, which cemented Argentina as a Bitcoin leader in the region",
+          "description": "The first LaBitConf, which cemented Argentina as a Bitcoin leader in the region. The conference included speakers like @ErikVoorhees, Bitcoin Core dev @jgarzik, and members of the Bitcoin foundation, with sponsorships from BitPay, AstroPay and The Bitcoin Magazine. The conference became an annual traveling event, visiting Brazil, Mexico, Colombia and other countries, before returning to Buenos Aires in 2016.",
+          "date": "December 2013",
+          "year": 2013,
+          "month": 12,
+          "entities": [
+            "ErikVoorhees",
+            "jgarzik"
+          ],
+          "tags": [
+            "infrastructure",
+            "education",
+            "community"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "eraId": "genesis",
+      "events": [
+        {
+          "id": "event-14",
+          "title": "Bitex launches with a US$ 2 million investment from a UK-based firm",
+          "description": "Bitex launches with a US$ 2 million investment from a UK-based firm. Initial target markets included Argentina (base in Buenos Aires), Colombia, Mexico, Spain, and the USA, aiming to provide a competitive Bitcoin trading platform amid regional economic volatility.",
+          "date": "March 2014",
+          "year": 2014,
+          "month": 3,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-15",
+          "title": "Appecoin was launched by @sdlerner, the first attempt to create an anonymous coin that was perfec...",
+          "description": "Appecoin was launched by @sdlerner, the first attempt to create an anonymous coin that was perfect binding, instead of perfect hiding.",
+          "date": "April 2014",
+          "year": 2014,
+          "month": 4,
+          "entities": [
+            "sdlerner"
+          ],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-16",
+          "title": "Xapo introduced a debit card backed by Bitcoin and linked to the user's Xapo Wallet",
+          "description": "Xapo introduced a debit card backed by Bitcoin and linked to the user's Xapo Wallet.",
+          "date": "April 2014",
+          "year": 2014,
+          "month": 4,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-17",
+          "title": "BTC meetups began in Mendoza",
+          "description": "BTC meetups began in Mendoza.",
+          "date": "2014",
+          "year": 2014,
+          "entities": [],
+          "tags": [
+            "education",
+            "community"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-18",
+          "title": "In 2014, a group of young Argentine programmers turned a rented house in Palermo, Buenos Aires in...",
+          "description": "In 2014, a group of young Argentine programmers turned a rented house in Palermo, Buenos Aires into a crypto coworking commune known as Casa Voltaire. Founded by @maraoz with about 15 developers, many of them friends from ITBA. Their ethos was: transparency, decentralization, and using crypto to fix broken systems. Casa Voltaire became an incubator for several of Argentina's most successful crypto startups. Projects that were built include: Decentraland, the Ethereum-based virtual world, Muun, a user-friendly Bitcoin/Lightning wallet, and OpenZeppelin, a smart contract security platform.",
+          "date": "2014",
+          "year": 2014,
+          "entities": [
+            "maraoz"
+          ],
+          "tags": [
+            "nfts",
+            "security",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-19",
+          "title": "Coinfabrik was founded by @sdlerner,  Pablo Yabo and Sebastian Wain",
+          "description": "Coinfabrik was founded by @sdlerner,  Pablo Yabo and Sebastian Wain. CoinFabrik became one of the world's first specialized crypto R&D labs and software factories.",
+          "date": "2014",
+          "year": 2014,
+          "entities": [
+            "sdlerner"
+          ],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-20",
+          "title": "SatoshiTango, one of Argentina's oldest crypto exchanges, was founded by @matiasbari, @NLoterspil...",
+          "description": "SatoshiTango, one of Argentina's oldest crypto exchanges, was founded by @matiasbari, @NLoterspil, and Mariano Craiem.",
+          "date": "2014",
+          "year": 2014,
+          "entities": [
+            "matiasbari",
+            "NLoterspil"
+          ],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-21",
+          "title": "LambdaClass was founded",
+          "description": "LambdaClass was founded. Lambda is a software factory. They are building Starknet and Ethereum clients, validator networks.",
+          "date": "2014",
+          "year": 2014,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-22",
+          "title": "@franamat and team began working on Bitcourt: an arbitration platform, so commercial disputes cou...",
+          "description": "@franamat and team began working on Bitcourt: an arbitration platform, so commercial disputes could be resolved quickly and professionally on Bitcoin.",
+          "date": "2014",
+          "year": 2014,
+          "entities": [
+            "franamat"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "eraId": "genesis",
+      "events": [
+        {
+          "id": "event-23",
+          "title": "Streamium, a project to broadcast live video and get paid in real time through crypto, achieved t...",
+          "description": "Streamium, a project to broadcast live video and get paid in real time through crypto, achieved the first successful stream with a functioning micropayments channel.",
+          "date": "January 2015",
+          "year": 2015,
+          "month": 1,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-24",
+          "title": "Ethereum's Frontier release went live, enabling developers to deploy smart contracts on-chain",
+          "description": "Ethereum's Frontier release went live, enabling developers to deploy smart contracts on-chain. This introduced decentralized applications.",
+          "date": "July 2015",
+          "year": 2015,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-25",
+          "title": "Co-founders @demibrener and @maraoz, began working on OpenZeppelin (Zeppelin Solutions)",
+          "description": "Co-founders @demibrener and @maraoz, began working on OpenZeppelin (Zeppelin Solutions). OpenZeppelin is one of the most known blockchain security company that created the most widely used smart contract framework.",
+          "date": "2015",
+          "year": 2015,
+          "entities": [
+            "demibrener",
+            "maraoz"
+          ],
+          "tags": [
+            "security",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-26",
+          "title": "Decentraland, the first blockchain virtual world project",
+          "description": "Decentraland, the first blockchain virtual world project. @eordano and Ariel Meilich, envisioned a metaverse owned by its users: a limited 3D land space that users could purchase using a cryptocurrency, build content on, and even govern collectively through a DAO.",
+          "date": "2015",
+          "year": 2015,
+          "entities": [
+            "eordano"
+          ],
+          "tags": [
+            "nfts",
+            "governance",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-27",
+          "title": "The original whitepaper for Rootstock (later RSK) was released",
+          "description": "The original whitepaper for Rootstock (later RSK) was released. It outlined the platform's architecture, a smart contract platform that brought Ethereum-like functionality to Bitcoin.",
+          "date": "November 2015",
+          "year": 2015,
+          "month": 11,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-28",
+          "title": "Bitcourt, now Signatura, collaborates with CESYT college to notarize the first official career di...",
+          "description": "Bitcourt, now Signatura, collaborates with CESYT college to notarize the first official career diplomas on Bitcoin. @franamati and @federicobond, founder of EspacioBitcoin, Bitcoin Argentina NGO, and founding member of labitconf were the core team behind Signatura.",
+          "date": "November 2015",
+          "year": 2015,
+          "month": 11,
+          "entities": [
+            "franamati",
+            "federicobond"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "eraId": "emergence",
+      "events": [
+        {
+          "id": "event-29",
+          "title": "Ripio introduced a P2P credit network and held an ICO selling RCN tokens, raising $37M to power c...",
+          "description": "Ripio introduced a P2P credit network and held an ICO selling RCN tokens, raising $37M to power crypto lending.",
+          "date": "2016",
+          "year": 2016,
+          "entities": [],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-30",
+          "title": "After The DAO hack, OpenZeppelin rose to prominence by offering audited, reusable contract librar...",
+          "description": "After The DAO hack, OpenZeppelin rose to prominence by offering audited, reusable contract libraries that developers could trust. OpenZeppelin Contracts library, a set of battle-tested Solidity code for ERC-20 tokens, ownership, crowdfunding contracts, and more, quickly became the industry standard.",
+          "date": "July 2016",
+          "year": 2016,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "security",
+            "governance"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-31",
+          "title": "Signatura released its private beta and signed its first document",
+          "description": "Signatura released its private beta and signed its first document.",
+          "date": "July 2016",
+          "year": 2016,
+          "month": 7,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-32",
+          "title": "Bitex launched Remitex, a cross-border remittance service using Bitcoin as a settlement vehicle",
+          "description": "Bitex launched Remitex, a cross-border remittance service using Bitcoin as a settlement vehicle.",
+          "date": "August 2016",
+          "year": 2016,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-33",
+          "title": "Signatura  launched public beta",
+          "description": "Signatura  launched public beta.",
+          "date": "October 2016",
+          "year": 2016,
+          "month": 10,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-34",
+          "title": "Protofire is a dev firm originally spun out of Altoros",
+          "description": "Protofire is a dev firm originally spun out of Altoros. Protofire helped projects like Gnosis, Kyber, The Graph, and Maker with development and audits. They developed early dashboards for Maker and were early participants in The Graph network, writing subgraphs for protocols and even running Graph indexer nodes.",
+          "date": "2016",
+          "year": 2016,
+          "entities": [],
+          "tags": [
+            "defi",
+            "security",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-35",
+          "title": "Flixxo is an Ethereum-powered video sharing platform experiment, a decentralized alternative to Y...",
+          "description": "Flixxo is an Ethereum-powered video sharing platform experiment, a decentralized alternative to YouTube. It was founded by a team including @adriangarelik, Federico Abad, and Pablo Carbajo. The platform combined BitTorrent file-sharing with a crypto token (FLIXX) to reward content creators and viewers.",
+          "date": "Late 2016",
+          "year": 2016,
+          "entities": [
+            "adriangarelik"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "eraId": "emergence",
+      "events": [
+        {
+          "id": "event-36",
+          "title": "Early Ethereum smart contracts needed reliable price feeds",
+          "description": "Early Ethereum smart contracts needed reliable price feeds. Argentinian developers were at the forefront of oracle solutions. @nanexcool helping build the first decentralized price feeds that backed the DAI stablecoin",
+          "date": "2017",
+          "year": 2017,
+          "entities": [
+            "nanexcool"
+          ],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-37",
+          "title": "Kleros was founded by @federicoast",
+          "description": "Kleros was founded by @federicoast. Kleros pioneered \"decentralized justice\" using crowdsourced jurors and a native token (PNK) for arbitration.",
+          "date": "2017",
+          "year": 2017,
+          "entities": [
+            "federicoast"
+          ],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-38",
+          "title": "June, 2017: @santisiri publishes the Democracy Earth whitepaper on GitHub, outlining proof-of-ide...",
+          "description": "June, 2017: @santisiri publishes the Democracy Earth whitepaper on GitHub, outlining proof-of-identity (POI), attention mining, and UBI via vote tokens. Introduces concepts like singularity scores and quadratic voting.",
+          "date": "2017",
+          "year": 2017,
+          "entities": [
+            "santisiri"
+          ],
+          "tags": [
+            "governance"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-39",
+          "title": "OpenZeppelin was hired by Augur to audit the Serpent compiler",
+          "description": "OpenZeppelin was hired by Augur to audit the Serpent compiler. \"Whether or not to migrate Augur's smart contracts to Solidity has been a topic of ongoing debate (...) our back-end team is now in unanimous agreement: we have to migrate to Solidity.\" This is one of many cases where Zeppelin grew the adoption of Solidity, best practices in writing code.",
+          "date": "July 2017",
+          "year": 2017,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-40",
+          "title": "The Decentraland Foundation held the MANA ICO, raising about $26 million",
+          "description": "The Decentraland Foundation held the MANA ICO, raising about $26 million.",
+          "date": "August 2017",
+          "year": 2017,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-41",
+          "title": "Mid-late 2017: A core infrastructure that enabled ICOs, Coral, was developed by OpenZeppelin",
+          "description": "Mid-late 2017: A core infrastructure that enabled ICOs, Coral, was developed by OpenZeppelin. The protocol was designed as a secure token sale framework: projects would submit their token to Coral for review, and once accepted, the public could buy the token through a compliant, user-friendly interface.",
+          "date": "2017",
+          "year": 2017,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-42",
+          "title": "OpenZeppelin engineers launched Ethernaut, a Web3 capture-the-flag game for learning Solidity sec...",
+          "description": "OpenZeppelin engineers launched Ethernaut, a Web3 capture-the-flag game for learning Solidity security. Debuting around Devcon 3, Ethernaut presented vulnerable smart contracts for players to hack.",
+          "date": "November 2017",
+          "year": 2017,
+          "month": 11,
+          "entities": [],
+          "tags": [
+            "security",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-43",
+          "title": "The canonical WETH9 contract, deployed on Ethereum mainnet",
+          "description": "The canonical WETH9 contract, deployed on Ethereum mainnet. This was possible with core contributions by @nanexcool. WETH established a standardized, secure ERC-20-compliant version of ETH, allowing users to convert ETH to WETH without using a centralized party.",
+          "date": "December 2017",
+          "year": 2017,
+          "month": 12,
+          "entities": [
+            "nanexcool"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-44",
+          "title": "MakerDAO's DAI stablecoin was originally known as SAI (Single-Collateral Dai) when it launched fr...",
+          "description": "MakerDAO's DAI stablecoin was originally known as SAI (Single-Collateral Dai) when it launched from Buenos Aires. SAI was a decentralized USD-pegged stablecoin backed solely by ETH, and it quickly became a lifesaver for Argentines facing ~50% annual inflation and strict currency controls.",
+          "date": "December 2017",
+          "year": 2017,
+          "month": 12,
+          "entities": [],
+          "tags": [
+            "defi",
+            "governance"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "eraId": "emergence",
+      "events": [
+        {
+          "id": "event-45",
+          "title": "Rootstock's mainnet went live",
+          "description": "Rootstock's mainnet went live.",
+          "date": "January 2018",
+          "year": 2018,
+          "month": 1,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-46",
+          "title": "EasyTrade, the first decentralized exchange, is launched by @dmf7z under the motto: \"a decentrali...",
+          "description": "EasyTrade, the first decentralized exchange, is launched by @dmf7z under the motto: \"a decentralized Shapeshift\".",
+          "date": "February 2018",
+          "year": 2018,
+          "month": 2,
+          "entities": [
+            "dmf7z"
+          ],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-47",
+          "title": "The NFT standard ERC-721 was formalized, and Argentine developers @smpalladino, tibi and @facuspa...",
+          "description": "The NFT standard ERC-721 was formalized, and Argentine developers @smpalladino, tibi and @facuspagnuolo played a role in its implementation and popularization. OpenZeppelin provided open-source ERC-721 library code, guides and security audits, facilitating some of the first NFT projects.",
+          "date": "Early 2018",
+          "year": 2018,
+          "entities": [
+            "smpalladino",
+            "facuspagnuolo"
+          ],
+          "tags": [
+            "nfts",
+            "security"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-48",
+          "title": "ETHBuenosAires was the very first community-organized ETHGlobal hackathon",
+          "description": "ETHBuenosAires was the very first community-organized ETHGlobal hackathon. The event was led by @0xtoucan and @ornellacordoba and brought builders from all over the world together for ETHGlobal's third hackathon ever, and the first one held in Latin America. ETHBuenosAires onboarded many of today's community members into crypto.",
+          "date": "May 2018",
+          "year": 2018,
+          "month": 5,
+          "entities": [
+            "0xtoucan",
+            "ornellacordoba"
+          ],
+          "tags": [
+            "security",
+            "education",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-49",
+          "title": "Mike Barrow (a U",
+          "description": "Mike Barrow (a U.S. expat winemaker in Mendoza) launched OpenVino, an Argentine initiative at the intersection of blockchain and wine. OpenVino tokenized wine through MTB18 (for the 2018 vintage of Costaflores Malbec) – each token represented one bottle of wine. In May 2018, the entire 2018 harvest (16,384 bottles) was tokenized and offered via a public token sale at cost price.",
+          "date": "May 2018",
+          "year": 2018,
+          "month": 5,
+          "entities": [],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-50",
+          "title": "Kleros has its first ICO, raising $2",
+          "description": "Kleros has its first ICO, raising $2.6M",
+          "date": "May 2018",
+          "year": 2018,
+          "month": 5,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-51",
+          "title": "Argentina's Banco Masventas became the first bank in the country (and one of the first globally) ...",
+          "description": "Argentina's Banco Masventas became the first bank in the country (and one of the first globally) to use cryptocurrency for cross-border money transfers. This was prompted by a collaboration with Bitex that allowed them to route international payments through Bitcoin instead of Swift.",
+          "date": "May 2018",
+          "year": 2018,
+          "month": 5,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-52",
+          "title": "EOAs can easily sign messages with private keys, but contracts had no private keys",
+          "description": "EOAs can easily sign messages with private keys, but contracts had no private keys. ERC-1271 proposal coauthored by Zeppelin's Fran Giordano solved this by defining a common interface that contract wallets can implement to prove a signature's validity.",
+          "date": "July 2018",
+          "year": 2018,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "defi",
+            "governance"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-53",
+          "title": "@fedeogue launched Buenbit (f",
+          "description": "@fedeogue launched Buenbit (f.k.a Buendolar) as an Argentine crypto exchange focused on stablecoins. By actively marketing DAI savings during the 2020–21 inflation spike with support from the Maker Foundation's outreach, Buenbit attracted thousands of Argentines to crypto.",
+          "date": "Mid 2018",
+          "year": 2018,
+          "entities": [
+            "fedeogue"
+          ],
+          "tags": [
+            "defi"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-54",
+          "title": "Students and professors at the National Technological University in La Plata (UTN-FRLP) created A...",
+          "description": "Students and professors at the National Technological University in La Plata (UTN-FRLP) created Argentina's first university-backed blockchain lab. By 2019 it had 19 members: 3 professors and 16 students.",
+          "date": "Mid 2018",
+          "year": 2018,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "education"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-55",
+          "title": "CryptoMondays began: meetups held to share their views, networking, learning and having a blast",
+          "description": "CryptoMondays began: meetups held to share their views, networking, learning and having a blast.",
+          "date": "August 2018",
+          "year": 2018,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "education",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-56",
+          "title": "Official launch of Muun, by @esneider and a team that had been long term participants in the Bitc...",
+          "description": "Official launch of Muun, by @esneider and a team that had been long term participants in the Bitcoin ecosystem. Muun is a self-custodial, non-custodial mobile wallet designed for Bitcoin, and implemented a multi-signature and non custodial security model.",
+          "date": "October 2018",
+          "year": 2018,
+          "month": 10,
+          "entities": [
+            "esneider"
+          ],
+          "tags": [
+            "security",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-57",
+          "title": "Xivis was formed: a Buenos Aires-based software development agency began contributing and develop...",
+          "description": "Xivis was formed: a Buenos Aires-based software development agency began contributing and developing for other crypto companies. Xivis built a reputation for quickly delivering quality solutions for hackathons and community initiatives.",
+          "date": "2018",
+          "year": 2018,
+          "entities": [],
+          "tags": [
+            "security",
+            "education",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-58",
+          "title": "@claberus began contributing to OpenEthereum, a now deprecated client for the Ethereum mainnet",
+          "description": "@claberus began contributing to OpenEthereum, a now deprecated client for the Ethereum mainnet. Olano joined the project and contributed to the network resilience in collaboration with Gnosis and the Ethereum Foundation.",
+          "date": "2018",
+          "year": 2018,
+          "entities": [
+            "claberus"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-59",
+          "title": "Celo chose Argentina for its first field pilot",
+          "description": "Celo chose Argentina for its first field pilot. Celo's first Argentine contributor, Nicolás Michnowicz, led a 5-month test in Buenos Aires and Córdoba. Starting in late 2018, Celo deployed a test version of its wallet (what became Valora) to several low-income communities in the country. About 500 users were given a small amount of cUSD, which they could use for P2P payments and purchases at local merchants. The Argentina pilot informed Celo's mainnet launch in 2020 and demonstrated strong demand for stable currencies in emerging markets.",
+          "date": "Late 2018",
+          "year": 2018,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-60",
+          "title": "November, 2018: Muun partnered with GiveCrypto to distribute Bitcoin and promote financial inclusion",
+          "description": "November, 2018: Muun partnered with GiveCrypto to distribute Bitcoin and promote financial inclusion. Muun continued to drive initiatives focused on the unbanked population of Argentina.",
+          "date": "2018",
+          "year": 2018,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "eraId": "emergence",
+      "events": [
+        {
+          "id": "event-61",
+          "title": "Moloch DAO was launched by @ameensol to fund Ethereum public goods",
+          "description": "Moloch DAO was launched by @ameensol to fund Ethereum public goods. It popularized a simple framework where members contribute ETH to a common pool and vote on grant proposals. Several Argentines were among the early members and @nanexcool went on to create Sellout DAO in ETHBerlinZwei, an early experiment on vote buying way before Lobby.fi.",
+          "date": "February 2019",
+          "year": 2019,
+          "month": 2,
+          "entities": [
+            "ameensol",
+            "nanexcool"
+          ],
+          "tags": [
+            "governance",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-62",
+          "title": "Bitex facilitated the first reported international export transaction settled with Bitcoin, betwe...",
+          "description": "Bitex facilitated the first reported international export transaction settled with Bitcoin, between an Argentine seller and a Paraguayan buyer. The $7,100 deal used Bitcoin as an intermediary for currency conversion, with the seller receiving local fiat in under an hour at a 1% fee.",
+          "date": "February 2019",
+          "year": 2019,
+          "month": 2,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-63",
+          "title": "POAP was founded with the idea of minting digital badges for specific memories",
+          "description": "POAP was founded with the idea of minting digital badges for specific memories. POAP originates in ETH Denver 2019, where attendees received NFT \"POAPs\" as proof of participation through a locally-hosted website.",
+          "date": "February 2019",
+          "year": 2019,
+          "month": 2,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-64",
+          "title": "Ripio hits over 300,000 users in Latin America, reaching 1 million in 2020",
+          "description": "Ripio hits over 300,000 users in Latin America, reaching 1 million in 2020.",
+          "date": "2019",
+          "year": 2019,
+          "entities": [],
+          "tags": [],
+          "importance": "medium"
+        },
+        {
+          "id": "event-65",
+          "title": "POAP experiments with voting/polling systems gated by POAP ownership at EDCON Sydney",
+          "description": "POAP experiments with voting/polling systems gated by POAP ownership at EDCON Sydney. Here, POAP issues tokens manually for the first time.",
+          "date": "April 2019",
+          "year": 2019,
+          "month": 4,
+          "entities": [],
+          "tags": [
+            "nfts",
+            "governance"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-66",
+          "title": "POAP is appointed by ETHGlobal to issue POAPs to all 300+ hackers in ETH New York City via Kickba...",
+          "description": "POAP is appointed by ETHGlobal to issue POAPs to all 300+ hackers in ETH New York City via Kickback API. Here, POAP debuts POAP rosettes.",
+          "date": "May 2019",
+          "year": 2019,
+          "month": 5,
+          "entities": [],
+          "tags": [
+            "nfts",
+            "security"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-67",
+          "title": "EthereumBA began",
+          "description": "EthereumBA began. The meetups were organized by members of Xivis, as well as @0xtoucan and @saldasoro. EthereumBA grew into monthly gatherings to share knowledge with collaboration Maker DAO, Zerion, Synthetix, among other projects.",
+          "date": "2019",
+          "year": 2019,
+          "entities": [
+            "0xtoucan",
+            "saldasoro"
+          ],
+          "tags": [
+            "defi",
+            "governance",
+            "infrastructure",
+            "education",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-68",
+          "title": "Mid-2019: Xivis assembled a dedicated team to develop the POAP claim system in time for DevCon 5,...",
+          "description": "Mid-2019: Xivis assembled a dedicated team to develop the POAP claim system in time for DevCon 5, enabling attendees in Osaka to receive NFTs on-site.",
+          "date": "2019",
+          "year": 2019,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-69",
+          "title": "Around 2019, Cartesi started reaching out to Argentina's developer community and their dev firms ...",
+          "description": "Around 2019, Cartesi started reaching out to Argentina's developer community and their dev firms to introduce its tech. Cartesi was preparing for its CTSI token launch (which happened in 2020), building a developer base was crucial. Argentine devs showed interest in Cartesi's promise of coding smart contracts in familiar languages (like C++ or Python via Linux). Their software tooling resonated with local developers, and even collaborated to create demo apps with Think & Dev.",
+          "date": "2019",
+          "year": 2019,
+          "entities": [],
+          "tags": [
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-70",
+          "title": "Argentines like @facuspagnuolo began contributing to the dispute resolution of Aragon Court, deve...",
+          "description": "Argentines like @facuspagnuolo began contributing to the dispute resolution of Aragon Court, development of Aragon One, among other Aragon projects.",
+          "date": "2019",
+          "year": 2019,
+          "entities": [
+            "facuspagnuolo"
+          ],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-71",
+          "title": "Lemon is a crypto fintech startup by @lemoncheli and @borjamartels",
+          "description": "Lemon is a crypto fintech startup by @lemoncheli and @borjamartels. They launched a mobile wallet that lets users buy/sell crypto and earn rewards through their own exchange. It later issued a Visa card that gives Bitcoin cashback on everyday purchases. The company became known for bringing crypto into mainstream retail in Argentina.",
+          "date": "2019",
+          "year": 2019,
+          "entities": [
+            "lemoncheli",
+            "borjamartels"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-72",
+          "title": "NGO Bitcoin Argentina, with IDB and IOV support, launched the DIDI Project to give people in Buen...",
+          "description": "NGO Bitcoin Argentina, with IDB and IOV support, launched the DIDI Project to give people in Buenos Aires' underserved communities a way to build a verifiable reputation history. Underbanked individuals could record microfinance loan repayments and get digital credentials attesting to their creditworthiness.",
+          "date": "2019",
+          "year": 2019,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-73",
+          "title": "Muun launches Muun iOS, a non-custodial wallet for Bitcoin and Lightning Network Lightning, becom...",
+          "description": "Muun launches Muun iOS, a non-custodial wallet for Bitcoin and Lightning Network Lightning, becomes a top rated Bitcoin Wallet.",
+          "date": "October 2019",
+          "year": 2019,
+          "month": 10,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-74",
+          "title": "Devconnect in Argentina has been a long time coming",
+          "description": "Devconnect in Argentina has been a long time coming. In Osaka, all the Argentinians organized to push for DevconBA. Speakers had agreed to include one slide in their presentations to promote Buenos Aires as the next Devcon location as well as wearing DevconWine and DevconMate shirts around the venue. See nanexcool's talk \"Living on Defi: How I Survive Argentina's 50% Inflation\".",
+          "date": "October 2019",
+          "year": 2019,
+          "month": 10,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-75",
+          "title": "POAP issues POAPs to all 5,000+ attendees to Devcon V via Ethereum Foundation partnership",
+          "description": "POAP issues POAPs to all 5,000+ attendees to Devcon V via Ethereum Foundation partnership.",
+          "date": "October 2019",
+          "year": 2019,
+          "month": 10,
+          "entities": [],
+          "tags": [
+            "nfts",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "eraId": "emergence",
+      "events": [
+        {
+          "id": "event-76",
+          "title": "Lauch of BeloApp, a seamless crypto-fiat wallet for freelancers and remote workers in Latin America",
+          "description": "Lauch of BeloApp, a seamless crypto-fiat wallet for freelancers and remote workers in Latin America.",
+          "date": "January 2020",
+          "year": 2020,
+          "month": 1,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-77",
+          "title": "DIDI project launches the ai didi app, allowing users to store and manage SSI credentials on mobi...",
+          "description": "DIDI project launches the ai didi app, allowing users to store and manage SSI credentials on mobile devices.",
+          "date": "January 2020",
+          "year": 2020,
+          "month": 1,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-78",
+          "title": "DeFi LATAM was part of this movement",
+          "description": "DeFi LATAM was part of this movement. A collective, organizing meetups, sustaining the Mateando con DeFi newsletter to spread DeFi education and producing Spanish guides on using MakerDAO, Uniswap, etc. By teaching hundreds of newcomers the DeFi basics, it significantly lowered the entry barriers to DeFi for Argentinians.",
+          "date": "Early 2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [
+            "defi",
+            "governance",
+            "education",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-79",
+          "title": "Kleros has its second ICO, raising $2",
+          "description": "Kleros has its second ICO, raising $2.5M",
+          "date": "Early 2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [],
+          "importance": "medium"
+        },
+        {
+          "id": "event-80",
+          "title": "DAI volume on local exchanges had grown six-fold, and stablecoin trading overall grew 20× year-on...",
+          "description": "DAI volume on local exchanges had grown six-fold, and stablecoin trading overall grew 20× year-on-year. Maker noted Argentina and Brazil as its fastest-growing markets for Dai.",
+          "date": "Early 2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-81",
+          "title": "Argentines began contributing to Yearn (@SaltyFacu, among them), who pioneered yield aggregation ...",
+          "description": "Argentines began contributing to Yearn (@SaltyFacu, among them), who pioneered yield aggregation in DeFi, automating farming across protocols like Compound to lower costs and compound rewards. By simplifying complex strategies into easy deposits, Yearn lets users grow their holdings without active management.",
+          "date": "February 2020",
+          "year": 2020,
+          "month": 2,
+          "entities": [
+            "SaltyFacu"
+          ],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-82",
+          "title": "Balancer V1 was launched, with active contributions to its smart contract development and protoco...",
+          "description": "Balancer V1 was launched, with active contributions to its smart contract development and protocol design features by @facuspagnuolo.",
+          "date": "March 2020",
+          "year": 2020,
+          "month": 3,
+          "entities": [
+            "facuspagnuolo"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-83",
+          "title": "After 2 years of development, the Decentraland platform officially launched, allowing users world...",
+          "description": "After 2 years of development, the Decentraland platform officially launched, allowing users worldwide to explore and create within its VR world. Users can create avatars, buy NFT wearables, build scenes, and trade land on the marketplace.",
+          "date": "2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-84",
+          "title": "The official release of Hardhat v2",
+          "description": "The official release of Hardhat v2.0.0 was published. Hardhat (f.k.a Buidler) is one of the most widely used Ethereum development environments co-founded by @zfran and @alcuadrado. The team developed hardhat's console (REPL) and Javascript tasks, its built-in network for debugging, and the ability to write tests in a familiar Mocha/Chai setup. Both team members continue to lead Hardhat development today.",
+          "date": "May 2020",
+          "year": 2020,
+          "month": 5,
+          "entities": [
+            "zfran",
+            "alcuadrado"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-85",
+          "title": "Kleros collaborates with the European Union",
+          "description": "Kleros collaborates with the European Union.",
+          "date": "June 2020",
+          "year": 2020,
+          "month": 6,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-86",
+          "title": "DeFi summer was an explosive phase of growth, the TVL in lending platforms, decentralized exchang...",
+          "description": "DeFi summer was an explosive phase of growth, the TVL in lending platforms, decentralized exchanges, and yield-generating protocols expanded at an unprecedented rate. This period saw a surge of activity across Ethereum and represented the rapid adoption of financial services in Argentina.",
+          "date": "Summer 2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-87",
+          "title": "Rather Labs, an engineering studio, was founded",
+          "description": "Rather Labs, an engineering studio, was founded. Later on, Argentinian members began collaborating with startups and organizations looking to launch Web3 products.",
+          "date": "July 2020",
+          "year": 2020,
+          "month": 7,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-88",
+          "title": "The Banco de Alimentos with Ripio's #DonáConBitcoin campaign, and Pulenta with Xcapit enabling tr...",
+          "description": "The Banco de Alimentos with Ripio's #DonáConBitcoin campaign, and Pulenta with Xcapit enabling traceable blockchain giving.",
+          "date": "2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-89",
+          "title": "Red Cross Argentina accepts crypto donations via Satoshi Tango",
+          "description": "Red Cross Argentina accepts crypto donations via Satoshi Tango.",
+          "date": "2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-90",
+          "title": "Karpatkey is founded to manage Gnosis DAO's treasury, introducing non-custodial DeFi solutions fo...",
+          "description": "Karpatkey is founded to manage Gnosis DAO's treasury, introducing non-custodial DeFi solutions for underutilized DAO assets amid DeFi Summer risks. Assets under management grew from $300 million to $1.8 billion in under three years.",
+          "date": "2020",
+          "year": 2020,
+          "entities": [],
+          "tags": [
+            "defi",
+            "governance"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-91",
+          "title": "Mountain Protocol was founded, a fully collateralized, yield-bearing stablecoin backed by short-t...",
+          "description": "Mountain Protocol was founded, a fully collateralized, yield-bearing stablecoin backed by short-term U.S. Treasury bonds created in Argentina by @mcarrica & @mattiascaricato.",
+          "date": "2020",
+          "year": 2020,
+          "entities": [
+            "mcarrica",
+            "mattiascaricato"
+          ],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "eraId": "growth",
+      "events": [
+        {
+          "id": "event-92",
+          "title": "February, 2021: Muun fully open-sourced the wallet codebase, enabling audits, forks, and communit...",
+          "description": "February, 2021: Muun fully open-sourced the wallet codebase, enabling audits, forks, and community contributions to Bitcoin wallet security and UX.",
+          "date": "2021",
+          "year": 2021,
+          "entities": [],
+          "tags": [
+            "security",
+            "infrastructure",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-93",
+          "title": "Proof of Humanity was launched by the Kleros Team and @santisiri is a sybil-resistant identity ve...",
+          "description": "Proof of Humanity was launched by the Kleros Team and @santisiri is a sybil-resistant identity verification protocol on Ethereum, to offer decentralized human validation. In the same month UBI was launched to stream income to verified humans. Raises $1.2M in regulated sales but faced immediate volatility.",
+          "date": "March 2021",
+          "year": 2021,
+          "month": 3,
+          "entities": [
+            "santisiri"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-94",
+          "title": "@mrnventuro, @dmf7z and @facuspagnuolo played a key role in Balancer V2, delivering modular pools...",
+          "description": "@mrnventuro, @dmf7z and @facuspagnuolo played a key role in Balancer V2, delivering modular pools, stronger security, and L2 readiness.",
+          "date": "May 2021",
+          "year": 2021,
+          "month": 5,
+          "entities": [
+            "mrnventuro",
+            "dmf7z",
+            "facuspagnuolo"
+          ],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-95",
+          "title": "A team of OG contributors in the Argentina ecosystem, including@facuspagnuolo, brunob @dmf7z gath...",
+          "description": "A team of OG contributors in the Argentina ecosystem, including@facuspagnuolo, brunob @dmf7z gather and found Mimic Protocol:  a DeFi protocol that aims to automate onchain operations.",
+          "date": "June 2021",
+          "year": 2021,
+          "month": 6,
+          "entities": [
+            "facuspagnuolo",
+            "dmf7z"
+          ],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-96",
+          "title": "Exactly Protocol was founded by Gabriel Gruber in Argentina",
+          "description": "Exactly Protocol was founded by Gabriel Gruber in Argentina.",
+          "date": "July 2021",
+          "year": 2021,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-97",
+          "title": "@mrnventuro designed a global role governance system for Balancer with action IDs and disambiguat...",
+          "description": "@mrnventuro designed a global role governance system for Balancer with action IDs and disambiguators to prevent clashes.",
+          "date": "September 2021",
+          "year": 2021,
+          "month": 9,
+          "entities": [
+            "mrnventuro"
+          ],
+          "tags": [
+            "governance",
+            "community"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-98",
+          "title": "2021-2022: KPK Built non-custodial asset management infrastructure using on-chain permissions pol...",
+          "description": "2021-2022: KPK Built non-custodial asset management infrastructure using on-chain permissions policies, Safe Smart Accounts, and automated Guardians for transparent, risk-minimized DeFi strategies.",
+          "date": "2021",
+          "year": 2021,
+          "entities": [],
+          "tags": [
+            "defi",
+            "security"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-99",
+          "title": "KPK began contributing to DAO treasury management for protocols like Balancer, focusing on capita...",
+          "description": "KPK began contributing to DAO treasury management for protocols like Balancer, focusing on capital efficiency and risk reduction.",
+          "date": "2021",
+          "year": 2021,
+          "entities": [],
+          "tags": [
+            "governance",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-100",
+          "title": "Xeibo, an Argentine crypto venture firm and incubator was founded to support Web3 startups",
+          "description": "Xeibo, an Argentine crypto venture firm and incubator was founded to support Web3 startups. Its portfolio includes leading local projects like SenseiNode, WakeUp Labs, Welook, Defiant, and Pinta.",
+          "date": "2021",
+          "year": 2021,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-101",
+          "title": "Coinfabrik audits 1Inch Money Market",
+          "description": "Coinfabrik audits 1Inch Money Market. It would later audit Money Market 2.",
+          "date": "2021",
+          "year": 2021,
+          "entities": [],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "eraId": "growth",
+      "events": [
+        {
+          "id": "event-102",
+          "title": "The Buenos Aires city government announced and released the whitepaper for TangoID, as a SSI plat...",
+          "description": "The Buenos Aires city government announced and released the whitepaper for TangoID, as a SSI platform for citizens to store official documents in wallets and present them selectively via blockchain.",
+          "date": "March 2022",
+          "year": 2022,
+          "month": 3,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "regulation"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-103",
+          "title": "The NFT boom would attract the attention of established companies outside of crypto to the Metaverse",
+          "description": "The NFT boom would attract the attention of established companies outside of crypto to the Metaverse. At Coachella 2022, Absolut.Land in Decentraland attracted 21,000+ visitors from 100 countries.",
+          "date": "April 2022",
+          "year": 2022,
+          "month": 4,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-104",
+          "title": "Community led meetup to educate and discuss Cairo and a Circom Exporter",
+          "description": "Community led meetup to educate and discuss Cairo and a Circom Exporter. In August, Starkware organizes a side event around Ethlatam.",
+          "date": "April 2022",
+          "year": 2022,
+          "month": 4,
+          "entities": [],
+          "tags": [
+            "education",
+            "community"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-105",
+          "title": "LambdaClass begins work on CairoVM, a Rust implementation of the Cairo Virtual Machine",
+          "description": "LambdaClass begins work on CairoVM, a Rust implementation of the Cairo Virtual Machine.",
+          "date": "May 2022",
+          "year": 2022,
+          "month": 5,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-106",
+          "title": "WakeUp Labs collaborated with Kilimo, developing non-fungible water tokens (NFTs) to represent fa...",
+          "description": "WakeUp Labs collaborated with Kilimo, developing non-fungible water tokens (NFTs) to represent farmers' water savings. Kilimo secured a funding round after demonstrating its ability to build on-chain.",
+          "date": "2022",
+          "year": 2022,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-107",
+          "title": "Pulenta project facilitated donations to vulnerable sectors via crypto",
+          "description": "Pulenta project facilitated donations to vulnerable sectors via crypto.",
+          "date": "2022",
+          "year": 2022,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-108",
+          "title": "Satoshi Tango grew to about a million users and launched a Visa Card in 2022",
+          "description": "Satoshi Tango grew to about a million users and launched a Visa Card in 2022.",
+          "date": "2022",
+          "year": 2022,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-109",
+          "title": "Lemon hits over 1",
+          "description": "Lemon hits over 1.6 million users in Argentina and Brazil.",
+          "date": "2022",
+          "year": 2022,
+          "entities": [],
+          "tags": [],
+          "importance": "medium"
+        },
+        {
+          "id": "event-110",
+          "title": "Wonderland launches of Keep3r Network, one of its core projects",
+          "description": "Wonderland launches of Keep3r Network, one of its core projects. A decentralized network for projects that need external DevOps, and for external teams to find keeper jobs.",
+          "date": "2022",
+          "year": 2022,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-111",
+          "title": "SenseiNode began hosting over 50 validator nodes on leading protocols, including Ethereum, Polygo...",
+          "description": "SenseiNode began hosting over 50 validator nodes on leading protocols, including Ethereum, Polygon, etc. The same year Launched SenseiStake, a non-custodial ETH2 staking platform using NFTs for tokenized validators on Latin American infrastructure.",
+          "date": "2022",
+          "year": 2022,
+          "entities": [],
+          "tags": [
+            "nfts",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-112",
+          "title": "During the NFT boom, Lemon launched Lemon Nation as a community engagement program built around p...",
+          "description": "During the NFT boom, Lemon launched Lemon Nation as a community engagement program built around profile-picture NFTs called Lemmys. By mid-2022, Lemon had minted over 400,000 Lemmy NFTs on Ethereum and distributed them to its users.",
+          "date": "July 2022",
+          "year": 2022,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "nfts",
+            "infrastructure",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-113",
+          "title": "NFC enables physical taps for POAP claims via chips in cards, stickers, or merch",
+          "description": "NFC enables physical taps for POAP claims via chips in cards, stickers, or merch.",
+          "date": "Mid 2022",
+          "year": 2022,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-114",
+          "title": "ETH Latam was a three-day event that brought the global community of builders and educators to Ar...",
+          "description": "ETH Latam was a three-day event that brought the global community of builders and educators to Argentina. While ETHBuenosAires marked the first large-scale Ethereum event in the country, connecting Argentina to the broader ETHGlobal community, and EthereumBA focused on gathering the local ecosystem, ETH Latam combined both worlds: it united communities, highlighted local protocols, and introduced international projects to Argentina.",
+          "date": "August 2022",
+          "year": 2022,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-115",
+          "title": "Ethereum transitioned from Proof-of-Work to Proof-of-Stake",
+          "description": "Ethereum transitioned from Proof-of-Work to Proof-of-Stake. It reduced Ethereum's energy usage by over 99% and set the stage for scaling upgrades like sharding. This was the most significant technical change in Ethereum's history –so far.",
+          "date": "September 2022",
+          "year": 2022,
+          "month": 9,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-116",
+          "title": "Exactly launched on the Ethereum Mainnet, enabling fixed and variable interest rate markets for D...",
+          "description": "Exactly launched on the Ethereum Mainnet, enabling fixed and variable interest rate markets for DeFi credit.",
+          "date": "November 2022",
+          "year": 2022,
+          "month": 11,
+          "entities": [],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "eraId": "scaling",
+      "events": [
+        {
+          "id": "event-117",
+          "title": "Coinfabrik audits Fireblocks API and SDK",
+          "description": "Coinfabrik audits Fireblocks API and SDK.",
+          "date": "2023",
+          "year": 2023,
+          "entities": [],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-118",
+          "title": "Early 2023 Initial Adoption, Mimic began automating tasks for ParaSwap, the DeFi aggregator",
+          "description": "Early 2023 Initial Adoption, Mimic began automating tasks for ParaSwap, the DeFi aggregator.",
+          "date": "2023",
+          "year": 2023,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-119",
+          "title": "KPK Assisted the Ethereum Foundation in developing a values-aligned Treasury Policy",
+          "description": "KPK Assisted the Ethereum Foundation in developing a values-aligned Treasury Policy",
+          "date": "2023",
+          "year": 2023,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-120",
+          "title": "Invest in Music was an onchain media organization focused on music NFTs, turning fans into invest...",
+          "description": "Invest in Music was an onchain media organization focused on music NFTs, turning fans into investors via platforms like Zora and Optimism. It was cofounded by @saldasoro and Cooper Turley.",
+          "date": "February 2023",
+          "year": 2023,
+          "month": 2,
+          "entities": [
+            "saldasoro"
+          ],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-121",
+          "title": "Exactly expanded to the Optimism network",
+          "description": "Exactly expanded to the Optimism network.",
+          "date": "March 2023",
+          "year": 2023,
+          "month": 3,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-122",
+          "title": "March 2023 Founding: The Red Guild was publicly announced by co-founders @mattaereal@tinchoabbate...",
+          "description": "March 2023 Founding: The Red Guild was publicly announced by co-founders @mattaereal@tinchoabbate as a group dedicated to safeguarding Ethereum applications through research, education, and advocacy.",
+          "date": "2023",
+          "year": 2023,
+          "entities": [
+            "mattaereal",
+            "tinchoabbate"
+          ],
+          "tags": [
+            "security",
+            "infrastructure",
+            "education"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-123",
+          "title": "LambdaClass begins work on Lambdaworks, implementations for both SNARKs and STARKs provers; they ...",
+          "description": "LambdaClass begins work on Lambdaworks, implementations for both SNARKs and STARKs provers; they enable building customized SNARKs.",
+          "date": "April 2023",
+          "year": 2023,
+          "month": 4,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-124",
+          "title": "Launch of Bombo: a platform providing NFT ticketing solutions, using blockchain under the hood, f...",
+          "description": "Launch of Bombo: a platform providing NFT ticketing solutions, using blockchain under the hood, fully integrated into their entertainment services.",
+          "date": "May 2023",
+          "year": 2023,
+          "month": 5,
+          "entities": [],
+          "tags": [
+            "nfts",
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-125",
+          "title": "As early DVT adopters (global rank #12), SenseiNode deployed the first Distributed Validator Solo...",
+          "description": "As early DVT adopters (global rank #12), SenseiNode deployed the first Distributed Validator Solo Cluster on Obol's Alpha Release for Ethereum mainnet.",
+          "date": "June 2023",
+          "year": 2023,
+          "month": 6,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-126",
+          "title": "Mimic v3 introduced a modular framework for DeFi automation with customizable workflows, triggers...",
+          "description": "Mimic v3 introduced a modular framework for DeFi automation with customizable workflows, triggers, cross-chain compatibility, and connectors for seamless integration with protocols like swaps and bridging. By this point, Mimic was running over 200,000 tasks monthly.",
+          "date": "July 2023",
+          "year": 2023,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-127",
+          "title": "August 2023 First IRL campaign at Ethereum Argentina: The security campaign simulated threats lik...",
+          "description": "August 2023 First IRL campaign at Ethereum Argentina: The security campaign simulated threats like USB drops, QR code phishing, fake flyers, a mirrored conference website, and unattended laptop flagging.",
+          "date": "2023",
+          "year": 2023,
+          "entities": [],
+          "tags": [
+            "security",
+            "infrastructure",
+            "education",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-128",
+          "title": "Damm launches the custodial private DAMMstable fund on Arbitrum in stealth mode for friends and f...",
+          "description": "Damm launches the custodial private DAMMstable fund on Arbitrum in stealth mode for friends and family. Operated through USDT, USDC, and DAI liquidity provision on Uniswap LPs, marking the beginning of DAMM's market-neutral stablecoin strategies.",
+          "date": "August 2023",
+          "year": 2023,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-129",
+          "title": "First major Bombo implementation in Mar del Plata, Argentina, for the Mariano Mellino show at a n...",
+          "description": "First major Bombo implementation in Mar del Plata, Argentina, for the Mariano Mellino show at a nightclub.",
+          "date": "September 2023",
+          "year": 2023,
+          "month": 9,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-130",
+          "title": "Fernet protocol, a fully permissionless random leader election protocol, proposed by @smpalladino...",
+          "description": "Fernet protocol, a fully permissionless random leader election protocol, proposed by @smpalladino was chosen as the final design for Aztec's Sequencer Selection.",
+          "date": "September 2023",
+          "year": 2023,
+          "month": 9,
+          "entities": [
+            "smpalladino"
+          ],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-131",
+          "title": "Ongoing contributions by Argentines to smart account abstraction in Aztec (@mrnventuro)",
+          "description": "Ongoing contributions by Argentines to smart account abstraction in Aztec (@mrnventuro).",
+          "date": "2023",
+          "year": 2023,
+          "entities": [
+            "mrnventuro"
+          ],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-132",
+          "title": "October, 2023: Integration of Bombo with Binance Pay as part of its expansion in Argentina and th...",
+          "description": "October, 2023: Integration of Bombo with Binance Pay as part of its expansion in Argentina and the region.",
+          "date": "2023",
+          "year": 2023,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-133",
+          "title": "WakeUp Labs began contributing open-source code to some of the largest DAOs in the crypto ecosyst...",
+          "description": "WakeUp Labs began contributing open-source code to some of the largest DAOs in the crypto ecosystem, such as the \"Built Status History Search\" on the OP Blockchain. They also partnered with WIN Investments to promote the democratization of the football industry and worked with Num Finance (acquired), a company from the Argentine crypto ecosystem.",
+          "date": "2023",
+          "year": 2023,
+          "entities": [],
+          "tags": [
+            "governance",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-134",
+          "title": "Kleros even began collaborating with the Mendoza provincial court (a first-of-its-kind pilot usin...",
+          "description": "Kleros even began collaborating with the Mendoza provincial court (a first-of-its-kind pilot using Kleros juries for small cases) https://thedefiant.io/news/regulation/kleros-to-collaborate-with-supreme-court-of-mendoza",
+          "date": "2023",
+          "year": 2023,
+          "entities": [],
+          "tags": [
+            "defi",
+            "regulation"
+          ],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "eraId": "scaling",
+      "events": [
+        {
+          "id": "event-135",
+          "title": "Argentines become part of the first set of Optimism's Security Council",
+          "description": "Argentines become part of the first set of Optimism's Security Council.",
+          "date": "January 2024",
+          "year": 2024,
+          "month": 1,
+          "entities": [],
+          "tags": [
+            "security"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-136",
+          "title": "@gonnaeth becomes Grants Council Lead at the Optimism Collective, where he continues to lead fund...",
+          "description": "@gonnaeth becomes Grants Council Lead at the Optimism Collective, where he continues to lead funding in the Superchain today.",
+          "date": "January 2024",
+          "year": 2024,
+          "month": 1,
+          "entities": [
+            "gonnaeth"
+          ],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-137",
+          "title": "QuarkID went live city-wide in Buenos Aires, using zero-knowledge proofs for secure, self-soverei...",
+          "description": "QuarkID went live city-wide in Buenos Aires, using zero-knowledge proofs for secure, self-sovereign IDs. It expanded to include health data and payments, becoming the world's first zk-backed municipal ID system.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-138",
+          "title": "BootNode, Web3 venture builder and dev agency, built the zkSync Azure Smart Contract Wallet dApp,...",
+          "description": "BootNode, Web3 venture builder and dev agency, built the zkSync Azure Smart Contract Wallet dApp, integrating zkSync Era's native Account Abstraction with Azure SSO to enable seamless, seed-less Web3 onboarding.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-139",
+          "title": "Wonderland collaborated with Optimism to co-develop the Superchain ERC-20 standard and the opUSDC...",
+          "description": "Wonderland collaborated with Optimism to co-develop the Superchain ERC-20 standard and the opUSDC architecture for Optimism. These contributions aim to standardize tokens across Optimism's Superchain and enable a native stablecoins on Optimism.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-140",
+          "title": "Wonderland delivered a private oracle solution for Aztec, encrypting the request and the answer, ...",
+          "description": "Wonderland delivered a private oracle solution for Aztec, encrypting the request and the answer, ensuring no other party than the requester has access to itt.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-141",
+          "title": "WakeUp Labs developed Arbitrum Connect, later expanded to Orbit Chains",
+          "description": "WakeUp Labs developed Arbitrum Connect, later expanded to Orbit Chains.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-142",
+          "title": "Argentinians @mattaereal (June) and @pablosabatella (February) joined SEAL, where both became act...",
+          "description": "Argentinians @mattaereal (June) and @pablosabatella (February) joined SEAL, where both became active contributors.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [
+            "mattaereal",
+            "pablosabatella"
+          ],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-143",
+          "title": "Belo expands in Latin America, to Mexico and Brazil, enabling users to receive payments across bo...",
+          "description": "Belo expands in Latin America, to Mexico and Brazil, enabling users to receive payments across borders.",
+          "date": "June 2024",
+          "year": 2024,
+          "month": 6,
+          "entities": [],
+          "tags": [],
+          "importance": "medium"
+        },
+        {
+          "id": "event-144",
+          "title": "@mattaereal led the security initiatives of SEAL Frameworks",
+          "description": "@mattaereal led the security initiatives of SEAL Frameworks.",
+          "date": "June 2024",
+          "year": 2024,
+          "month": 6,
+          "entities": [
+            "mattaereal"
+          ],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-145",
+          "title": "Exchange law formally defined virtual assets as digital representations of value used for payment...",
+          "description": "Exchange law formally defined virtual assets as digital representations of value used for payments or investments and virtual asset providers, who must register with the National Securities Commission. Crypto platforms and custodians are now understood as \"obliged subjects,\" meaning they must identify customers, verify beneficial owners, monitor risks, report suspicious transactions, and keep records for 10 years. Also creates a centralized and public registry of crypto service providers.",
+          "date": "March 2024",
+          "year": 2024,
+          "month": 3,
+          "entities": [],
+          "tags": [
+            "defi",
+            "regulation"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-146",
+          "title": "Sonata, a music client on Farcaster (built on Base, an Optimism L2), launched as the first dedica...",
+          "description": "Sonata, a music client on Farcaster (built on Base, an Optimism L2), launched as the first dedicated music app there. It was cofounded by @saldasoro and sweetman.eth.",
+          "date": "April 2024",
+          "year": 2024,
+          "month": 4,
+          "entities": [
+            "saldasoro"
+          ],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-147",
+          "title": "Eryx, in collaboration with Manas",
+          "description": "Eryx, in collaboration with Manas.Tech, received a Ethereum Foundation ZK Grant for Noirky2: A Plonky2 Backend for Noir. The project focuses on building an open-source Arithmetic Circuit Virtual Machine (ACVM) backend for the Plonky2 prover.",
+          "date": "June 2024",
+          "year": 2024,
+          "month": 6,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-148",
+          "title": "Red Guild oft-released the Phishing Dojo (https://www",
+          "description": "Red Guild oft-released the Phishing Dojo (https://www.phishingdojo.com/), a threat simulation platform for training users on social engineering, phishing, and scams in Web3.",
+          "date": "July 2024",
+          "year": 2024,
+          "month": 7,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-149",
+          "title": "A tax law was the first formal inclusion of crypto in Argentina",
+          "description": "A tax law was the first formal inclusion of crypto in Argentina. The informally known as \"blanqueo\" tax law encouraged bringing in undeclared assets back into the system, paying a special tax. Undeclared crypto assets were included within the scope  https://www.boletinoficial.gob.ar/detalleAviso/primera/310191/20240708",
+          "date": "July 2024",
+          "year": 2024,
+          "month": 7,
+          "entities": [],
+          "tags": [
+            "regulation"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-150",
+          "title": "Migration to the 100% algorithmic version of DAMMstable, enabling full on-chain strategy automation",
+          "description": "Migration to the 100% algorithmic version of DAMMstable, enabling full on-chain strategy automation.",
+          "date": "August 2024",
+          "year": 2024,
+          "month": 8,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-151",
+          "title": "Aleph was a transformative pop-up city launched by Crecimiento, that led to positioning Argentina...",
+          "description": "Aleph was a transformative pop-up city launched by Crecimiento, that led to positioning Argentina as the \"Crypto Capital of the World.\" The movement emerged from contributors at The Mu, Solow, POAP, Beefy, The Graph and ETHLatam 2022. With 3000 attendees in its first iteration, Aleph served as a vibrant hub for crypto innovation. Subsequent editions, like Aleph de Verano and Aleph March 2025, continued to emphasize growing startups in Argentina.",
+          "date": "August 2024",
+          "year": 2024,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-152",
+          "title": "Argentina hosted the first edition of the Privacy Scaling Core Program, designed for university s...",
+          "description": "Argentina hosted the first edition of the Privacy Scaling Core Program, designed for university students with programming experience who want to deepen their knowledge of privacy solutions on Ethereum.",
+          "date": "August 2024",
+          "year": 2024,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "education"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-153",
+          "title": "Red Guild hosted \"The REKT Games\" CTF at Devcon SEA, focusing on crypto and Web3 security challen...",
+          "description": "Red Guild hosted \"The REKT Games\" CTF at Devcon SEA, focusing on crypto and Web3 security challenges,",
+          "date": "November 2024",
+          "year": 2024,
+          "month": 11,
+          "entities": [],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-154",
+          "title": "Eryx announced the release of STWO-GPU, a set of open-source prototypes designed to accelerate th...",
+          "description": "Eryx announced the release of STWO-GPU, a set of open-source prototypes designed to accelerate the execution times of Starkware's STWO prover. Their implementation leverages NVIDIA GPU parallelization via CUDA.",
+          "date": "November 2024",
+          "year": 2024,
+          "month": 11,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-155",
+          "title": "November 2024 Founding Opsek by @theSouilos and @PabloSabatella a Web3 Operational Security Servi...",
+          "description": "November 2024 Founding Opsek by @theSouilos and @PabloSabatella a Web3 Operational Security Services offering security audits, threat modeling and more.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [
+            "theSouilos",
+            "PabloSabatella"
+          ],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-156",
+          "title": "POAP pilots location-based drops via GPS on Devcon SEA",
+          "description": "POAP pilots location-based drops via GPS on Devcon SEA.",
+          "date": "November 2024",
+          "year": 2024,
+          "month": 11,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-157",
+          "title": "December 2024 Opsek conducts a security audit for Contango: Conducted operational security audit ...",
+          "description": "December 2024 Opsek conducts a security audit for Contango: Conducted operational security audit for Contango, focusing on team hardening and risk mitigation.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [],
+          "tags": [
+            "security"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-158",
+          "title": "CoBuilders is founded, a software firm providing software design and development services",
+          "description": "CoBuilders is founded, a software firm providing software design and development services.",
+          "date": "December 2024",
+          "year": 2024,
+          "month": 12,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "eraId": "scaling",
+      "events": [
+        {
+          "id": "event-159",
+          "title": "Lambda begins collaborating with Commit-Boost, a new Ethereum validator sidecar focused on standa...",
+          "description": "Lambda begins collaborating with Commit-Boost, a new Ethereum validator sidecar focused on standardizing the communication between validators and third-party protocols.",
+          "date": "January 2025",
+          "year": 2025,
+          "month": 1,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-160",
+          "title": "World funds CoBuilders to develop AskHumans, a voting system we created for the World App",
+          "description": "World funds CoBuilders to develop AskHumans, a voting system we created for the World App.",
+          "date": "January 2025",
+          "year": 2025,
+          "month": 1,
+          "entities": [],
+          "tags": [
+            "governance"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-161",
+          "title": "Fat solutions releases Sumo, a zk-powered social login system using JWT proofs and account abstra...",
+          "description": "Fat solutions releases Sumo, a zk-powered social login system using JWT proofs and account abstraction, built for seamless user onboarding.",
+          "date": "Feb 2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-162",
+          "title": "Fat Solutions releases Terry Escape, a multiplayer private shared-state game using oblivious tran...",
+          "description": "Fat Solutions releases Terry Escape, a multiplayer private shared-state game using oblivious transfers, homomorphic encryption and zk proofs, built with Noir.",
+          "date": "Feb 2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-163",
+          "title": "Mimic reaches 18M automated transactions and managing 4 billion dollars in total automated value",
+          "description": "Mimic reaches 18M automated transactions and managing 4 billion dollars in total automated value.",
+          "date": "Early 2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-164",
+          "title": "Exactly approved a proposal to integrate a crypto-backed credit card through a partnership with U...",
+          "description": "Exactly approved a proposal to integrate a crypto-backed credit card through a partnership with Uphold, aiming to increase liquidity and expand user access.",
+          "date": "February 2025",
+          "year": 2025,
+          "month": 2,
+          "entities": [],
+          "tags": [
+            "defi",
+            "governance"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-165",
+          "title": "Wonderland contributed to the 0xbow to ensure privacy pool integrity",
+          "description": "Wonderland contributed to the 0xbow to ensure privacy pool integrity.",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-166",
+          "title": "Co-founded by Diego Fernández (QuarkID), Sovra is a zk-validium L2 on Ethereum focused on decentr...",
+          "description": "Co-founded by Diego Fernández (QuarkID), Sovra is a zk-validium L2 on Ethereum focused on decentralized identity (DID) and real-world assets (RWAs). It provides infrastructure for governments and citizens to issue/verify credentials privately, already serving over 8 million users across Argentina, Mexico, and Colombia.",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "regulation"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-167",
+          "title": "March, 2025: Announced as a platform powered by ZKsync, with features like socialFi, NFT ticketin...",
+          "description": "March, 2025: Announced as a platform powered by ZKsync, with features like socialFi, NFT ticketing, and Bombo Swap (secure NFTicket resales).",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-168",
+          "title": "Bootnode co-develops the Open Intents Framework (OIF) in partnership with Hyperlane and the Ether...",
+          "description": "Bootnode co-develops the Open Intents Framework (OIF) in partnership with Hyperlane and the Ethereum Foundation.  Also built an Integration with EigenLayer's Slashing Upgrade, assisting YieldNest in adapting to EigenLayer's slashing mechanism by implementing dynamic withdrawal synchronization and balance tracking.",
+          "date": "April 2025",
+          "year": 2025,
+          "month": 4,
+          "entities": [],
+          "tags": [
+            "defi",
+            "infrastructure"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-169",
+          "title": "May 2025 - Integration of DAMMstable with RWA tokenizers such as Bondi Finance (Base) and Agni DE...",
+          "description": "May 2025 - Integration of DAMMstable with RWA tokenizers such as Bondi Finance (Base) and Agni DEX (Mantle), providing access to secondary market liquidity for tokenized emerging-market bonds and connecting on-chain fixed-income products.",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-170",
+          "title": "Ripio launches LaChain, an L2 with ZKSync",
+          "description": "Ripio launches LaChain, an L2 with ZKSync.",
+          "date": "May 2025",
+          "year": 2025,
+          "month": 5,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-171",
+          "title": "Launch of the KPK Token for DAO governance, community involvement, and alignment; distributed via...",
+          "description": "Launch of the KPK Token for DAO governance, community involvement, and alignment; distributed via vesting, swaps, and airdrops.",
+          "date": "May 2025",
+          "year": 2025,
+          "month": 5,
+          "entities": [],
+          "tags": [
+            "governance",
+            "community"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-172",
+          "title": "Exactly released the Exa App, featuring the Exa Card, a crypto-backed credit card available in ov...",
+          "description": "Exactly released the Exa App, featuring the Exa Card, a crypto-backed credit card available in over 160 countries, offering users access without requiring a bank account or credit score.",
+          "date": "June 2025",
+          "year": 2025,
+          "month": 6,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-173",
+          "title": "Fat Solutions contributes to Privacy Pools, and built a compliant non KYC mixer",
+          "description": "Fat Solutions contributes to Privacy Pools, and built a compliant non KYC mixer.",
+          "date": "June 2025",
+          "year": 2025,
+          "month": 6,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-174",
+          "title": "Argentina launches its first regulated tokenization regime, allowing real-world assets to be issu...",
+          "description": "Argentina launches its first regulated tokenization regime, allowing real-world assets to be issued and traded under CNV oversight — a key step toward modernizing its capital markets. Launches a one-year regulatory sandbox to test and supervise tokenized asset operations and enables trading through Virtual Asset Service Providers (VASPs).",
+          "date": "June 2025",
+          "year": 2025,
+          "month": 6,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-175",
+          "title": "POAP becomes more social, allowing users to create profiles, link social accounts, follow friends...",
+          "description": "POAP becomes more social, allowing users to create profiles, link social accounts, follow friends, and tag each other in shared moments.",
+          "date": "June 2025",
+          "year": 2025,
+          "month": 6,
+          "entities": [],
+          "tags": [
+            "nfts"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-176",
+          "title": "Fat Solutions built @tongoxyz within the Starknet ecosystem, a real confidential token wrapper ai...",
+          "description": "Fat Solutions built @tongoxyz within the Starknet ecosystem, a real confidential token wrapper aimed for payments",
+          "date": "July 2025",
+          "year": 2025,
+          "month": 7,
+          "entities": [
+            "tongoxyz"
+          ],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-177",
+          "title": "Wonderland began working on Interoperable Addresses for Ethereum, authoring ERC-7930 and CAIP-350...",
+          "description": "Wonderland began working on Interoperable Addresses for Ethereum, authoring ERC-7930 and CAIP-350 and contributing to ERC-7828, ERC-7683.",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-178",
+          "title": "Completion of the audit for Permission Helpers on Uniswap v4, a smart-contract framework that ena...",
+          "description": "Completion of the audit for Permission Helpers on Uniswap v4, a smart-contract framework that enables asset managers to operate under Zodiac Roles for non-custodial asset management. This milestone made it possible to deploy DAMM as DeFi-as-a-Service (DaaS), offering permissionless and self-custodial active market making on Uniswap v4 for clients.",
+          "date": "August 2025",
+          "year": 2025,
+          "month": 8,
+          "entities": [],
+          "tags": [
+            "defi",
+            "security"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-179",
+          "title": "WakeUp Labs delivered Velora's Trustless Rewards Distribution",
+          "description": "WakeUp Labs delivered Velora's Trustless Rewards Distribution.",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-180",
+          "title": "WakeUp Labs Developed the UltraHonk Verifier and Noir zk-proofs integration, enabling native ZK e...",
+          "description": "WakeUp Labs Developed the UltraHonk Verifier and Noir zk-proofs integration, enabling native ZK execution in Arbitrum Stylus",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-181",
+          "title": "Major Protocol Updates and Integrations to Mimic including validators for improved verification, ...",
+          "description": "Major Protocol Updates and Integrations to Mimic including validators for improved verification, support for event triggered tasks. Additionally, expanded Solana and broadened the scope for non-EVM integration.",
+          "date": "September 2025",
+          "year": 2025,
+          "month": 9,
+          "entities": [],
+          "tags": [
+            "infrastructure",
+            "community"
+          ],
+          "importance": "medium"
+        },
+        {
+          "id": "event-182",
+          "title": "A second iteration followed in September 2025 under the name ZKET Core Program, this time focusin...",
+          "description": "A second iteration followed in September 2025 under the name ZKET Core Program, this time focusing on advanced cryptography topics such as zero-knowledge proofs (ZKPs), multi-party computation (MPC), and fully homomorphic encryption (FHE).",
+          "date": "September 2025",
+          "year": 2025,
+          "month": 9,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-183",
+          "title": "Launch of the DAMMstable fund on Lagoon Finance, opening deposits in a non-custodial format for w...",
+          "description": "Launch of the DAMMstable fund on Lagoon Finance, opening deposits in a non-custodial format for whitelisted investors. This integration connected DAMM's strategies to a broader DeFi vault ecosystem. DAMM became the only manager achieving real yield without token incentives.",
+          "date": "September 2025",
+          "year": 2025,
+          "month": 9,
+          "entities": [],
+          "tags": [
+            "defi"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "event-184",
+          "title": "Launch of DAMMeth in stealth mode for private investors, expanding to ETH-denominated strategies",
+          "description": "Launch of DAMMeth in stealth mode for private investors, expanding to ETH-denominated strategies.",
+          "date": "October 2025",
+          "year": 2025,
+          "month": 10,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        },
+        {
+          "id": "event-185",
+          "title": "Kleros builds an agreement with Oxford (find link) and partners with Stanford Journal of Blockchain",
+          "description": "Kleros builds an agreement with Oxford (find link) and partners with Stanford Journal of Blockchain.",
+          "date": "2025",
+          "year": 2025,
+          "entities": [],
+          "tags": [
+            "infrastructure"
+          ],
+          "importance": "low"
+        },
+        {
+          "id": "event-186",
+          "title": "Ethrex, an L1 and L2 execution client coded in Rust, is launched by LambdaClass",
+          "description": "Ethrex, an L1 and L2 execution client coded in Rust, is launched by LambdaClass.",
+          "date": "November 2025",
+          "year": 2025,
+          "month": 11,
+          "entities": [],
+          "tags": [],
+          "importance": "high"
+        }
+      ]
+    }
+  ]
+}

@@ -26,9 +26,11 @@ export function parseTimelineData(rawText: string): YearGroup[] {
     if (line.startsWith("*")) {
       const event = parseEventLine(line, currentYear, eventId++)
       if (event) {
-        const events = yearGroups.get(currentYear) || []
+        // Use the event's actual year, not the section header year
+        const eventYear = event.year
+        const events = yearGroups.get(eventYear) || []
         events.push(event)
-        yearGroups.set(currentYear, events)
+        yearGroups.set(eventYear, events)
       }
     }
   }
@@ -46,10 +48,18 @@ function parseEventLine(line: string, year: number, id: number): Event | null {
   // Extract date if present
   let dateStr = ""
   let month: number | undefined
+  let actualYear = year
   const dateMatch = content.match(/^([A-Za-z]+(?:\s+\d{4})?|Late|Mid|Early|Summer)\s*(\d{4})?:/)
 
   if (dateMatch) {
     dateStr = dateMatch[0].replace(":", "").trim()
+
+    // Check if there's a specific year mentioned in the date
+    const yearInDate = dateMatch[2] || dateMatch[1]?.match(/\d{4}/)?.[0]
+    if (yearInDate) {
+      actualYear = Number.parseInt(yearInDate)
+    }
+
     const monthMap: Record<string, number> = {
       January: 1,
       February: 2,
@@ -73,6 +83,15 @@ function parseEventLine(line: string, year: number, id: number): Event | null {
     }
   }
 
+  // If no date match, check if the line starts with just a year
+  if (!dateMatch && content.match(/^(\d{4}):/)) {
+    const yearMatch = content.match(/^(\d{4}):/)
+    if (yearMatch) {
+      actualYear = Number.parseInt(yearMatch[1])
+      dateStr = yearMatch[1]
+    }
+  }
+
   // Extract description (everything after date)
   const description = dateStr ? content.substring(content.indexOf(":") + 1).trim() : content
 
@@ -89,8 +108,8 @@ function parseEventLine(line: string, year: number, id: number): Event | null {
 
   return {
     id: `event-${id}`,
-    date: dateStr || `${year}`,
-    year,
+    date: dateStr || `${actualYear}`,
+    year: actualYear,
     month,
     title: extractTitle(description),
     description,

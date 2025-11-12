@@ -6,6 +6,7 @@ import { ArrowUp, ArrowUpRight } from "lucide-react"
 import type { TimelineEvent, TimelineYear } from "@/lib/data-parser"
 import { useState, useEffect, useMemo, type RefObject, type ReactNode } from "react"
 import { ERAS } from "@/lib/era-data"
+import { generateEventTitle } from "@/lib/title-generator"
 
 type TimelineLink = NonNullable<TimelineEvent["links"]>[number]
 
@@ -102,7 +103,7 @@ interface ContinuousReadingViewProps {
   yearGroups: TimelineYear[]
   onEntityClick?: (entityId: string) => void
   onEventView?: (eventTitle: string) => void
-  scrollContainerRef?: RefObject<HTMLElement>
+  scrollContainerRef?: RefObject<HTMLElement | null>
 }
 
 export function ContinuousReadingView({
@@ -205,7 +206,7 @@ export function ContinuousReadingView({
   return (
     <>
       <article className="mx-auto w-full max-w-5xl snap-y px-5 text-[#4f473e] md:px-6 lg:px-0">
-        {yearGroups.map((group) => {
+        {yearGroups.map((group, groupIndex) => {
           const eraMeta = eraLookup.get(group.year)
           const shouldRenderEraHeading = eraMeta && !renderedEraIds.has(eraMeta.id)
           if (shouldRenderEraHeading && eraMeta) {
@@ -222,6 +223,13 @@ export function ContinuousReadingView({
             >
               {shouldRenderEraHeading && eraMeta && (
                 <>
+                  {groupIndex > 0 && (
+                    <div className="mb-16 mt-8">
+                      <div className="mb-8 flex items-center gap-4">
+                        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#FF5728]/30 to-transparent" />
+                      </div>
+                    </div>
+                  )}
                   <span
                     data-era-sentinel-id={eraMeta.id}
                     aria-hidden="true"
@@ -229,29 +237,36 @@ export function ContinuousReadingView({
                   />
                   <motion.div
                     key={`${animationMode}-era-${eraMeta.id}-${group.year}`}
-                    className="mb-4 flex flex-col gap-1"
+                    className="mb-8 flex flex-col gap-2 rounded-2xl border border-[#FF5728]/20 bg-gradient-to-r from-[#FFF5F0] to-[#FFFDF7] px-6 py-4 shadow-[0_8px_20px_rgba(255,87,40,0.08)]"
                     {...getRevealProps(12, 0.35)}
                   >
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.01em] text-[#8a8176]">
-                      {eraMeta.range} {" · "} {eraMeta.title}
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#FF5728]/70">
+                      {eraMeta.range}
                     </p>
+                    <h2 className="text-[22px] font-bold uppercase tracking-[-0.02em] text-[#191919]">
+                      {eraMeta.title}
+                    </h2>
                   </motion.div>
                 </>
               )}
 
               <motion.div
                 key={`${animationMode}-year-${group.year}`}
-                className="mb-6 flex flex-col gap-1"
+                className="mb-8 flex flex-col gap-1"
                 {...getRevealProps(10, 0.3)}
               >
-                <span className="text-[13px] font-semibold uppercase tracking-[0.01em] text-[#6b5f55]">
-                  {group.year}
-                </span>
+                <div className="flex items-center gap-4">
+                  <span className="text-[28px] font-bold tabular-nums tracking-[-0.02em] text-[#191919]">
+                    {group.year}
+                  </span>
+                  <div className="h-px flex-1 bg-[rgba(0,0,0,0.08)]" />
+                </div>
               </motion.div>
 
               <div className="mt-8 space-y-5">
                 {group.events.map((event) => {
                   const relatedLinks = getEventLinks(event)
+                  const generatedTitle = generateEventTitle(event.description, event.date)
                   return (
                     <article
                       key={event.id}
@@ -259,16 +274,16 @@ export function ContinuousReadingView({
                       data-event-id={event.id}
                       role="article"
                       tabIndex={-1}
-                      className="group scroll-mt-12 rounded-[34px] border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] px-8 py-8 shadow-[0_22px_35px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:border-[color:var(--accent)]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
+                      className="group scroll-mt-12 rounded-[34px] border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] px-8 py-8 shadow-[0_4px_12px_rgba(255,87,40,0.04),0_1px_3px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(255,87,40,0.12),0_2px_6px_rgba(0,0,0,0.04)] hover:border-[#FF5728]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
                     >
                       <div className="flex flex-col gap-4">
                         <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.01em] text-[#a29385]">
                           <span>{event.date}</span>
                         </div>
-                        <h3 className="text-[20px] font-title-medium leading-snug text-[#191919] transition-colors group-hover:text-[#0f0f0f] md:text-[22px]">
-                          {event.title}
+                        <h3 className="text-[19px] font-semibold leading-snug text-[#191919] md:text-[20px]">
+                          {generatedTitle}
                         </h3>
-                        <p className="text-[15px] leading-7 text-[rgba(25,25,25,0.78)]">{linkifyDescription(event.description)}</p>
+                        <p className="text-[15px] leading-[1.7] text-[#4a4038] md:text-[16px]">{linkifyDescription(event.description)}</p>
                       </div>
 
                       {event.entities.length > 0 && (

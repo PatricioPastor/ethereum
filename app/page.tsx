@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import type { ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import type { TimelineEvent } from "@/lib/data-parser"
 import { extractEntities } from "@/lib/data-parser"
 import { getTimelineData } from "@/lib/timeline-data"
+import { VideoLoader } from "@/components/video-loader"
 
 const heroCopy = {
   title: {
@@ -28,6 +29,7 @@ const eraPreviewData = [
     summary: "Early bitcoin experiments, Xapo, the first Argentinian crypto security firms, exchanges, and Casa Voltaire.",
     logos: ["Ripio", "Xapo", "Casa Voltaire"],
     active: true,
+    faded: false,
   },
   {
     title: "Emergence",
@@ -35,13 +37,15 @@ const eraPreviewData = [
     summary: "Community meetups emerge, early contributions to ERC standards and DeFi, decentralized justice, ETHBuenosAires.",
     logos: ["OpenZeppelin", "POAP", "Kleros"],
     active: false,
+    faded: false,
   },
   {
     title: "Growth",
-    years: "2020 - Present",
-    summary: "DeFi, security, identity, note infrastructure, and data products ripple outward. Argentine contributions scale globally.",
+    years: "2021 - 2022",
+    summary: "DeFi, security, identity, node infrastructure, and data products ripple outward. Argentine contributions scale globally.",
     logos: ["Hardhat", "Muun", "Proof of Humanity"],
     active: false,
+    faded: true,
   },
 ]
 
@@ -82,16 +86,20 @@ export default function HomePage() {
   const flattenedEvents = timeline.flatMap((group) => group.events)
   const highImportanceEvents = flattenedEvents.filter((event) => event.importance === "high")
   const milestoneEvents = (highImportanceEvents.length >= 10 ? highImportanceEvents : flattenedEvents).slice(0, 10)
+  const [videoLoaded, setVideoLoaded] = useState(false)
 
   return (
-    <div className="bg-[#F2F3E1] text-[#191919]">
-      <main className="flex flex-col gap-0">
-        <HeroSection />
-        <EraPreviewSection />
-        <WhyItMattersSection builderCount={entities.length} milestones={milestoneEvents} />
-        <Footer />
-      </main>
-    </div>
+    <>
+      <VideoLoader videoSrc="/Hero Timeline (1).mp4" onLoadComplete={() => setVideoLoaded(true)} />
+      <div className="bg-[#F2F3E1] text-[#191919]" style={{ opacity: videoLoaded ? 1 : 0, transition: "opacity 0.3s ease-in-out" }}>
+        <main className="flex flex-col gap-0">
+          <HeroSection />
+          <EraPreviewSection />
+          <WhyItMattersSection builderCount={entities.length} milestones={milestoneEvents} />
+          <Footer />
+        </main>
+      </div>
+    </>
   )
 }
 
@@ -238,33 +246,32 @@ function EraPreviewSection() {
             <div className="flex flex-col gap-16">
               {eraPreviewData.map((era, index) => {
                 const alignRight = index % 2 === 1
-                const isLast = index === eraPreviewData.length - 1
 
                 return (
                   <motion.article
                     key={era.title}
                     {...fadeIn}
                     transition={{ ...fadeIn.transition, delay: index * 0.1 }}
-                    className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:items-center"
+                    className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:items-start"
                   >
                     <div
                       className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3" : "md:col-start-1"} w-full`}
                     >
                       <div
                       className={`space-y-3 transition duration-300 ${alignRight ? "md:text-right text-left" : "text-left"} ${
-                        isLast ? "text-[#b3a395]" : "text-[#1d1c1a]"
+                        era.faded ? "text-[#b3a395]" : "text-[#1d1c1a]"
                       }`}
                     >
-                      <div className={`text-xs uppercase tracking-[0.2em] ${isLast ? "text-[#c0b1a3]" : "text-[#7a7267]"}`}>{era.years}</div>
-                      <h3 className="text-xl font-title-medium uppercase tracking-[0.1em] text-[#191919]">{era.title}</h3>
-                      <p className={`text-sm leading-relaxed ${isLast ? "text-[#c7b7ac]" : "text-[#4d463d]"}`}>{era.summary}</p>
+                      <div className={`text-xs uppercase tracking-[0.2em] ${era.faded ? "text-[#c0b1a3]" : "text-[#7a7267]"}`}>{era.years}</div>
+                      <h3 className={`text-xl font-title-medium uppercase tracking-[0.1em] ${era.faded ? "text-[#b8a99d]" : "text-[#191919]"}`}>{era.title}</h3>
+                      <p className={`text-sm leading-relaxed ${era.faded ? "text-[#c7b7ac]" : "text-[#4d463d]"}`}>{era.summary}</p>
                       <div
                         className={`mt-4 flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.2em] ${
                           alignRight ? "md:justify-end" : ""
-                        } ${isLast ? "text-[#d1c1b4]" : "text-[#a59c90]"}`}
+                        } ${era.faded ? "text-[#d1c1b4]" : "text-[#a59c90]"}`}
                       >
                         {era.logos.map((logo) => (
-                          <span key={logo} className={`font-semibold ${isLast ? "text-[#e0d3c9]" : "text-[#c8beb3]"}`}>
+                          <span key={logo} className={`font-semibold ${era.faded ? "text-[#e0d3c9]" : "text-[#c8beb3]"}`}>
                             {logo}
                           </span>
                         ))}
@@ -272,26 +279,26 @@ function EraPreviewSection() {
                     </div>
                   </div>
 
-                    <div className="relative order-1 flex items-center justify-center md:order-2 md:col-start-2 md:w-20">
+                    <div className="relative order-1 flex justify-center pt-7 md:order-2 md:col-start-2 md:w-20">
                       <span
                         className={`relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 ${
-                          era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : "border-[#d7c9bf] bg-[#fff9f3]"
+                          era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : era.faded ? "border-[#d7c9bf] bg-[#fff9f3]" : "border-[#d7c9bf] bg-[#fff9f3]"
                         }`}
                       >
-                      {!era.active && <span className="h-2 w-2 rounded-full bg-[#d7c9bf]" />}
+                      {!era.active && <span className={`h-2 w-2 rounded-full ${era.faded ? "bg-[#e5ddd4]" : "bg-[#d7c9bf]"}`} />}
                     </span>
                   </div>
                 </motion.article>
               )
             })}
           </div>
-            <div
+            {/* <div
               className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
               aria-hidden="true"
-            />
+            /> */}
           </div>
 
-        <div className="flex justify-center pt-4">
+        <div className="flex z-[10] justify-center pt-4">
           <Button
             asChild
             className="rounded-full border border-black/5 bg-black px-8 py-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition hover:scale-[1.01] hover:bg-[#1a1a1a]"
@@ -303,6 +310,11 @@ function EraPreviewSection() {
           </Button>
         </div>
       </div>
+       <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[500px] bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
+              aria-hidden="true"
+            /> 
+      
     </section>
   )
 }
@@ -362,7 +374,17 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
 
   const scrollByAmount = (delta: number) => {
     if (!sliderRef.current) return
-    sliderRef.current.scrollBy({ left: delta, behavior: "smooth" })
+
+    // Calcular el ancho de una tarjeta más el gap
+    const slider = sliderRef.current
+    const firstCard = slider.querySelector('button[class*="snap-center"]')
+    if (!firstCard) return
+
+    const cardWidth = firstCard.getBoundingClientRect().width
+    const gap = 24 // 24px = gap-6 de Tailwind
+    const scrollAmount = delta > 0 ? (cardWidth + gap) : -(cardWidth + gap)
+
+    slider.scrollBy({ left: scrollAmount, behavior: "smooth" })
   }
   const router = useRouter()
 
@@ -411,7 +433,7 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
     <div className="relative" role="region" aria-label="Key timeline milestones">
       <button
         type="button"
-        onClick={() => scrollByAmount(-(setWidthRef.current || 400))}
+        onClick={() => scrollByAmount(-1)}
         className="pointer-events-auto absolute left-0 top-1/2 z-30 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/60 p-2 text-white transition hover:bg-black/80 sm:flex"
         aria-label="Scroll milestones left"
       >
@@ -419,7 +441,7 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
       </button>
       <button
         type="button"
-        onClick={() => scrollByAmount(setWidthRef.current || 400)}
+        onClick={() => scrollByAmount(1)}
         className="pointer-events-auto absolute right-0 top-1/2 z-30 hidden -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/60 p-2 text-white transition hover:bg-black/80 sm:flex"
         aria-label="Scroll milestones right"
       >
@@ -435,10 +457,10 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
             <button
               key={`${milestone.id}-${index}`}
               type="button"
-              onClick={() => router.push("/timeline")}
+              onClick={() => router.push(`/timeline?event=${milestone.id}`)}
               className="snap-center shrink-0 basis-[90%] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF5728]/60 sm:basis-[70%] lg:basis-[55%]"
             >
-              <article className="h-full rounded-[40px] border border-white/10 bg-gradient-to-br from-[#151515] to-[#0a0a0a] px-8 py-10 text-white shadow-[0_25px_70px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
+              <article className="h-full rounded-[40px] border border-white/10 bg-gradient-to-br from-[#151515] to-[#0a0a0a] px-8 py-10 text-white shadow-[0_25px_70px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out hover:border-[#FF6B2C] hover:shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
                 <div className="mb-5 text-[11px] uppercase text-white/60">
                   <span>{formatMilestoneDate(milestone)}</span>
                 </div>

@@ -32,6 +32,7 @@ export default function TimelinePage() {
   const navigationInProgressRef = useRef(false)
   const hasCollapsedOnceRef = useRef(false)
   const hasNavigatedToEventRef = useRef(false)
+  const hasInitializedScrollRef = useRef(false)
 
   const { years, filteredData } = useYears({
     timelineData,
@@ -229,17 +230,23 @@ export default function TimelinePage() {
     setActiveEraId((prev) => (prev === fallbackEra.id ? prev : fallbackEra.id))
   }, [fallbackEra])
 
+  // Only fallback to first year on initial load, not during scrolling
   useEffect(() => {
     if (filteredData.length === 0) return
+    if (navigationInProgressRef.current) return
+
     const hasActiveYear = filteredData.some((group) => group.year === activeYear)
     if (hasActiveYear) return
 
     const fallbackYear = filteredData[0]?.year
     if (!fallbackYear) return
 
-    requestAnimationFrame(() => {
-      handleYearClick(fallbackYear)
-    })
+    // Only navigate if this is initial load (activeYear is still default)
+    if (activeYear === 2008) {
+      requestAnimationFrame(() => {
+        handleYearClick(fallbackYear)
+      })
+    }
   }, [filteredData, activeYear, handleYearClick])
 
   useEffect(() => {
@@ -288,8 +295,10 @@ export default function TimelinePage() {
     "--text-color": textColor,
   } as CSSProperties
 
-  // Set initial scroll position to offset the header
+  // Set initial scroll position to offset the header - only once on mount
   useEffect(() => {
+    if (hasInitializedScrollRef.current) return
+
     const container = scrollContainerRef.current
     if (container && filteredData.length > 0) {
       const firstYearElement = container.querySelector<HTMLElement>(`[data-year="${filteredData[0].year}"]`)
@@ -299,17 +308,18 @@ export default function TimelinePage() {
         if (offset < 0) {
           container.scrollTo({ top: Math.abs(offset), behavior: "instant" })
         }
+        hasInitializedScrollRef.current = true
       }
     }
   }, [filteredData, isScrolled])
 
   return (
-    <div className="relative min-h-screen bg-[#FFFDF7] text-[color:var(--text-color)]" style={themeStyles}>
+    <div className="relative min-h-screen bg-[#FFFDF7] text-[color:var(--text-color)]" style={{...themeStyles, overscrollBehavior: 'none'}}>
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_top,_rgba(255,127,80,0.35),transparent_70%)]" />
         <div className="absolute inset-y-0 right-0 w-64 bg-[linear-gradient(180deg,rgba(255,127,80,0.12)_0%,transparent_55%,rgba(255,127,80,0.16)_100%)]" />
       </div>
-      <div className="flex h-screen overflow-hidden bg-[#FFFDF7] text-[#191919]">
+      <div className="flex h-screen overflow-hidden bg-[#FFFDF7] text-[#191919]" style={{overscrollBehavior: 'none'}}>
         <YearSidebar
           years={years}
           currentYear={activeYear}
@@ -319,9 +329,36 @@ export default function TimelinePage() {
           onEventSelect={handleSearchEventSelect}
         />
 
-        <main className="flex h-screen flex-1 flex-col overflow-hidden border-l border-[rgba(0,0,0,0.08)] bg-[#FFFDF7]">
+        <main className="flex h-screen flex-1 flex-col overflow-hidden overflow-x-hidden border-l border-[rgba(0,0,0,0.08)] bg-[#FFFDF7]">
+          {/* Mobile Header */}
+          <div className="sticky top-0 z-50 border-b border-[rgba(0,0,0,0.08)] bg-gradient-to-b from-[#FEE8D1]/98 via-[#FFF5E6]/98 to-[#FFFDF7]/98 backdrop-blur-xl md:hidden">
+            <div className="flex h-16 items-center justify-between px-4">
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] p-2 text-[#191919] hover:bg-[color:var(--accent)] hover:text-white"
+                onClick={() => setYearDrawerOpen(true)}
+                aria-label="Open year navigation"
+              >
+                <PanelLeft className="h-5 w-5" />
+              </Button>
+
+              <div className="flex-1 px-3 text-center">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#7f796f]">
+                  {currentEra?.yearStart}–{currentEra?.yearEnd}
+                </div>
+                <h2 className="text-sm font-bold uppercase tracking-[-0.02em] text-[#191919]">
+                  {currentEra?.name}
+                </h2>
+              </div>
+
+              <div className="w-10" />
+            </div>
+          </div>
+
+          {/* Desktop Header */}
           <div
-            className={`sticky top-0 z-50 border-b border-[rgba(0,0,0,0.08)] bg-gradient-to-b from-[#FEE8D1]/98 via-[#FFF5E6]/98 to-[#FFFDF7]/98 backdrop-blur-xl transition-all duration-300 ${
+            className={`sticky top-0 z-50 border-b border-[rgba(0,0,0,0.08)] bg-gradient-to-b from-[#FEE8D1]/98 via-[#FFF5E6]/98 to-[#FFFDF7]/98 backdrop-blur-xl transition-all duration-300 hidden md:block ${
               isScrolled ? "py-3" : "py-6"
             }`}
           >
@@ -337,16 +374,6 @@ export default function TimelinePage() {
                     </p>
                   </div>
                 )}
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="self-center rounded-full border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.01em] text-[#191919] hover:bg-[color:var(--accent)] hover:text-white md:hidden md:self-start"
-                  onClick={() => setYearDrawerOpen(true)}
-                  aria-label="Open year navigation"
-                >
-                  <PanelLeft className="mr-2 h-4 w-4" />
-                  Years
-                </Button>
               </div>
 
               <div className={`${isScrolled ? "mt-1" : "mt-4"} grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4`}>
@@ -389,8 +416,11 @@ export default function TimelinePage() {
 
           <div
             ref={scrollContainerRef}
-            className="flex-1 overflow-y-auto snap-y snap-proximity scroll-smooth"
-            style={{ scrollPaddingTop: `${headerScrollPadding}px` }}
+            className="flex-1 overflow-y-auto overflow-x-hidden snap-y snap-proximity scroll-smooth"
+            style={{
+              scrollPaddingTop: `${headerScrollPadding}px`,
+              overscrollBehaviorY: 'none'
+            }}
           >
             <div className="mx-auto w-full max-w-5xl px-6 pt-0 pb-10 md:px-8"> {/* Changed pt-16 to pt-0 */}
               <div className="w-full mt-[120px]"> {/* Added initial offset */}

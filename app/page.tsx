@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef } from "react"
 import type { ReactNode } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button"
 import type { TimelineEvent } from "@/lib/data-parser"
 import { extractEntities } from "@/lib/data-parser"
 import { getTimelineData } from "@/lib/timeline-data"
-import { VideoLoader } from "@/components/video-loader"
 
 const heroCopy = {
   title: {
@@ -86,20 +85,16 @@ export default function HomePage() {
   const flattenedEvents = timeline.flatMap((group) => group.events)
   const highImportanceEvents = flattenedEvents.filter((event) => event.importance === "high")
   const milestoneEvents = (highImportanceEvents.length >= 10 ? highImportanceEvents : flattenedEvents).slice(0, 10)
-  const [videoLoaded, setVideoLoaded] = useState(false)
 
   return (
-    <>
-      <VideoLoader videoSrc="/Hero Timeline (1).mp4" onLoadComplete={() => setVideoLoaded(true)} />
-      <div className="bg-[#F2F3E1] text-[#191919]" style={{ opacity: videoLoaded ? 1 : 0, transition: "opacity 0.3s ease-in-out" }}>
-        <main className="flex flex-col gap-0">
-          <HeroSection />
-          <EraPreviewSection />
-          <WhyItMattersSection builderCount={entities.length} milestones={milestoneEvents} />
-          <Footer />
-        </main>
-      </div>
-    </>
+    <div className="bg-[#F2F3E1] text-[#191919]">
+      <main className="flex flex-col gap-0">
+        <HeroSection />
+        <EraPreviewSection />
+        <WhyItMattersSection builderCount={entities.length} milestones={milestoneEvents} />
+        <Footer />
+      </main>
+    </div>
   )
 }
 
@@ -211,7 +206,7 @@ function EraPreviewSection() {
       className="relative z-20 -mt-16 overflow-hidden rounded-t-[56px] bg-gradient-to-b from-[#fffdf9] via-[#fff3ea] to-[#ffe3cf] px-4 pb-20 shadow-[0_50px_140px_rgba(0,0,0,0.18)] sm:-mt-20 sm:px-6 md:-mt-28 lg:-mt-[180px] lg:px-8"
       aria-labelledby="era-preview-heading"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 pt-16 pb-24 sm:px-10 md:px-16">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 pt-24 pb-24 sm:px-10 sm:pt-28 md:px-16 md:pt-32">
         <motion.div
           {...fadeIn}
           className="grid gap-10 text-[#191919] md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start"
@@ -238,26 +233,26 @@ function EraPreviewSection() {
           </div>
         </motion.div>
 
-          <div className="relative">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-[#d7cdc0] via-[#b5a799] to-transparent"
-            />
-            <div className="flex flex-col gap-16">
-              {eraPreviewData.map((era, index) => {
-                const alignRight = index % 2 === 1
+        <div className="relative">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-[#d7cdc0] via-[#b5a799] to-transparent"
+          />
+          <div className="flex flex-col gap-16">
+            {eraPreviewData.map((era, index) => {
+              const alignRight = index % 2 === 1;
 
-                return (
-                  <motion.article
-                    key={era.title}
-                    {...fadeIn}
-                    transition={{ ...fadeIn.transition, delay: index * 0.1 }}
-                    className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:items-start"
+              return (
+                <motion.article
+                  key={era.title}
+                  {...fadeIn}
+                  transition={{ ...fadeIn.transition, delay: index * 0.1 }}
+                  className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto] md:items-start"
+                >
+                  <div
+                    className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3" : "md:col-start-1"} w-full md:row-span-1`}
                   >
                     <div
-                      className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3" : "md:col-start-1"} w-full`}
-                    >
-                      <div
                       className={`space-y-3 transition duration-300 ${alignRight ? "md:text-right text-left" : "text-left"} ${
                         era.faded ? "text-[#b3a395]" : "text-[#1d1c1a]"
                       }`}
@@ -279,24 +274,24 @@ function EraPreviewSection() {
                     </div>
                   </div>
 
-                    <div className="relative order-1 flex justify-center pt-7 md:order-2 md:col-start-2 md:w-20">
-                      <span
-                        className={`relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 ${
-                          era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : era.faded ? "border-[#d7c9bf] bg-[#fff9f3]" : "border-[#d7c9bf] bg-[#fff9f3]"
-                        }`}
-                      >
+                  <div className={`relative order-1 md:order-2 md:col-start-2 md:row-start-1 flex justify-center items-start md:items-center ${alignRight ? "pt-[52px]" : "pt-7"}`}>
+                    <span
+                      className={`relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 ${
+                        era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : era.faded ? "border-[#d7c9bf] bg-[#fff9f3]" : "border-[#d7c9bf] bg-[#fff9f3]"
+                      }`}
+                    >
                       {!era.active && <span className={`h-2 w-2 rounded-full ${era.faded ? "bg-[#e5ddd4]" : "bg-[#d7c9bf]"}`} />}
                     </span>
                   </div>
                 </motion.article>
-              )
+              );
             })}
           </div>
-            {/* <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
-              aria-hidden="true"
-            /> */}
-          </div>
+          {/* <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
+            aria-hidden="true"
+          /> */}
+        </div>
 
         <div className="flex z-[10] justify-center pt-4">
           <Button
@@ -310,13 +305,12 @@ function EraPreviewSection() {
           </Button>
         </div>
       </div>
-       <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-[500px] bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
-              aria-hidden="true"
-            /> 
-      
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[500px] bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
+        aria-hidden="true"
+      /> 
     </section>
-  )
+  );
 }
 
 function WhyItMattersSection({ builderCount, milestones }: { builderCount: number; milestones: TimelineEvent[] }) {

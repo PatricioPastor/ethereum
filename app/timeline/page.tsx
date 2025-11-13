@@ -97,15 +97,10 @@ export default function TimelinePage() {
       const element = container?.querySelector<HTMLElement>(`[data-year="${year}"]`)
       if (element) {
         if (container) {
-          // Calcular el offset exacto considerando el header
           const containerRect = container.getBoundingClientRect()
           const elementRect = element.getBoundingClientRect()
           const currentScroll = container.scrollTop
-
-          // Posición del elemento relativa al viewport del container
           const elementOffsetInContainer = elementRect.top - containerRect.top
-
-          // Scroll target con padding del header
           const target = currentScroll + elementOffsetInContainer - headerScrollPadding
 
           container.scrollTo({
@@ -162,8 +157,6 @@ export default function TimelinePage() {
   }
 
   useEffect(() => {
-    const rafId: number | null = null
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault()
@@ -173,13 +166,9 @@ export default function TimelinePage() {
     }
 
     window.addEventListener("keydown", handleKeyDown)
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown)
-      if (rafId) cancelAnimationFrame(rafId)
-    }
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, [searchModalOpen])
 
-  // Handle navigation from URL params (e.g., from milestone cards)
   useEffect(() => {
     if (hasNavigatedToEventRef.current) return
 
@@ -188,7 +177,6 @@ export default function TimelinePage() {
 
     if (eventId) {
       hasNavigatedToEventRef.current = true
-      // Wait for initial render to complete
       setTimeout(() => {
         navigateToEvent(eventId)
       }, 500)
@@ -223,7 +211,6 @@ export default function TimelinePage() {
       },
       {
         root: container,
-        // Mejorar detección usando rootMargin para que sea más responsivo
         rootMargin: `-${headerScrollPadding}px 0px -40% 0px`,
         threshold: [0, 0.1, 0.25, 0.5],
       },
@@ -301,8 +288,22 @@ export default function TimelinePage() {
     "--text-color": textColor,
   } as CSSProperties
 
-  return (
+  // Set initial scroll position to offset the header
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (container && filteredData.length > 0) {
+      const firstYearElement = container.querySelector<HTMLElement>(`[data-year="${filteredData[0].year}"]`)
+      if (firstYearElement) {
+        const headerHeight = isScrolled ? 140 : 260
+        const offset = firstYearElement.getBoundingClientRect().top + container.scrollTop - headerHeight
+        if (offset < 0) {
+          container.scrollTo({ top: Math.abs(offset), behavior: "instant" })
+        }
+      }
+    }
+  }, [filteredData, isScrolled])
 
+  return (
     <div className="relative min-h-screen bg-[#FFFDF7] text-[color:var(--text-color)]" style={themeStyles}>
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_top,_rgba(255,127,80,0.35),transparent_70%)]" />
@@ -391,8 +392,8 @@ export default function TimelinePage() {
             className="flex-1 overflow-y-auto snap-y snap-proximity scroll-smooth"
             style={{ scrollPaddingTop: `${headerScrollPadding}px` }}
           >
-            <div className="mx-auto w-full max-w-5xl px-6 pt-16 pb-10 md:px-8">
-              <div className="w-full">
+            <div className="mx-auto w-full max-w-5xl px-6 pt-0 pb-10 md:px-8"> {/* Changed pt-16 to pt-0 */}
+              <div className="w-full mt-[120px]"> {/* Added initial offset */}
                 <ContinuousReadingView
                   yearGroups={filteredData}
                   onEntityClick={setSelectedEntity}

@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useMemo, useRef } from "react"
 import type { ReactNode } from "react"
 import Link from "next/link"
@@ -111,7 +112,7 @@ function HeroSection() {
       </div>
 
       <div className="px-6 pt-6">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex w-full max-w-5xl flex-row items-center justify-between">
           <Image
             src="/crecimiento-logo-header.svg"
             alt="Crecimiento Logo"
@@ -120,55 +121,53 @@ function HeroSection() {
             priority
             className="h-12 w-auto sm:h-16"
           />
-          <div className="flex justify-end">
-            <nav
-              aria-label="Primary"
-              className="flex items-center rounded-full bg-black/90 p-1 text-xs font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.45)]"
-            >
-              {primaryNavLinks.map((link) => {
-                const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`rounded-full px-6 py-1.5 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                      isActive
-                        ? "bg-[#FF5728] text-white shadow-[0_12px_30px_rgba(255,87,40,0.35)]"
-                        : "text-white/70 hover:text-white"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              })}
-            </nav>
-          </div>
+          <nav
+            aria-label="Primary"
+            className="flex items-center rounded-full bg-black/90 p-1 text-xs font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.45)]"
+          >
+            {primaryNavLinks.map((link) => {
+              const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href)
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`rounded-full px-6 py-1.5 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                    isActive
+                      ? "bg-[#FF5728] text-white shadow-[0_12px_30px_rgba(255,87,40,0.35)]"
+                      : "text-white/70 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+          </nav>
         </div>
       </div>
 
       <div className="relative mx-auto flex w-full max-w-5xl flex-col px-0">
         <div className="pointer-events-none absolute right-0 top-1/2 z-20 hidden translate-y-[-60%] items-start gap-4 text-white sm:flex">
-            <ArrowUpRight className="h-10 w-10 text-white" />
-            <div className="flex flex-col text-left text-sm font-semibold uppercase tracking-[-0.01em] leading-tight sm:text-base">
-              <span>Bring</span>
-              <span>Argentina</span>
-              <span>Onchain</span>
-            </div>
+          <ArrowUpRight className="h-10 w-10 text-white" />
+          <div className="flex flex-col text-left text-sm font-semibold uppercase tracking-[-0.01em] leading-tight sm:text-base">
+            <span>Bring</span>
+            <span>Argentina</span>
+            <span>Onchain</span>
           </div>
+        </div>
 
-          <div className="relative z-10 flex min-h-[inherit] flex-col justify-center gap-8 py-32 sm:py-36 lg:py-40">
-            <div className="max-w-2xl space-y-6 text-left">
-              <span className="inline-flex items-center rounded-full border border-white/80 bg-white/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
-                2008 – 2025
-              </span>
+        <div className="relative z-10 flex min-h-[inherit] flex-col justify-center gap-8 py-32 sm:py-36 lg:py-40">
+          <div className="max-w-2xl space-y-6 text-left">
+            <span className="inline-flex items-center rounded-full border border-white/80 bg-white/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+              2008 – 2025
+            </span>
             <motion.h1
               {...fadeIn}
               className="text-[48px] font-bold uppercase leading-[1.05] tracking-[-0.04em] text-white sm:text-[60px]"
             >
-                <span className="font-normal not-italic text-white/90">{heroCopy.title.prefix}</span>{" "}
-                <span className="font-medium italic">{heroCopy.title.suffix}</span>
-              </motion.h1>
+              <span className="font-normal not-italic text-white/90">{heroCopy.title.prefix}</span>{" "}
+              <span className="font-medium italic">{heroCopy.title.suffix}</span>
+            </motion.h1>
             <motion.p
               {...fadeIn}
               transition={{ ...fadeIn.transition, delay: 0.1 }}
@@ -195,7 +194,6 @@ function HeroSection() {
           </motion.div>
         </div>
       </div>
-      
     </section>
   )
 }
@@ -203,21 +201,21 @@ function HeroSection() {
 function EraPreviewSection() {
   return (
     <section
-      className="relative z-20 -mt-16 overflow-hidden rounded-t-[56px] bg-gradient-to-b from-[#fffdf9] via-[#fff3ea] to-[#ffe3cf] px-4 pb-20 shadow-[0_50px_140px_rgba(0,0,0,0.18)] sm:-mt-20 sm:px-6 md:-mt-28 lg:-mt-[180px] lg:px-8"
+      className="relative z-20 -mt-12 overflow-hidden rounded-t-[56px] bg-gradient-to-b from-[#fffdf9] via-[#fff3ea] to-[#ffe3cf] px-4 pb-12 shadow-[0_50px_140px_rgba(0,0,0,0.18)] sm:-mt-16 sm:px-6 md:-mt-20 md:px-8 lg:-mt-[140px]"
       aria-labelledby="era-preview-heading"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 pt-24 pb-24 sm:px-10 sm:pt-28 md:px-16 md:pt-32">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 pt-16 pb-12 sm:px-6 sm:pt-20 md:px-8 md:pt-24">
         <motion.div
           {...fadeIn}
-          className="grid gap-10 text-[#191919] md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start"
+          className="grid gap-6 text-[#191919] md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start"
           id="era-preview-heading"
         >
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#7a7267]">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7a7267]">
               <span>Era Preview</span>
               <span className="hidden h-px flex-1 bg-[#d6cdc1] sm:block" aria-hidden="true" />
             </div>
-            <h2 className="text-3xl font-semibold uppercase tracking-[-0.03em] text-[#191919] sm:text-[40px]">
+            <h2 className="text-2xl font-semibold uppercase tracking-[-0.03em] text-[#191919] sm:text-3xl md:text-[40px]">
               Four eras, one through-line of Argentine craft.
             </h2>
           </div>
@@ -227,7 +225,7 @@ function EraPreviewSection() {
               alt="Era preview texture"
               width={320}
               height={480}
-              className="h-32 w-auto -rotate-90 object-contain sm:h-36 md:h-40 lg:h-44"
+              className="h-24 w-auto -rotate-90 object-contain sm:h-28 md:h-32 lg:h-40"
               priority
             />
           </div>
@@ -236,9 +234,9 @@ function EraPreviewSection() {
         <div className="relative">
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-[#d7cdc0] via-[#b5a799] to-transparent"
+            className="pointer-events-none md:block hidden absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-[#d7cdc0] via-[#b5a799] to-transparent"
           />
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-12">
             {eraPreviewData.map((era, index) => {
               const alignRight = index % 2 === 1;
 
@@ -247,21 +245,21 @@ function EraPreviewSection() {
                   key={era.title}
                   {...fadeIn}
                   transition={{ ...fadeIn.transition, delay: index * 0.1 }}
-                  className="relative grid gap-8 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto] md:items-start"
+                  className="relative grid gap-6 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto] md:items-start"
                 >
                   <div
                     className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3" : "md:col-start-1"} w-full md:row-span-1`}
                   >
                     <div
-                      className={`space-y-3 transition duration-300 ${alignRight ? "md:text-right text-left" : "text-left"} ${
+                      className={`space-y-2 transition duration-300 ${alignRight ? "md:text-right text-left" : "text-left"} ${
                         era.faded ? "text-[#b3a395]" : "text-[#1d1c1a]"
                       }`}
                     >
                       <div className={`text-xs uppercase tracking-[0.2em] ${era.faded ? "text-[#c0b1a3]" : "text-[#7a7267]"}`}>{era.years}</div>
-                      <h3 className={`text-xl font-title-medium uppercase tracking-[0.1em] ${era.faded ? "text-[#b8a99d]" : "text-[#191919]"}`}>{era.title}</h3>
+                      <h3 className={`text-lg font-title-medium uppercase tracking-[0.1em] ${era.faded ? "text-[#b8a99d]" : "text-[#191919]"}`}>{era.title}</h3>
                       <p className={`text-sm leading-relaxed ${era.faded ? "text-[#c7b7ac]" : "text-[#4d463d]"}`}>{era.summary}</p>
                       <div
-                        className={`mt-4 flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.2em] ${
+                        className={`mt-3 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] ${
                           alignRight ? "md:justify-end" : ""
                         } ${era.faded ? "text-[#d1c1b4]" : "text-[#a59c90]"}`}
                       >
@@ -274,29 +272,25 @@ function EraPreviewSection() {
                     </div>
                   </div>
 
-                  <div className={`relative order-1 md:order-2 md:col-start-2 md:row-start-1 flex justify-center items-start md:items-center ${alignRight ? "pt-[52px]" : "pt-7"}`}>
+                  <div className={`relative order-1 md:order-2 md:col-start-2 md:row-start-1 md:flex hidden justify-center items-start ${alignRight ? "pt-[40px]" : "pt-5"}`}>
                     <span
-                      className={`relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 ${
+                      className={`relative z-10 flex h-5 w-5 items-center justify-center rounded-full border-2 ${
                         era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : era.faded ? "border-[#d7c9bf] bg-[#fff9f3]" : "border-[#d7c9bf] bg-[#fff9f3]"
                       }`}
                     >
-                      {!era.active && <span className={`h-2 w-2 rounded-full ${era.faded ? "bg-[#e5ddd4]" : "bg-[#d7c9bf]"}`} />}
+                      {!era.active && <span className={`h-1.5 w-1.5 rounded-full ${era.faded ? "bg-[#e5ddd4]" : "bg-[#d7c9bf]"}`} />}
                     </span>
                   </div>
                 </motion.article>
               );
             })}
           </div>
-          {/* <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
-            aria-hidden="true"
-          /> */}
         </div>
 
-        <div className="flex z-[10] justify-center pt-4">
+        <div className="flex justify-center pt-4">
           <Button
             asChild
-            className="rounded-full border border-black/5 bg-black px-8 py-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition hover:scale-[1.01] hover:bg-[#1a1a1a]"
+            className="rounded-full border border-black/5 bg-black px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition hover:scale-[1.01] hover:bg-[#1a1a1a] sm:px-8 sm:py-3"
           >
             <Link href="/timeline">
               Explore full timeline
@@ -305,10 +299,6 @@ function EraPreviewSection() {
           </Button>
         </div>
       </div>
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[500px] bg-gradient-to-b from-transparent via-[#ffe8d7]/85 to-[#ffe8d7]"
-        aria-hidden="true"
-      /> 
     </section>
   );
 }
@@ -318,15 +308,15 @@ function WhyItMattersSection({ builderCount, milestones }: { builderCount: numbe
 
   return (
     <section
-      className="relative z-30 -mt-12 overflow-hidden rounded-t-[56px] bg-gradient-to-b from-[#0b0b0b] via-[#050505] to-[#1b0804] px-4 pb-20 pt-14 text-white shadow-[0_50px_140px_rgba(0,0,0,0.4)] sm:-mt-16 sm:px-6 sm:pt-16 md:-mt-20 lg:-mt-[140px] lg:px-8 lg:pt-20"
+      className="relative z-30 -mt-12 overflow-hidden rounded-t-[56px] bg-gradient-to-b from-[#0b0b0b] via-[#050505] to-[#1b0804] px-4 pb-12 pt-10 text-white shadow-[0_50px_140px_rgba(0,0,0,0.4)] sm:-mt-16 sm:px-6 sm:pt-12 md:-mt-20 lg:-mt-[140px] lg:px-8 lg:pt-16"
       aria-labelledby="why-it-matters-heading"
     >
-      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 py-16 sm:px-10 md:px-16">
-        <div className="grid gap-10 text-white/85 md:grid-cols-3" id="why-it-matters-heading">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 py-10 sm:px-6 md:px-8">
+        <div className="grid gap-6 text-white/85 md:grid-cols-3" id="why-it-matters-heading">
           {infoTiles.map((tile, index) => (
-            <motion.div key={tile.kicker} {...fadeIn} transition={{ ...fadeIn.transition, delay: index * 0.1 }} className="space-y-4">
+            <motion.div key={tile.kicker} {...fadeIn} transition={{ ...fadeIn.transition, delay: index * 0.1 }} className="space-y-3">
               <Glyph variant={tile.icon} />
-              <h3 className="text-[12px] font-semibold uppercase tracking-[0.35em] text-white">{tile.kicker}</h3>
+              <h3 className="text-[10px] font-semibold uppercase tracking-[0.35em] text-white">{tile.kicker}</h3>
               <p className="text-sm leading-relaxed text-white/70">{tile.body}</p>
             </motion.div>
           ))}
@@ -334,15 +324,15 @@ function WhyItMattersSection({ builderCount, milestones }: { builderCount: numbe
 
         <MilestoneSlider milestones={milestones} />
 
-        <div className="flex flex-col items-center gap-6 text-center">
-          <span className="inline-flex h-px w-20 bg-white/20" aria-hidden="true" />
-          <p className="text-sm uppercase tracking-[0.3em] text-white/70">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <span className="inline-flex h-px w-16 bg-white/20" aria-hidden="true" />
+          <p className="text-xs uppercase tracking-[0.3em] text-white/70">
             <span className="italic text-white/70">THANK YOU TO THE</span> <span className="font-semibold text-white">{builderLabel}</span> and{" "}
             <span className="font-semibold">[FOUNDERS]</span> <span className="italic text-white/70">FOR SHARING YOUR STORIES.</span>
           </p>
           <Button
             asChild
-            className="rounded-full border border-transparent bg-[#FF5728] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-white shadow-[0_20px_60px_rgba(255,87,40,0.45)] transition hover:bg-[#ff6f46]"
+            className="rounded-full border border-transparent bg-[#FF5728] px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white shadow-[0_20px_60px_rgba(255,87,40,0.45)] transition hover:bg-[#ff6f46] sm:px-8 sm:py-3"
           >
             <Link href="https://tally.so/r/5BKdMP" target="_blank" rel="noreferrer">
               Add your contribution
@@ -352,7 +342,7 @@ function WhyItMattersSection({ builderCount, milestones }: { builderCount: numbe
         </div>
       </div>
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-48 bg-[radial-gradient(circle_at_bottom,rgba(255,102,44,0.7),rgba(0,0,0,0))] opacity-90 blur-3xl"
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-[radial-gradient(circle_at_bottom,rgba(255,102,44,0.7),rgba(0,0,0,0))] opacity-90 blur-3xl"
         aria-hidden="true"
       />
     </section>
@@ -369,14 +359,13 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
   const scrollByAmount = (delta: number) => {
     if (!sliderRef.current) return
 
-    // Calcular el ancho de una tarjeta más el gap
     const slider = sliderRef.current
     const firstCard = slider.querySelector('button[class*="snap-center"]')
     if (!firstCard) return
 
     const cardWidth = firstCard.getBoundingClientRect().width
     const gap = 24 // 24px = gap-6 de Tailwind
-    const scrollAmount = delta > 0 ? (cardWidth + gap) : -(cardWidth + gap)
+    const scrollAmount = delta > 0 ? cardWidth + gap : -(cardWidth + gap)
 
     slider.scrollBy({ left: scrollAmount, behavior: "smooth" })
   }
@@ -444,7 +433,7 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
       <div
         ref={sliderRef}
         onScroll={handleScroll}
-        className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-6 sm:mx-0 sm:px-0"
+        className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0"
       >
         {loopedMilestones.map((milestone, index) => {
           return (
@@ -454,19 +443,19 @@ function MilestoneSlider({ milestones }: { milestones: TimelineEvent[] }) {
               onClick={() => router.push(`/timeline?event=${milestone.id}`)}
               className="snap-center shrink-0 basis-[90%] text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FF5728]/60 sm:basis-[70%] lg:basis-[55%]"
             >
-              <article className="h-full rounded-[40px] border border-white/10 bg-gradient-to-br from-[#151515] to-[#0a0a0a] px-8 py-10 text-white shadow-[0_25px_70px_rgba(0,0,0,0.3)] transition-all duration-300 ease-in-out hover:border-[#FF6B2C] hover:shadow-[0_30px_90px_rgba(0,0,0,0.35)]">
-                <div className="mb-5 text-[11px] uppercase text-white/60">
+              <article className="h-full rounded-[40px] border border-white/10 bg-gradient-to-br from-[#151515] to-[#0a0a0a] px-6 py-6 text-white transition-all duration-300 ease-in-out hover:border-[#FF6B2C] hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+                <div className="mb-3 text-[10px] uppercase text-white/60">
                   <span>{formatMilestoneDate(milestone)}</span>
                 </div>
-                <h3 className="text-2xl font-semibold uppercase text-white">{milestone.title}</h3>
-                <p className="mt-4 text-base leading-relaxed text-white/80">{formatHandles(milestone.description)}</p>
+                <h3 className="text-xl font-semibold uppercase text-white">{milestone.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/80">{formatHandles(milestone.description)}</p>
               </article>
             </button>
           )
         })}
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#0b0b0b] via-[#0b0b0b]/80 to-transparent" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#0b0b0b] via-[#0b0b0b]/80 to-transparent" aria-hidden="true" />
+      <div className="pointer-events-none md:block hidden absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[#0b0b0b] via-[#0b0b0b]/80 to-transparent" aria-hidden="true" />
+      <div className="pointer-events-none md:block hidden absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[#0b0b0b] via-[#0b0b0b]/80 to-transparent" aria-hidden="true" />
     </div>
   )
 }
@@ -499,22 +488,22 @@ function formatMilestoneDate(event: TimelineEvent) {
 function Footer() {
   return (
     <footer className="bg-[#050505] text-white">
-      <div className="container flex flex-col gap-10 py-16">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <div className="flex max-w-2xl flex-col gap-4">
+      <div className="container flex flex-col gap-8 py-12 px-4 sm:px-6 md:px-8">
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="flex max-w-2xl flex-col gap-3">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Builders Archive</span>
-            <p className="text-base text-white/80">
+            <p className="text-sm text-white/80">
               Documenting Argentina&apos;s crypto ingenuity, from the first experiments to today&apos;s global-scale infrastructure. Keep exploring the
               timeline or share the next chapter.
             </p>
           </div>
-          <div className="flex flex-col items-center gap-4 text-center md:items-end md:text-right">
+          <div className="flex flex-col items-center gap-3 text-center md:items-end md:text-right">
             <Link href="https://crecimiento.build/" target="_blank" rel="noreferrer">
-              <Image src="/crecimiento-logo-footer.svg" alt="Crecimiento Logo" width={180} height={50} className="w-36 md:w-44" />
+              <Image src="/crecimiento-logo-footer.svg" alt="Crecimiento Logo" width={180} height={50} className="w-32 md:w-44" />
             </Link>
             <Button
               asChild
-              className="w-full max-w-[260px] rounded-full border border-white/20 bg-white/10 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/20"
+              className="w-full max-w-[240px] rounded-full border border-white/20 bg-white/10 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/20 sm:w-auto sm:px-6 sm:py-3"
             >
               <Link href="/timeline">
                 View full timeline
@@ -524,7 +513,7 @@ function Footer() {
             <Button
               asChild
               variant="ghost"
-              className="flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/70 transition hover:text-white md:self-end"
+              className="w-full max-w-[240px] flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 transition hover:text-white sm:w-auto sm:px-6 sm:py-3"
             >
               <Link href="https://tally.so/r/5BKdMP" target="_blank" rel="noreferrer">
                 Share a story
@@ -542,14 +531,14 @@ function Glyph({ variant }: { variant: string }) {
   switch (variant) {
     case "double":
       return (
-        <svg viewBox="0 0 80 80" className="h-10 w-10 text-[#FF6B2C]" aria-hidden="true">
+        <svg viewBox="0 0 80 80" className="h-8 w-8 text-[#FF6B2C]" aria-hidden="true">
           <path d="M0 20a20 20 0 0 1 40 0H0Z" fill="currentColor" />
           <path d="M40 20a20 20 0 0 0 40 0H40Z" fill="currentColor" opacity={0.75} />
         </svg>
       )
     case "stack":
       return (
-        <svg viewBox="0 0 80 80" className="h-10 w-10 text-[#FF6B2C]" aria-hidden="true">
+        <svg viewBox="0 0 80 80" className="h-8 w-8 text-[#FF6B2C]" aria-hidden="true">
           <path d="M0 20h80v20H0z" fill="currentColor" />
           <path d="M0 40h80v20H0z" fill="currentColor" opacity={0.6} />
         </svg>
@@ -557,7 +546,7 @@ function Glyph({ variant }: { variant: string }) {
     case "arc":
     default:
       return (
-        <svg viewBox="0 0 80 80" className="h-10 w-10 text-[#FF6B2C]" aria-hidden="true">
+        <svg viewBox="0 0 80 80" className="h-8 w-8 text-[#FF6B2C]" aria-hidden="true">
           <path d="M0 40a40 40 0 0 1 80 0H0Z" fill="currentColor" />
         </svg>
       )

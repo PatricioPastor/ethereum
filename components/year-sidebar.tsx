@@ -34,6 +34,7 @@ export function YearSidebar({
   const [expandedYears, setExpandedYears] = useState<Set<number>>(new Set())
   const scrollAreaRef = useRef<HTMLDivElement>(null)
   const currentYearRef = useRef<HTMLButtonElement>(null)
+  const searchInputRef = useRef<HTMLInputElement>(null)
   const accent = "#FF5728"
 
   const displayYears = [...years].sort((a, b) => a - b)
@@ -90,15 +91,32 @@ export function YearSidebar({
     }
   }, [currentYear])
 
+  // Prevent autofocus on mobile when sidebar opens
+  useEffect(() => {
+    if (variant === "overlay" && searchInputRef.current) {
+      // Blur immediately if focused on mount (mobile only)
+      const isMobile = window.innerWidth < 768
+      if (isMobile) {
+        // Small delay to ensure any autofocus has happened
+        const timeoutId = setTimeout(() => {
+          if (document.activeElement === searchInputRef.current) {
+            searchInputRef.current?.blur()
+          }
+        }, 50)
+        return () => clearTimeout(timeoutId)
+      }
+    }
+  }, [variant])
+
   return (
     <aside className={containerClasses} style={{ ["--accent" as any]: accent }}>
       <div className="space-y-3 border-b border-[rgba(0,0,0,0.08)] bg-[#F2F3E1] px-5 py-5">
-        <div className="flex items-center justify-between gap-2 text-xs uppercase tracking-[0.01em] text-[#7f796f]">
+        <div className="flex items-center justify-between gap-2 text-xs uppercase tracking-[0] text-[#7f796f]">
           <Button
             asChild
             variant="ghost"
             size="sm"
-            className="gap-2 rounded-full border-none bg-[#FF5728] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.01em] text-white shadow-[0_12px_30px_rgba(255,87,40,0.35)] transition hover:scale-105 hover:bg-[#e44d21]"
+            className="gap-2 rounded-full border-none bg-[#FF5728] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0] text-white shadow-[0_12px_30px_rgba(255,87,40,0.35)] transition hover:scale-105 hover:bg-[#e44d21]"
           >
             <Link href="/" aria-label="Go back home">
               <ArrowLeft className="h-4 w-4" />
@@ -111,9 +129,16 @@ export function YearSidebar({
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#a09889]" />
             <Input
+              ref={searchInputRef}
               placeholder="Search events..."
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
+              onFocus={(e) => {
+                // Only allow focus on mobile when user explicitly taps
+                if (variant === "overlay" && window.innerWidth < 768) {
+                  // Focus is allowed when user taps, this is fine
+                }
+              }}
               className="h-10 rounded-full border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] pl-9 pr-3 text-sm text-[#191919] placeholder:text-[#a09889] focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-[#FF5728]/40"
             />
           </div>
@@ -122,7 +147,7 @@ export function YearSidebar({
 
       <ScrollArea className="flex-1 min-h-0" ref={scrollAreaRef}>
         <div className="relative px-4 py-6">
-          <div className="mb-6 text-[10px] font-semibold uppercase tracking-[0.01em] text-[#a09889]">Timeline</div>
+          <div className="mb-6 text-[10px] font-semibold uppercase tracking-[0] text-[#a09889]">Timeline</div>
           <div className="space-y-1.5">
             {displayYears.map((year) => {
               const isActive = year === currentYear
@@ -154,7 +179,7 @@ export function YearSidebar({
                         >
                           <span
                             className={cn(
-                              "text-base font-normal tabular-nums tracking-[0.01em]",
+                              "text-base font-normal tabular-nums tracking-[0]",
                               isActive ? "text-[#191919]" : "text-[#4d463d]",
                             )}
                           >

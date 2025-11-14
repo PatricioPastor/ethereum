@@ -43,7 +43,7 @@ export function EraIntroCard({ era, eventCount, yearRange }: EraIntroCardProps) 
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.5 }}
             />
-            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Era {yearRange}</span>
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-[0]">Era {yearRange}</span>
           </motion.div>
 
           <motion.h2

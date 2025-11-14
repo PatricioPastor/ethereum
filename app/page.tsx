@@ -158,7 +158,7 @@ function HeroSection() {
 
         <div className="relative z-10 flex min-h-[inherit] flex-col justify-center gap-8 py-32 sm:py-36 lg:py-40">
           <div className="max-w-2xl space-y-6 text-left">
-            <span className="inline-flex items-center rounded-full border border-white/80 bg-white/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+            <span className="inline-flex items-center rounded-full border border-white/80 bg-white/10 px-4 py-1 text-[10px] font-semibold uppercase tracking-[0] text-white shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
               2008 – 2025
             </span>
             <motion.h1
@@ -184,7 +184,7 @@ function HeroSection() {
           >
             <Button
               asChild
-              className="group w-fit rounded-full border border-black/50 bg-black/90 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-white shadow-[0_12px_30px_rgba(0,0,0,0.4)] transition hover:bg-black"
+              className="group w-fit rounded-full border border-black/50 bg-black/90 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0] text-white shadow-[0_12px_30px_rgba(0,0,0,0.4)] transition hover:bg-black"
             >
               <Link href="/timeline">
                 Explore timeline
@@ -204,14 +204,14 @@ function EraPreviewSection() {
       className="relative z-20 -mt-12 overflow-hidden rounded-t-[56px] bg-gradient-to-b from-[#fffdf9] via-[#fff3ea] to-[#ffe3cf] px-4 pb-12 shadow-[0_50px_140px_rgba(0,0,0,0.18)] sm:-mt-16 sm:px-6 md:-mt-20 md:px-8 lg:-mt-[140px]"
       aria-labelledby="era-preview-heading"
     >
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 pt-16 pb-12 sm:px-6 sm:pt-20 md:px-8 md:pt-24">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-8 px-4 pt-16 pb-20 sm:px-6 sm:pt-20 sm:pb-24 md:px-8 md:pt-24 md:pb-28">
         <motion.div
           {...fadeIn}
           className="grid gap-6 text-[#191919] md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-start"
           id="era-preview-heading"
         >
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7a7267]">
+            <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0] text-[#7a7267]">
               <span>Era Preview</span>
               <span className="hidden h-px flex-1 bg-[#d6cdc1] sm:block" aria-hidden="true" />
             </div>
@@ -219,7 +219,7 @@ function EraPreviewSection() {
               Four eras, one through-line of Argentine craft.
             </h2>
           </div>
-          <div className="flex justify-center md:justify-end">
+          <div className="hidden justify-center md:flex md:justify-end">
             <Image
               src="/rectangle-80.png"
               alt="Era preview texture"
@@ -239,64 +239,72 @@ function EraPreviewSection() {
           <div className="flex flex-col gap-12">
             {eraPreviewData.map((era, index) => {
               const alignRight = index % 2 === 1;
+              const isLast = index === eraPreviewData.length - 1;
 
               return (
-                <motion.article
-                  key={era.title}
-                  {...fadeIn}
-                  transition={{ ...fadeIn.transition, delay: index * 0.1 }}
-                  className="relative grid gap-6 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto] md:items-start"
-                >
-                  <div
-                    className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3" : "md:col-start-1"} w-full md:row-span-1`}
+                <div key={era.title}>
+                  <motion.article
+                    {...fadeIn}
+                    transition={{ ...fadeIn.transition, delay: index * 0.1 }}
+                    className="relative grid gap-6 md:grid-cols-[1fr_auto_1fr] md:grid-rows-[auto_auto] md:items-start"
                   >
                     <div
-                      className={`space-y-2 transition duration-300 ${alignRight ? "md:text-right text-left" : "text-left"} ${
-                        era.faded ? "text-[#b3a395]" : "text-[#1d1c1a]"
-                      }`}
+                      className={`order-2 md:order-1 md:col-span-1 ${alignRight ? "md:col-start-3" : "md:col-start-1"} w-full md:row-span-1`}
                     >
-                      <div className={`text-xs uppercase tracking-[0.2em] ${era.faded ? "text-[#c0b1a3]" : "text-[#7a7267]"}`}>{era.years}</div>
-                      <h3 className={`text-lg font-title-medium uppercase tracking-[0.1em] ${era.faded ? "text-[#b8a99d]" : "text-[#191919]"}`}>{era.title}</h3>
-                      <p className={`text-sm leading-relaxed ${era.faded ? "text-[#c7b7ac]" : "text-[#4d463d]"}`}>{era.summary}</p>
                       <div
-                        className={`mt-3 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] ${
-                          alignRight ? "md:justify-end" : ""
-                        } ${era.faded ? "text-[#d1c1b4]" : "text-[#a59c90]"}`}
+                        className={`space-y-2 transition duration-300 ${alignRight ? "md:text-right text-left" : "text-left"} ${
+                          era.faded ? "text-[#b3a395]" : "text-[#1d1c1a]"
+                        }`}
                       >
-                        {era.logos.map((logo) => (
-                          <span key={logo} className={`font-semibold ${era.faded ? "text-[#e0d3c9]" : "text-[#c8beb3]"}`}>
-                            {logo}
-                          </span>
-                        ))}
+                        <div className={`text-xs uppercase tracking-[0] ${era.faded ? "text-[#c0b1a3]" : "text-[#7a7267]"}`}>{era.years}</div>
+                        <h3 className={`text-lg font-title-medium uppercase tracking-[0] ${era.faded ? "text-[#b8a99d]" : "text-[#191919]"}`}>{era.title}</h3>
+                        <p className={`text-sm leading-relaxed ${era.faded ? "text-[#c7b7ac]" : "text-[#4d463d]"}`}>{era.summary}</p>
+                        <div
+                          className={`mt-3 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0] ${
+                            alignRight ? "md:justify-end" : ""
+                          } ${era.faded ? "text-[#d1c1b4]" : "text-[#a59c90]"}`}
+                        >
+                          {era.logos.map((logo) => (
+                            <span key={logo} className={`font-semibold ${era.faded ? "text-[#e0d3c9]" : "text-[#c8beb3]"}`}>
+                              {logo}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className={`relative order-1 md:order-2 md:col-start-2 md:row-start-1 md:flex hidden justify-center items-start ${alignRight ? "pt-[40px]" : "pt-5"}`}>
-                    <span
-                      className={`relative z-10 flex h-5 w-5 items-center justify-center rounded-full border-2 ${
-                        era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : era.faded ? "border-[#d7c9bf] bg-[#fff9f3]" : "border-[#d7c9bf] bg-[#fff9f3]"
-                      }`}
+                    <div className={`relative order-1 md:order-2 md:col-start-2 md:row-start-1 md:flex hidden justify-center items-start ${alignRight ? "pt-[40px]" : "pt-5"}`}>
+                      <span
+                        className={`relative z-10 flex h-5 w-5 items-center justify-center rounded-full border-2 ${
+                          era.active ? "border-[#FF6B2C] bg-[#FF6B2C]" : era.faded ? "border-[#d7c9bf] bg-[#fff9f3]" : "border-[#d7c9bf] bg-[#fff9f3]"
+                        }`}
+                      >
+                        {!era.active && <span className={`h-1.5 w-1.5 rounded-full ${era.faded ? "bg-[#e5ddd4]" : "bg-[#d7c9bf]"}`} />}
+                      </span>
+                    </div>
+                  </motion.article>
+                  
+                  {isLast && (
+                    <motion.div
+                      {...fadeIn}
+                      transition={{ ...fadeIn.transition, delay: (index + 1) * 0.1 }}
+                      className="flex justify-center pt-8 pb-8"
                     >
-                      {!era.active && <span className={`h-1.5 w-1.5 rounded-full ${era.faded ? "bg-[#e5ddd4]" : "bg-[#d7c9bf]"}`} />}
-                    </span>
-                  </div>
-                </motion.article>
+                      <Button
+                        asChild
+                        className="group rounded-full border border-black/5 bg-black px-8 py-3 text-[11px] font-semibold uppercase tracking-[0] text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition hover:scale-[1.02] hover:bg-[#1a1a1a] sm:px-10 sm:py-4 sm:text-[12px]"
+                      >
+                        <Link href="/timeline">
+                          Explore Full Timeline
+                          <ArrowUpRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1 group-hover:-translate-y-0.5" />
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  )}
+                </div>
               );
             })}
           </div>
-        </div>
-
-        <div className="flex justify-center pt-4">
-          <Button
-            asChild
-            className="rounded-full border border-black/5 bg-black px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition hover:scale-[1.01] hover:bg-[#1a1a1a] sm:px-8 sm:py-3"
-          >
-            <Link href="/timeline">
-              Explore full timeline
-              <ArrowUpRight className="ml-3 h-4 w-4" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>
@@ -316,7 +324,7 @@ function WhyItMattersSection({ builderCount, milestones }: { builderCount: numbe
           {infoTiles.map((tile, index) => (
             <motion.div key={tile.kicker} {...fadeIn} transition={{ ...fadeIn.transition, delay: index * 0.1 }} className="space-y-3">
               <Glyph variant={tile.icon} />
-              <h3 className="text-[10px] font-semibold uppercase tracking-[0.35em] text-white">{tile.kicker}</h3>
+              <h3 className="text-[12px] font-semibold uppercase tracking-[0] text-white">{tile.kicker}</h3>
               <p className="text-sm leading-relaxed text-white/70">{tile.body}</p>
             </motion.div>
           ))}
@@ -326,13 +334,13 @@ function WhyItMattersSection({ builderCount, milestones }: { builderCount: numbe
 
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="inline-flex h-px w-16 bg-white/20" aria-hidden="true" />
-          <p className="text-xs uppercase tracking-[0.3em] text-white/70">
+          <p className="text-xs uppercase tracking-[0] text-white/70">
             <span className="italic text-white/70">THANK YOU TO THE</span> <span className="font-semibold text-white">{builderLabel}</span> and{" "}
             <span className="font-semibold">[FOUNDERS]</span> <span className="italic text-white/70">FOR SHARING YOUR STORIES.</span>
           </p>
           <Button
             asChild
-            className="rounded-full border border-transparent bg-[#FF5728] px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white shadow-[0_20px_60px_rgba(255,87,40,0.45)] transition hover:bg-[#ff6f46] sm:px-8 sm:py-3"
+            className="rounded-full border border-transparent bg-[#FF5728] px-6 py-2 text-[10px] font-semibold uppercase tracking-[0] text-white shadow-[0_20px_60px_rgba(255,87,40,0.45)] transition hover:bg-[#ff6f46] sm:px-8 sm:py-3"
           >
             <Link href="https://tally.so/r/5BKdMP" target="_blank" rel="noreferrer">
               Add your contribution
@@ -491,7 +499,7 @@ function Footer() {
       <div className="container flex flex-col gap-8 py-12 px-4 sm:px-6 md:px-8">
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
           <div className="flex max-w-2xl flex-col gap-3">
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Builders Archive</span>
+            <span className="text-xs font-semibold uppercase tracking-[0] text-white/60">Builders Archive</span>
             <p className="text-sm text-white/80">
               Documenting Argentina&apos;s crypto ingenuity, from the first experiments to today&apos;s global-scale infrastructure. Keep exploring the
               timeline or share the next chapter.
@@ -503,7 +511,7 @@ function Footer() {
             </Link>
             <Button
               asChild
-              className="w-full max-w-[240px] rounded-full border border-white/20 bg-white/10 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white/20 sm:w-auto sm:px-6 sm:py-3"
+              className="w-full max-w-[240px] rounded-full border border-white/20 bg-white/10 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0] text-white transition hover:bg-white/20 sm:w-auto sm:px-6 sm:py-3"
             >
               <Link href="/timeline">
                 View full timeline
@@ -513,7 +521,7 @@ function Footer() {
             <Button
               asChild
               variant="ghost"
-              className="w-full max-w-[240px] flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 transition hover:text-white sm:w-auto sm:px-6 sm:py-3"
+              className="w-full max-w-[240px] flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0] text-white/70 transition hover:text-white sm:w-auto sm:px-6 sm:py-3"
             >
               <Link href="https://tally.so/r/5BKdMP" target="_blank" rel="noreferrer">
                 Share a story

@@ -169,6 +169,7 @@ const RAW_TIMELINE_DATA = `2008-2013
 * 2024: Wonderland delivered a private oracle solution for Aztec, encrypting the request and the answer, ensuring no other party than the requester has access to itt.
 * 2024: WakeUp Labs developed Arbitrum Connect, later expanded to Orbit Chains.
 * 2024: Argentinians @mattaereal (June) and @pablosabatella (February) joined SEAL, where both became active contributors. 
+* 2024: BoulderTech emerges with a mission to bridge Latin America´s private markets to the world, offering a platform for turning real-world assets into globally accesible, on-chain investment products.
 * June 2024: Belo expands in Latin America, to Mexico and Brazil, enabling users to receive payments across borders.
 * June 2024: @mattaereal led the security initiatives of SEAL Frameworks.
 * March 2024: Exchange law formally defined virtual assets as digital representations of value used for payments or investments and virtual asset providers, who must register with the National Securities Commission. Crypto platforms and custodians are now understood as "obliged subjects," meaning they must identify customers, verify beneficial owners, monitor risks, report suspicious transactions, and keep records for 10 years. Also creates a centralized and public registry of crypto service providers.

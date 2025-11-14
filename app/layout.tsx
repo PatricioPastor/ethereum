@@ -19,10 +19,25 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
-  title: "Reconstructing Crypto in Argentina | 2008-2025",
+  title: "Builders Archive | Crecimiento",
   description:
-    "A registry of early events, companies, and Ethereum-related contributions by Argentinians. Early Ethereum history overlaps with Bitcoin, so some early Bitcoin-related events have been included.",
+    "From the very beginning, Argentina was always at the forefront of Ethereum innovation. The Builders Archive gathers origin stories of Argentina's crypto startups, early experiments, and ongoing contributions to the world computer.",
   generator: "v0.app",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Builders Archive | Crecimiento",
+    description:
+      "From the very beginning, Argentina was always at the forefront of Ethereum innovation. The Builders Archive gathers origin stories of Argentina's crypto startups, early experiments, and ongoing contributions to the world computer.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Builders Archive | Crecimiento",
+    description:
+      "From the very beginning, Argentina was always at the forefront of Ethereum innovation. The Builders Archive gathers origin stories of Argentina's crypto startups, early experiments, and ongoing contributions to the world computer.",
+  },
 }
 
 export default function RootLayout({

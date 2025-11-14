@@ -240,7 +240,7 @@ export function ContinuousReadingView({
                     className="mb-8 flex flex-col gap-2 rounded-2xl border border-[#FF5728]/20 bg-gradient-to-r from-[#FFF5F0] to-[#FFFDF7] px-6 py-4 shadow-[0_8px_20px_rgba(255,87,40,0.08)]"
                     {...getRevealProps(12, 0.35)}
                   >
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#FF5728]/70">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0] text-[#FF5728]/70">
                       {eraMeta.range}
                     </p>
                     <h2 className="text-[22px] font-bold uppercase tracking-[-0.02em] text-[#191919]">
@@ -277,7 +277,7 @@ export function ContinuousReadingView({
                       className="group scroll-mt-12 rounded-[34px] border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] px-8 py-8 shadow-[0_4px_12px_rgba(255,87,40,0.04),0_1px_3px_rgba(0,0,0,0.02)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(255,87,40,0.12),0_2px_6px_rgba(0,0,0,0.04)] hover:border-[#FF5728]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/30"
                     >
                       <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.01em] text-[#a29385]">
+                        <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0] text-[#a29385]">
                           <span>{event.date}</span>
                         </div>
                         <h3 className="text-[19px] font-semibold leading-snug text-[#191919] md:text-[20px]">
@@ -292,7 +292,7 @@ export function ContinuousReadingView({
                             <button
                               key={entity}
                               onClick={() => onEntityClick?.(entity)}
-                            className="rounded-full border border-[rgba(0,0,0,0.15)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.01em] text-[#6d645a] transition hover:border-[#FF5728]/50 hover:text-[#191919]"
+                            className="rounded-full border border-[rgba(0,0,0,0.15)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0] text-[#6d645a] transition hover:border-[#FF5728]/50 hover:text-[#191919]"
                               aria-label={`View ${entity}`}
                             >
                               @{entity}
@@ -309,7 +309,7 @@ export function ContinuousReadingView({
                               href={ensureProtocol(link.url)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 rounded-full border border-[rgba(0,0,0,0.12)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.01em] text-[#6d645a] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+                              className="inline-flex items-center gap-1 rounded-full border border-[rgba(0,0,0,0.12)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0] text-[#6d645a] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
                             >
                               <ArrowUpRight className="h-3.5 w-3.5" />
                               {formatLinkLabel(link)}

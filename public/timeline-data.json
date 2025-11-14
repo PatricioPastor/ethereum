@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generatedAt": "2025-11-12T20:27:14.049Z",
-    "totalEvents": 187,
+    "generatedAt": "2025-11-14T17:17:53.149Z",
+    "totalEvents": 188,
     "yearRange": {
       "start": 2008,
       "end": 2025
@@ -2025,6 +2025,16 @@
         },
         {
           "id": "event-143",
+          "title": "BoulderTech emerges with a mission to bridge Latin America´s private markets to the world, offeri...",
+          "description": "BoulderTech emerges with a mission to bridge Latin America´s private markets to the world, offering a platform for turning real-world assets into globally accesible, on-chain investment products.",
+          "date": "2024",
+          "year": 2024,
+          "entities": [],
+          "tags": [],
+          "importance": "low"
+        },
+        {
+          "id": "event-144",
           "title": "Belo expands in Latin America, to Mexico and Brazil, enabling users to receive payments across bo...",
           "description": "Belo expands in Latin America, to Mexico and Brazil, enabling users to receive payments across borders.",
           "date": "June 2024",
@@ -2035,7 +2045,7 @@
           "importance": "medium"
         },
         {
-          "id": "event-144",
+          "id": "event-145",
           "title": "@mattaereal led the security initiatives of SEAL Frameworks",
           "description": "@mattaereal led the security initiatives of SEAL Frameworks.",
           "date": "June 2024",
@@ -2050,7 +2060,7 @@
           "importance": "low"
         },
         {
-          "id": "event-145",
+          "id": "event-146",
           "title": "Exchange law formally defined virtual assets as digital representations of value used for payment...",
           "description": "Exchange law formally defined virtual assets as digital representations of value used for payments or investments and virtual asset providers, who must register with the National Securities Commission. Crypto platforms and custodians are now understood as \"obliged subjects,\" meaning they must identify customers, verify beneficial owners, monitor risks, report suspicious transactions, and keep records for 10 years. Also creates a centralized and public registry of crypto service providers.",
           "date": "March 2024",
@@ -2064,7 +2074,7 @@
           "importance": "medium"
         },
         {
-          "id": "event-146",
+          "id": "event-147",
           "title": "Sonata, a music client on Farcaster (built on Base, an Optimism L2), launched as the first dedica...",
           "description": "Sonata, a music client on Farcaster (built on Base, an Optimism L2), launched as the first dedicated music app there. It was cofounded by @saldasoro and sweetman.eth.",
           "date": "April 2024",
@@ -2077,7 +2087,7 @@
           "importance": "high"
         },
         {
-          "id": "event-147",
+          "id": "event-148",
           "title": "Eryx, in collaboration with Manas",
           "description": "Eryx, in collaboration with Manas.Tech, received a Ethereum Foundation ZK Grant for Noirky2: A Plonky2 Backend for Noir. The project focuses on building an open-source Arithmetic Circuit Virtual Machine (ACVM) backend for the Plonky2 prover.",
           "date": "June 2024",
@@ -2090,7 +2100,7 @@
           "importance": "low"
         },
         {
-          "id": "event-148",
+          "id": "event-149",
           "title": "Red Guild oft-released the Phishing Dojo (https://www",
           "description": "Red Guild oft-released the Phishing Dojo (https://www.phishingdojo.com/), a threat simulation platform for training users on social engineering, phishing, and scams in Web3.",
           "date": "July 2024",
@@ -2101,7 +2111,7 @@
           "importance": "low"
         },
         {
-          "id": "event-149",
+          "id": "event-150",
           "title": "A tax law was the first formal inclusion of crypto in Argentina",
           "description": "A tax law was the first formal inclusion of crypto in Argentina. The informally known as \"blanqueo\" tax law encouraged bringing in undeclared assets back into the system, paying a special tax. Undeclared crypto assets were included within the scope  https://www.boletinoficial.gob.ar/detalleAviso/primera/310191/20240708",
           "date": "July 2024",
@@ -2114,7 +2124,7 @@
           "importance": "high"
         },
         {
-          "id": "event-150",
+          "id": "event-151",
           "title": "Migration to the 100% algorithmic version of DAMMstable, enabling full on-chain strategy automation",
           "description": "Migration to the 100% algorithmic version of DAMMstable, enabling full on-chain strategy automation.",
           "date": "August 2024",
@@ -2125,7 +2135,7 @@
           "importance": "low"
         },
         {
-          "id": "event-151",
+          "id": "event-152",
           "title": "Aleph was a transformative pop-up city launched by Crecimiento, that led to positioning Argentina...",
           "description": "Aleph was a transformative pop-up city launched by Crecimiento, that led to positioning Argentina as the \"Crypto Capital of the World.\" The movement emerged from contributors at The Mu, Solow, POAP, Beefy, The Graph and ETHLatam 2022. With 3000 attendees in its first iteration, Aleph served as a vibrant hub for crypto innovation. Subsequent editions, like Aleph de Verano and Aleph March 2025, continued to emphasize growing startups in Argentina.",
           "date": "August 2024",
@@ -2138,7 +2148,7 @@
           "importance": "high"
         },
         {
-          "id": "event-152",
+          "id": "event-153",
           "title": "Argentina hosted the first edition of the Privacy Scaling Core Program, designed for university s...",
           "description": "Argentina hosted the first edition of the Privacy Scaling Core Program, designed for university students with programming experience who want to deepen their knowledge of privacy solutions on Ethereum.",
           "date": "August 2024",
@@ -2152,7 +2162,7 @@
           "importance": "high"
         },
         {
-          "id": "event-153",
+          "id": "event-154",
           "title": "Red Guild hosted \"The REKT Games\" CTF at Devcon SEA, focusing on crypto and Web3 security challen...",
           "description": "Red Guild hosted \"The REKT Games\" CTF at Devcon SEA, focusing on crypto and Web3 security challenges,",
           "date": "November 2024",
@@ -2165,7 +2175,7 @@
           "importance": "low"
         },
         {
-          "id": "event-154",
+          "id": "event-155",
           "title": "Eryx announced the release of STWO-GPU, a set of open-source prototypes designed to accelerate th...",
           "description": "Eryx announced the release of STWO-GPU, a set of open-source prototypes designed to accelerate the execution times of Starkware's STWO prover. Their implementation leverages NVIDIA GPU parallelization via CUDA.",
           "date": "November 2024",
@@ -2176,7 +2186,7 @@
           "importance": "low"
         },
         {
-          "id": "event-155",
+          "id": "event-156",
           "title": "November 2024 Founding Opsek by @theSouilos and @PabloSabatella a Web3 Operational Security Servi...",
           "description": "November 2024 Founding Opsek by @theSouilos and @PabloSabatella a Web3 Operational Security Services offering security audits, threat modeling and more.",
           "date": "2024",
@@ -2191,7 +2201,7 @@
           "importance": "low"
         },
         {
-          "id": "event-156",
+          "id": "event-157",
           "title": "POAP pilots location-based drops via GPS on Devcon SEA",
           "description": "POAP pilots location-based drops via GPS on Devcon SEA.",
           "date": "November 2024",
@@ -2204,7 +2214,7 @@
           "importance": "low"
         },
         {
-          "id": "event-157",
+          "id": "event-158",
           "title": "December 2024 Opsek conducts a security audit for Contango: Conducted operational security audit ...",
           "description": "December 2024 Opsek conducts a security audit for Contango: Conducted operational security audit for Contango, focusing on team hardening and risk mitigation.",
           "date": "2024",
@@ -2216,7 +2226,7 @@
           "importance": "low"
         },
         {
-          "id": "event-158",
+          "id": "event-159",
           "title": "CoBuilders is founded, a software firm providing software design and development services",
           "description": "CoBuilders is founded, a software firm providing software design and development services.",
           "date": "December 2024",
@@ -2233,7 +2243,7 @@
       "eraId": "scaling",
       "events": [
         {
-          "id": "event-159",
+          "id": "event-160",
           "title": "Lambda begins collaborating with Commit-Boost, a new Ethereum validator sidecar focused on standa...",
           "description": "Lambda begins collaborating with Commit-Boost, a new Ethereum validator sidecar focused on standardizing the communication between validators and third-party protocols.",
           "date": "January 2025",
@@ -2246,7 +2256,7 @@
           "importance": "low"
         },
         {
-          "id": "event-160",
+          "id": "event-161",
           "title": "World funds CoBuilders to develop AskHumans, a voting system we created for the World App",
           "description": "World funds CoBuilders to develop AskHumans, a voting system we created for the World App.",
           "date": "January 2025",
@@ -2259,7 +2269,7 @@
           "importance": "low"
         },
         {
-          "id": "event-161",
+          "id": "event-162",
           "title": "Fat solutions releases Sumo, a zk-powered social login system using JWT proofs and account abstra...",
           "description": "Fat solutions releases Sumo, a zk-powered social login system using JWT proofs and account abstraction, built for seamless user onboarding.",
           "date": "Feb 2025",
@@ -2269,7 +2279,7 @@
           "importance": "low"
         },
         {
-          "id": "event-162",
+          "id": "event-163",
           "title": "Fat Solutions releases Terry Escape, a multiplayer private shared-state game using oblivious tran...",
           "description": "Fat Solutions releases Terry Escape, a multiplayer private shared-state game using oblivious transfers, homomorphic encryption and zk proofs, built with Noir.",
           "date": "Feb 2025",
@@ -2281,7 +2291,7 @@
           "importance": "low"
         },
         {
-          "id": "event-163",
+          "id": "event-164",
           "title": "Mimic reaches 18M automated transactions and managing 4 billion dollars in total automated value",
           "description": "Mimic reaches 18M automated transactions and managing 4 billion dollars in total automated value.",
           "date": "Early 2025",
@@ -2291,7 +2301,7 @@
           "importance": "low"
         },
         {
-          "id": "event-164",
+          "id": "event-165",
           "title": "Exactly approved a proposal to integrate a crypto-backed credit card through a partnership with U...",
           "description": "Exactly approved a proposal to integrate a crypto-backed credit card through a partnership with Uphold, aiming to increase liquidity and expand user access.",
           "date": "February 2025",
@@ -2305,7 +2315,7 @@
           "importance": "medium"
         },
         {
-          "id": "event-165",
+          "id": "event-166",
           "title": "Wonderland contributed to the 0xbow to ensure privacy pool integrity",
           "description": "Wonderland contributed to the 0xbow to ensure privacy pool integrity.",
           "date": "2025",
@@ -2315,7 +2325,7 @@
           "importance": "low"
         },
         {
-          "id": "event-166",
+          "id": "event-167",
           "title": "Co-founded by Diego Fernández (QuarkID), Sovra is a zk-validium L2 on Ethereum focused on decentr...",
           "description": "Co-founded by Diego Fernández (QuarkID), Sovra is a zk-validium L2 on Ethereum focused on decentralized identity (DID) and real-world assets (RWAs). It provides infrastructure for governments and citizens to issue/verify credentials privately, already serving over 8 million users across Argentina, Mexico, and Colombia.",
           "date": "2025",
@@ -2328,7 +2338,7 @@
           "importance": "high"
         },
         {
-          "id": "event-167",
+          "id": "event-168",
           "title": "March, 2025: Announced as a platform powered by ZKsync, with features like socialFi, NFT ticketin...",
           "description": "March, 2025: Announced as a platform powered by ZKsync, with features like socialFi, NFT ticketing, and Bombo Swap (secure NFTicket resales).",
           "date": "2025",
@@ -2340,7 +2350,7 @@
           "importance": "low"
         },
         {
-          "id": "event-168",
+          "id": "event-169",
           "title": "Bootnode co-develops the Open Intents Framework (OIF) in partnership with Hyperlane and the Ether...",
           "description": "Bootnode co-develops the Open Intents Framework (OIF) in partnership with Hyperlane and the Ethereum Foundation.  Also built an Integration with EigenLayer's Slashing Upgrade, assisting YieldNest in adapting to EigenLayer's slashing mechanism by implementing dynamic withdrawal synchronization and balance tracking.",
           "date": "April 2025",
@@ -2354,7 +2364,7 @@
           "importance": "medium"
         },
         {
-          "id": "event-169",
+          "id": "event-170",
           "title": "May 2025 - Integration of DAMMstable with RWA tokenizers such as Bondi Finance (Base) and Agni DE...",
           "description": "May 2025 - Integration of DAMMstable with RWA tokenizers such as Bondi Finance (Base) and Agni DEX (Mantle), providing access to secondary market liquidity for tokenized emerging-market bonds and connecting on-chain fixed-income products.",
           "date": "2025",
@@ -2366,7 +2376,7 @@
           "importance": "low"
         },
         {
-          "id": "event-170",
+          "id": "event-171",
           "title": "Ripio launches LaChain, an L2 with ZKSync",
           "description": "Ripio launches LaChain, an L2 with ZKSync.",
           "date": "May 2025",
@@ -2377,7 +2387,7 @@
           "importance": "high"
         },
         {
-          "id": "event-171",
+          "id": "event-172",
           "title": "Launch of the KPK Token for DAO governance, community involvement, and alignment; distributed via...",
           "description": "Launch of the KPK Token for DAO governance, community involvement, and alignment; distributed via vesting, swaps, and airdrops.",
           "date": "May 2025",
@@ -2391,7 +2401,7 @@
           "importance": "high"
         },
         {
-          "id": "event-172",
+          "id": "event-173",
           "title": "Exactly released the Exa App, featuring the Exa Card, a crypto-backed credit card available in ov...",
           "description": "Exactly released the Exa App, featuring the Exa Card, a crypto-backed credit card available in over 160 countries, offering users access without requiring a bank account or credit score.",
           "date": "June 2025",
@@ -2402,7 +2412,7 @@
           "importance": "low"
         },
         {
-          "id": "event-173",
+          "id": "event-174",
           "title": "Fat Solutions contributes to Privacy Pools, and built a compliant non KYC mixer",
           "description": "Fat Solutions contributes to Privacy Pools, and built a compliant non KYC mixer.",
           "date": "June 2025",
@@ -2413,7 +2423,7 @@
           "importance": "low"
         },
         {
-          "id": "event-174",
+          "id": "event-175",
           "title": "Argentina launches its first regulated tokenization regime, allowing real-world assets to be issu...",
           "description": "Argentina launches its first regulated tokenization regime, allowing real-world assets to be issued and traded under CNV oversight — a key step toward modernizing its capital markets. Launches a one-year regulatory sandbox to test and supervise tokenized asset operations and enables trading through Virtual Asset Service Providers (VASPs).",
           "date": "June 2025",
@@ -2424,7 +2434,7 @@
           "importance": "high"
         },
         {
-          "id": "event-175",
+          "id": "event-176",
           "title": "POAP becomes more social, allowing users to create profiles, link social accounts, follow friends...",
           "description": "POAP becomes more social, allowing users to create profiles, link social accounts, follow friends, and tag each other in shared moments.",
           "date": "June 2025",
@@ -2437,7 +2447,7 @@
           "importance": "low"
         },
         {
-          "id": "event-176",
+          "id": "event-177",
           "title": "Fat Solutions built @tongoxyz within the Starknet ecosystem, a real confidential token wrapper ai...",
           "description": "Fat Solutions built @tongoxyz within the Starknet ecosystem, a real confidential token wrapper aimed for payments",
           "date": "July 2025",
@@ -2450,7 +2460,7 @@
           "importance": "low"
         },
         {
-          "id": "event-177",
+          "id": "event-178",
           "title": "Wonderland began working on Interoperable Addresses for Ethereum, authoring ERC-7930 and CAIP-350...",
           "description": "Wonderland began working on Interoperable Addresses for Ethereum, authoring ERC-7930 and CAIP-350 and contributing to ERC-7828, ERC-7683.",
           "date": "2025",
@@ -2462,7 +2472,7 @@
           "importance": "low"
         },
         {
-          "id": "event-178",
+          "id": "event-179",
           "title": "Completion of the audit for Permission Helpers on Uniswap v4, a smart-contract framework that ena...",
           "description": "Completion of the audit for Permission Helpers on Uniswap v4, a smart-contract framework that enables asset managers to operate under Zodiac Roles for non-custodial asset management. This milestone made it possible to deploy DAMM as DeFi-as-a-Service (DaaS), offering permissionless and self-custodial active market making on Uniswap v4 for clients.",
           "date": "August 2025",
@@ -2476,7 +2486,7 @@
           "importance": "medium"
         },
         {
-          "id": "event-179",
+          "id": "event-180",
           "title": "WakeUp Labs delivered Velora's Trustless Rewards Distribution",
           "description": "WakeUp Labs delivered Velora's Trustless Rewards Distribution.",
           "date": "2025",
@@ -2486,7 +2496,7 @@
           "importance": "low"
         },
         {
-          "id": "event-180",
+          "id": "event-181",
           "title": "WakeUp Labs Developed the UltraHonk Verifier and Noir zk-proofs integration, enabling native ZK e...",
           "description": "WakeUp Labs Developed the UltraHonk Verifier and Noir zk-proofs integration, enabling native ZK execution in Arbitrum Stylus",
           "date": "2025",
@@ -2496,7 +2506,7 @@
           "importance": "low"
         },
         {
-          "id": "event-181",
+          "id": "event-182",
           "title": "Major Protocol Updates and Integrations to Mimic including validators for improved verification, ...",
           "description": "Major Protocol Updates and Integrations to Mimic including validators for improved verification, support for event triggered tasks. Additionally, expanded Solana and broadened the scope for non-EVM integration.",
           "date": "September 2025",
@@ -2510,7 +2520,7 @@
           "importance": "medium"
         },
         {
-          "id": "event-182",
+          "id": "event-183",
           "title": "A second iteration followed in September 2025 under the name ZKET Core Program, this time focusin...",
           "description": "A second iteration followed in September 2025 under the name ZKET Core Program, this time focusing on advanced cryptography topics such as zero-knowledge proofs (ZKPs), multi-party computation (MPC), and fully homomorphic encryption (FHE).",
           "date": "September 2025",
@@ -2521,7 +2531,7 @@
           "importance": "low"
         },
         {
-          "id": "event-183",
+          "id": "event-184",
           "title": "Launch of the DAMMstable fund on Lagoon Finance, opening deposits in a non-custodial format for w...",
           "description": "Launch of the DAMMstable fund on Lagoon Finance, opening deposits in a non-custodial format for whitelisted investors. This integration connected DAMM's strategies to a broader DeFi vault ecosystem. DAMM became the only manager achieving real yield without token incentives.",
           "date": "September 2025",
@@ -2534,7 +2544,7 @@
           "importance": "high"
         },
         {
-          "id": "event-184",
+          "id": "event-185",
           "title": "Launch of DAMMeth in stealth mode for private investors, expanding to ETH-denominated strategies",
           "description": "Launch of DAMMeth in stealth mode for private investors, expanding to ETH-denominated strategies.",
           "date": "October 2025",
@@ -2545,7 +2555,7 @@
           "importance": "high"
         },
         {
-          "id": "event-185",
+          "id": "event-186",
           "title": "Kleros builds an agreement with Oxford (find link) and partners with Stanford Journal of Blockchain",
           "description": "Kleros builds an agreement with Oxford (find link) and partners with Stanford Journal of Blockchain.",
           "date": "2025",
@@ -2557,7 +2567,7 @@
           "importance": "low"
         },
         {
-          "id": "event-186",
+          "id": "event-187",
           "title": "Ethrex, an L1 and L2 execution client coded in Rust, is launched by LambdaClass",
           "description": "Ethrex, an L1 and L2 execution client coded in Rust, is launched by LambdaClass.",
           "date": "November 2025",

@@ -13,7 +13,8 @@ import type { TimelineEvent } from "@/lib/data-parser"
 import { useYears } from "@/hooks/use-years"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
-import { PanelLeft } from "lucide-react"
+import { PanelLeft, ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 export default function TimelinePage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -75,6 +76,8 @@ export default function TimelinePage() {
   }
 
   const headerScrollPadding = isScrolled ? 140 : 260
+  // Mobile header height includes era navigation (h-16 + py-3 + border = ~88px)
+  const mobileHeaderHeight = 88
 
   const handleYearClick = useCallback(
     (year: number, options?: { forceCollapse?: boolean; trigger?: "arrow" | "manual" }) => {
@@ -301,15 +304,30 @@ export default function TimelinePage() {
 
     const container = scrollContainerRef.current
     if (container && filteredData.length > 0) {
-      const firstYearElement = container.querySelector<HTMLElement>(`[data-year="${filteredData[0].year}"]`)
-      if (firstYearElement) {
-        const headerHeight = isScrolled ? 140 : 260
-        const offset = firstYearElement.getBoundingClientRect().top + container.scrollTop - headerHeight
-        if (offset < 0) {
-          container.scrollTo({ top: Math.abs(offset), behavior: "instant" })
+      // Wait for content to render
+      const timeoutId = setTimeout(() => {
+        const firstYearElement = container.querySelector<HTMLElement>(`[data-year="${filteredData[0].year}"]`)
+        if (firstYearElement) {
+          // Calculate mobile header height (h-16 + era nav + border)
+          const isMobile = window.innerWidth < 768
+          const mobileHeaderHeight = isMobile ? 88 : 0
+          const desktopHeaderHeight = isScrolled ? 140 : 260
+          const headerHeight = isMobile ? mobileHeaderHeight : desktopHeaderHeight
+          
+          const containerRect = container.getBoundingClientRect()
+          const elementRect = firstYearElement.getBoundingClientRect()
+          const currentScroll = container.scrollTop
+          const elementOffsetInContainer = elementRect.top - containerRect.top
+          const targetScroll = currentScroll + elementOffsetInContainer - headerHeight - 32 // Extra padding for better separation
+          
+          if (targetScroll > 0) {
+            container.scrollTo({ top: targetScroll, behavior: "instant" })
+          }
+          hasInitializedScrollRef.current = true
         }
-        hasInitializedScrollRef.current = true
-      }
+      }, 100)
+      
+      return () => clearTimeout(timeoutId)
     }
   }, [filteredData, isScrolled])
 
@@ -332,27 +350,69 @@ export default function TimelinePage() {
         <main className="flex h-screen flex-1 flex-col overflow-hidden overflow-x-hidden border-l border-[rgba(0,0,0,0.08)] bg-[#FFFDF7]">
           {/* Mobile Header */}
           <div className="sticky top-0 z-50 border-b border-[rgba(0,0,0,0.08)] bg-gradient-to-b from-[#FEE8D1]/98 via-[#FFF5E6]/98 to-[#FFFDF7]/98 backdrop-blur-xl md:hidden">
-            <div className="flex h-16 items-center justify-between px-4">
-              <Button
-                variant="outline"
-                size="sm"
-                className="rounded-full border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] p-2 text-[#191919] hover:bg-[color:var(--accent)] hover:text-white"
-                onClick={() => setYearDrawerOpen(true)}
-                aria-label="Open year navigation"
-              >
-                <PanelLeft className="h-5 w-5" />
-              </Button>
+            <div className="flex flex-col">
+              <div className="flex h-16 items-center justify-between px-4">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  asChild
+                  className="rounded-full border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] p-2 text-[#191919] hover:bg-[color:var(--accent)] hover:text-white"
+                >
+                  <Link href="/" aria-label="Go back home">
+                    <ArrowLeft className="h-5 w-5" />
+                  </Link>
+                </Button>
 
-              <div className="flex-1 px-3 text-center">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#7f796f]">
-                  {currentEra?.yearStart}–{currentEra?.yearEnd}
+                <div className="flex-1 px-3 text-center">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0] text-[#7f796f]">
+                    {currentEra?.yearStart}–{currentEra?.yearEnd}
+                  </div>
+                  <h2 className="text-sm font-bold uppercase tracking-[-0.02em] text-[#191919]">
+                    {currentEra?.name}
+                  </h2>
                 </div>
-                <h2 className="text-sm font-bold uppercase tracking-[-0.02em] text-[#191919]">
-                  {currentEra?.name}
-                </h2>
-              </div>
 
-              <div className="w-10" />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="rounded-full border border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] p-2 text-[#191919] hover:bg-[color:var(--accent)] hover:text-white"
+                  onClick={() => setYearDrawerOpen(true)}
+                  aria-label="Open year navigation"
+                >
+                  <PanelLeft className="h-5 w-5" />
+                </Button>
+              </div>
+              
+              {/* Mobile Era Navigation */}
+              <div className="border-t border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] px-4 py-3">
+                <div className="flex items-center gap-2">
+                  {ERAS.map((era) => {
+                    const isActive = currentEra?.id === era.id
+                    const currentIndex = ERAS.findIndex((e) => e.id === currentEra?.id)
+                    const eraIndex = ERAS.findIndex((e) => e.id === era.id)
+                    const isPast = eraIndex < currentIndex
+                    
+                    return (
+                      <button
+                        key={era.id}
+                        type="button"
+                        onClick={() => handleYearClick(era.yearStart, { trigger: "manual" })}
+                        className={`flex-1 rounded-full px-3 py-2 text-[10px] font-semibold uppercase tracking-[0] transition ${
+                          isActive
+                            ? "bg-[#FF5728] text-white shadow-[0_4px_12px_rgba(255,87,40,0.35)]"
+                            : isPast
+                              ? "bg-[#FF5728]/20 text-[#FF5728]"
+                              : "bg-[rgba(0,0,0,0.05)] text-[#7f796f]"
+                        }`}
+                        aria-label={`Go to ${era.name} era`}
+                        aria-current={isActive ? "true" : undefined}
+                      >
+                        {era.name}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -394,7 +454,7 @@ export default function TimelinePage() {
                       aria-label={`Jump to ${era.name}`}
                     >
                       <span
-                        className={`text-[11px] font-normal uppercase tracking-[0.01em] ${
+                        className={`text-[11px] font-normal uppercase tracking-[0] ${
                           isEraActive ? "text-white/80" : "text-[#7f796f]"
                         }`}
                       >
@@ -422,8 +482,8 @@ export default function TimelinePage() {
               overscrollBehaviorY: 'none'
             }}
           >
-            <div className="mx-auto w-full max-w-5xl px-6 pt-0 pb-10 md:px-8"> {/* Changed pt-16 to pt-0 */}
-              <div className="w-full mt-[120px]"> {/* Added initial offset */}
+            <div className="mx-auto w-full max-w-5xl px-6 pt-0 pb-10 md:px-8">
+              <div className="w-full mt-[120px] md:mt-[120px]"> {/* Extra padding to separate from header */}
                 <ContinuousReadingView
                   yearGroups={filteredData}
                   onEntityClick={setSelectedEntity}
@@ -439,7 +499,16 @@ export default function TimelinePage() {
       </div>
 
       <Sheet open={yearDrawerOpen} onOpenChange={setYearDrawerOpen}>
-        <SheetContent side="left" className="w-full max-w-xs gap-0 p-0 bg-[#FFFDF7] text-[#191919] md:hidden">
+        <SheetContent 
+          side="left" 
+          className="w-full max-w-xs gap-0 p-0 bg-[#FFFDF7] text-[#191919] md:hidden"
+          onOpenAutoFocus={(e) => {
+            // Prevent autofocus on mobile to avoid opening keyboard
+            if (window.innerWidth < 768) {
+              e.preventDefault()
+            }
+          }}
+        >
           <SheetHeader className="border-b border-[rgba(0,0,0,0.08)] px-4 py-3">
             <SheetTitle>Select year</SheetTitle>
           </SheetHeader>

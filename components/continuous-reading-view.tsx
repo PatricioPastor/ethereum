@@ -31,9 +31,12 @@ function formatLinkLabel(link: TimelineLink) {
   if (link.label) return link.label
   try {
     const parsed = new URL(ensureProtocol(link.url))
-    return parsed.hostname.replace(/^www\./, "")
+    const hostname = parsed.hostname.replace(/^www\./, "")
+    // Truncate long hostnames
+    return hostname.length > 30 ? `${hostname.substring(0, 27)}...` : hostname
   } catch {
-    return link.url
+    // If URL parsing fails, return a generic label
+    return "Source"
   }
 }
 
@@ -62,8 +65,14 @@ function linkifyDescription(text: string): ReactNode[] {
       label = `@${handle}`
     } else {
       href = ensureProtocol(trimmed)
-      if (trimmed.startsWith("www.")) {
-        label = trimmed
+      try {
+        const parsed = new URL(href)
+        const hostname = parsed.hostname.replace(/^www\./, "")
+        // Show only domain for URLs in text, truncate if too long
+        label = hostname.length > 25 ? `${hostname.substring(0, 22)}...` : hostname
+      } catch {
+        // If URL parsing fails, show a generic label
+        label = "Link"
       }
     }
 
@@ -309,10 +318,11 @@ export function ContinuousReadingView({
                               href={ensureProtocol(link.url)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 rounded-full border border-[rgba(0,0,0,0.12)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0] text-[#6d645a] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)]"
+                              className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(0,0,0,0.12)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0] text-[#6d645a] transition hover:border-[color:var(--accent)] hover:text-[color:var(--accent)] max-w-full"
+                              title={link.url}
                             >
-                              <ArrowUpRight className="h-3.5 w-3.5" />
-                              {formatLinkLabel(link)}
+                              <ArrowUpRight className="h-3.5 w-3.5 flex-shrink-0" />
+                              <span className="truncate">{formatLinkLabel(link)}</span>
                             </a>
                           ))}
                         </div>

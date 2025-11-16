@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-11-16T16:46:20.408Z",
+    "generatedAt": "2025-11-16T17:34:46.592Z",
     "totalEvents": 90,
     "yearRange": {
       "start": 2008,
@@ -58,7 +58,7 @@
         {
           "id": "event-0",
           "title": "Bitcoin Vaults and Xapo's Origins",
-          "description": "Bitcoin Vaults and Xapo's Origins. In 2011, lacking secure storage for his own Bitcoin, early-adopter Wenceslao C. coded his own vault. Friends soon asked to use it, and the idea became Xapo two years later. Xapo was founded by Wenceslao C. and Federico M. as a Bitcoin wallet and vault service but soon expanded into more banking services",
+          "description": "In 2011, lacking secure storage for his own Bitcoin, early-adopter Wenceslao C. coded his own vault. Friends soon asked to use it, and the idea became Xapo two years later. Xapo was founded by Wenceslao C. and Federico M. as a Bitcoin wallet and vault service but soon expanded into more banking services",
           "date": "2011",
           "year": 2011,
           "entities": [],
@@ -76,7 +76,7 @@
         {
           "id": "event-1",
           "title": "Gente interesada en Bitcoin",
-          "description": "Gente interesada en Bitcoin. The earliest open and registered meeting was held in Belgrano, Buenos Aires, led by early adopters like Wenceslao C right after the first Bitcoin Halvening. The meetup was promptly titled \"Gente interesada en Bitcoin\".",
+          "description": "The earliest open and registered meeting was held in Belgrano, Buenos Aires, led by early adopters like Wenceslao C right after the first Bitcoin Halvening. The meetup was promptly titled with this name.",
           "date": "2012",
           "year": 2012,
           "entities": [],
@@ -96,7 +96,7 @@
         {
           "id": "event-2",
           "title": "Proof of Existence on Bitcoin",
-          "description": "Proof of Existence on Bitcoin. One of the first blockchain apps beyond finance, was Proof of Existence. The app by @maraoz allowed anyone to verify that a document existed at a certain point in time. Demonstrating ownership, without revealing data.",
+          "description": "The app by @maraoz allowed anyone to verify that a document existed at a certain point in time. Demonstrating ownership, without revealing data.",
           "date": "2013",
           "year": 2013,
           "entities": [
@@ -105,12 +105,12 @@
           "tags": [
             "infrastructure"
           ],
-          "importance": "high"
+          "importance": "low"
         },
         {
           "id": "event-3",
           "title": "The Security Frontier",
-          "description": "The Security Frontier. @sdlerner and @julianor co-founded Coinspect, an auditing firm that would soon secure code for zCash and its forks, Ledger's wallet firmwares, and Grin's cryptocurrency.",
+          "description": "@sdlerner and @julianor co-founded Coinspect, an auditing firm that would soon secure code for zCash and its forks, Ledger's wallet firmwares, and Grin's cryptocurrency.",
           "date": "2013",
           "year": 2013,
           "entities": [
@@ -125,19 +125,19 @@
         {
           "id": "event-4",
           "title": "Ripio's beginnings",
-          "description": "Ripio's beginnings. Founded in 2013, Ripio began as BitPagos, helping merchants trade pesos for bitcoin. It evolved into one of Argentina's most used Bitcoin wallets, and later became a widespread crypto exchange.",
+          "description": "It began as BitPagos, helping merchants trade pesos for bitcoin. It evolved into one of Argentina's most used Bitcoin wallets, and later became a widespread crypto exchange.",
           "date": "2013",
           "year": 2013,
           "entities": [],
           "tags": [
             "infrastructure"
           ],
-          "importance": "high"
+          "importance": "low"
         },
         {
           "id": "event-5",
           "title": "Crypto education reaches universities",
-          "description": "Crypto education reaches universities. From very early on crypto entered Argentina's classrooms. @RodolfoBits taught classes on wallet creation at ITBA, while Pablo Iglesias led early courses on Bitcoin at UTN.",
+          "description": "From very early on crypto entered Argentina's classrooms. @RodolfoBits taught classes on wallet creation at ITBA, while Pablo Iglesias led early courses on Bitcoin at UTN.",
           "date": "2013",
           "year": 2013,
           "entities": [
@@ -151,8 +151,8 @@
         },
         {
           "id": "event-6",
-          "title": "Argentina, core regional leader in crypto",
-          "description": "Argentina, core regional leader in crypto. December 2013 marked the first LaBitConf, putting Argentina at the center of Bitcoin in LATAM. Global figures like @ErikVoorhees, Bitcoin Core dev @jgarzik joined, with sponsorships from BitPay, AstroPay and The Bitcoin Magazine. Many core crypto community members would meet and attend this first edition. The conference became an annual traveling event, visiting countries in LATAM, before returning to Buenos Aires in 2016.",
+          "title": "Argentina, core regional leader in crypto HIGHLIGHT",
+          "description": "The first LaBitConf marked this milestone, putting Argentina at the center of Bitcoin in LATAM. Global figures like @ErikVoorhees, Bitcoin Core dev @jgarzik joined, with sponsorships from BitPay, AstroPay and The Bitcoin Magazine. Many core crypto community members would meet and attend this first edition. The conference became an annual traveling event, visiting countries in LATAM, before returning to Buenos Aires in 2016.",
           "date": "December 2013",
           "year": 2013,
           "month": 12,
@@ -176,7 +176,7 @@
         {
           "id": "event-7",
           "title": "Bitex and the Bitcoin Rails",
-          "description": "Bitex and the Bitcoin Rails. In 2014, Bitex launched with a $2 million investment to link Latin America's markets through Bitcoin and provide a competitive Bitcoin trading platform. By 2016, it launched Remitex, a cross-border remittance service using Bitcoin as a settlement.",
+          "description": "It launched with a $2 million investment to link Latin America's markets through Bitcoin and provide a competitive Bitcoin trading platform. By 2016, it launched Remitex, a cross-border remittance service using Bitcoin as a settlement.",
           "date": "2014",
           "year": 2014,
           "entities": [],
@@ -187,8 +187,8 @@
         },
         {
           "id": "event-8",
-          "title": "Casa Voltaire: The Crypto Commune",
-          "description": "Casa Voltaire: The Crypto Commune. In 2014, a group of young programmers turned a house in Palermo, into a crypto coworking space known as Casa Voltaire. Founded by @maraoz, many of the early members of the crypto community were frequent visitors of Voltaire including @esneider, @demibrener, Ari M., @yemeljardi, @eordano. Their ethos was: transparency, decentralization, and using crypto to fix broken systems. Casa Voltaire became an incubator for several of Argentina's most successful crypto startups: Decentraland, the Ethereum-based virtual world, Muun, a user-friendly self custodial mobile Bitcoin/Lightning wallet, and OpenZeppelin, a smart contract security platform.",
+          "title": "Casa Voltaire: The Crypto Commune HIGHLIGHT",
+          "description": "A group of young programmers turned a house in Palermo, into a crypto coworking space. Founded by @maraoz, many of the early members of the crypto community were frequent visitors of Voltaire including @esneider, @demibrener, Ari M., @yemeljardi, @eordano. Their ethos was: transparency, decentralization, and using crypto to fix broken systems. It became an incubator for several of Argentina's most successful crypto startups: Decentraland, the Ethereum-based virtual world, Muun, a user-friendly self custodial mobile Bitcoin/Lightning wallet, and OpenZeppelin, a smart contract security platform.",
           "date": "2014",
           "year": 2014,
           "entities": [
@@ -209,7 +209,7 @@
         {
           "id": "event-9",
           "title": "One of the first crypto R&D labs",
-          "description": "One of the first crypto R&D labs. Coinfabrik was founded by @sdlerner,  Pablo Yabo and Sebastian Wain. With builders holding years of crypto experience at this point, CoinFabrik became one of the world's first specialized crypto R&D labs and software factories.",
+          "description": "Coinfabrik was founded by @sdlerner,  Pablo Yabo and Sebastian Wain. With builders holding years of crypto experience at this point, it became one of the world's first specialized crypto R&D labs and software factories.",
           "date": "2014",
           "year": 2014,
           "entities": [
@@ -221,7 +221,7 @@
         {
           "id": "event-10",
           "title": "SatoshiTango: Exchange Beginnings",
-          "description": "SatoshiTango: Exchange Beginnings. This year saw the founding of one of Argentina's oldest crypto exchanges by @matiasbari, @NLoterspil, and Mariano C..",
+          "description": "This year saw the founding of one of Argentina's oldest crypto exchanges by @matiasbari, @NLoterspil, and Mariano C..",
           "date": "2014",
           "year": 2014,
           "entities": [
@@ -240,7 +240,7 @@
         {
           "id": "event-11",
           "title": "Live Crypto Payments",
-          "description": "Live Crypto Payments. In early 2015, an experimental project, Streamium enabled real-time video streaming with onchain micropayments, proving crypto could power live content.",
+          "description": "An experimental project, Streamium enabled real-time video streaming with onchain micropayments, proving crypto could power live content.",
           "date": "Early 2015",
           "year": 2015,
           "entities": [],
@@ -249,8 +249,8 @@
         },
         {
           "id": "event-12",
-          "title": "Zeppelin Solutions",
-          "description": "Zeppelin Solutions. Now known as OpenZeppelin, Zeppelin Solutions was created by @demibrener and @maraoz to explore software solutions and smart contracts during their collaborations at Voltaire. OpenZeppelin is now one of the most known blockchain security companies that created the most widely used smart contract framework.",
+          "title": "Zeppelin Solutions HIGHLIGHT",
+          "description": "Now known as OpenZeppelin, it was created by @demibrener and @maraoz to explore software solutions and smart contracts during their collaborations at Voltaire. OpenZeppelin is now one of the most known blockchain security companies that created the most widely used smart contract framework.",
           "date": "2015",
           "year": 2015,
           "entities": [
@@ -265,8 +265,8 @@
         },
         {
           "id": "event-13",
-          "title": "Decentraland: The first blockchain virtual world",
-          "description": "Decentraland: The first blockchain virtual world. @eordano, @yemeljardi, @maraoz and Ari M., envisioned an open-source world owned by its users. A 3D land space that users could purchase using crypto, build content on, and even govern collectively through a DAO. The Decentraland platform officially launched in 2020, allowing users worldwide to explore the world, create avatars, buy NFT wearables, build scenes, and trade land on the marketplace.",
+          "title": "Decentraland: The first blockchain virtual world HIGHLIGHT",
+          "description": "@eordano, @yemeljardi, @maraoz and Ari M., envisioned an open-source world owned by its users. A 3D land space that users could purchase using crypto, build content on, and even govern collectively through a DAO. The Decentraland platform officially launched in 2020, allowing users worldwide to explore the world, create avatars, buy NFT wearables, build scenes, and trade land on the marketplace.",
           "date": "2015",
           "year": 2015,
           "entities": [
@@ -284,7 +284,7 @@
         {
           "id": "event-14",
           "title": "Signatura and Digital Legitimacy",
-          "description": "Signatura and Digital Legitimacy. Between 2014 and 2016, @franamat and @federicobond developed Bitcourt, later renamed Signatura, an early experiment to merge legal validation with Bitcoin's trust model. It began as an arbitration platform where business disputes could be resolved transparently, timestamped, and verifiable onchain. The team later collaborated with CESYT to notarize academic diplomas—the first official educational records anchored to Bitcoin in Argentina. By July 2016, Signatura's private beta went live and signed its first document, marking one of the earliest examples of blockchain used for institutional document authentication.",
+          "description": "Between 2014 and 2016, @franamat and @federicobond developed Bitcourt, later renamed Signatura, an early experiment to merge legal validation with Bitcoin's trust model. It began as an arbitration platform where business disputes could be resolved transparently, timestamped, and verifiable onchain. The team later collaborated with CESYT to notarize academic diplomas—the first official educational records anchored to Bitcoin in Argentina. By July 2016, Signatura's private beta went live and signed its first document, marking one of the earliest examples of blockchain used for institutional document authentication.",
           "date": "2015",
           "year": 2015,
           "entities": [
@@ -301,7 +301,7 @@
         {
           "id": "event-15",
           "title": "Rootstock Brings Smart Contracts to Bitcoin",
-          "description": "Rootstock Brings Smart Contracts to Bitcoin. November 2015 saw the release of the Rootstock (later RSK) whitepaper outlining a Bitcoin-anchored smart-contract network with Ethereum-like capabilities.",
+          "description": "The Rootstock (later RSK) whitepaper was released, outlining a Bitcoin-anchored smart-contract network with Ethereum-like capabilities.",
           "date": "November 2015",
           "year": 2015,
           "month": 11,
@@ -320,7 +320,7 @@
         {
           "id": "event-16",
           "title": "Trusted contract libraries",
-          "description": "Trusted contract libraries. After The DAO hack, OpenZeppelin offered audited, reusable contract libraries that developers could trust. A set of battle-tested Solidity code for ERC-20 tokens, ownership, crowdfunding contracts. It quickly became the industry standard.",
+          "description": "After The DAO hack, OpenZeppelin offered audited, reusable contract libraries that developers could trust. A set of battle-tested Solidity code for ERC-20 tokens, ownership, crowdfunding contracts. It quickly became the industry standard.",
           "date": "2016",
           "year": 2016,
           "entities": [],
@@ -333,7 +333,7 @@
         {
           "id": "event-17",
           "title": "Protofire",
-          "description": "Protofire. That same year, Protofire emerged from Altoros. Its team supported Gnosis, Maker, Kyber, and The Graph, writing subgraphs, building dashboards, and running early indexer nodes.",
+          "description": "That same year, it emerged from Altoros. Its team supported Gnosis, Maker, Kyber, and The Graph, writing subgraphs, building dashboards, and running early indexer nodes.",
           "date": "2016",
           "year": 2016,
           "entities": [],
@@ -351,7 +351,7 @@
         {
           "id": "event-18",
           "title": "Decentralized justice",
-          "description": "Decentralized justice. Kleros was founded by @federicoast and pioneered decentralized arbitration using crowdsourced jurors and a native token.",
+          "description": "Kleros was founded by @federicoast and pioneered decentralized arbitration using crowdsourced jurors and a native token.",
           "date": "2017",
           "year": 2017,
           "entities": [
@@ -362,7 +362,7 @@
         },
         {
           "id": "event-19",
-          "title": "@santisiri publishes the Democracy Earth whitepaper, outlining proof-of-identity (POI), attention...",
+          "title": "@santisiri publishes the Democracy Earth whitepaper, outlining proof-of-identity (POI), attention mining, UBI and quadratic voting",
           "description": "@santisiri publishes the Democracy Earth whitepaper, outlining proof-of-identity (POI), attention mining, UBI and quadratic voting.",
           "date": "June 2017",
           "year": 2017,
@@ -378,7 +378,7 @@
         {
           "id": "event-20",
           "title": "Growing Solidity & pioneering standards",
-          "description": "Growing Solidity & pioneering standards. Augur hired OpenZeppelin to audit the Serpent compiler, concluding \"our back-end team is now in unanimous agreement: \"we have to migrate to Solidity.\" Later in the year, the team built out Coral, a secure token sale framework that enabled ICOs. These are one of many cases where Zeppelin grew the adoption of Solidity.",
+          "description": "Augur hired OpenZeppelin to audit the Serpent compiler, concluding \"our back-end team is now in unanimous agreement: \"we have to migrate to Solidity.\" Later in the year, the team built out Coral, a secure token sale framework that enabled ICOs. These are one of many cases where Zeppelin grew the adoption of Solidity.",
           "date": "July 2017",
           "year": 2017,
           "month": 7,
@@ -391,7 +391,7 @@
         {
           "id": "event-21",
           "title": "A canonical (WETH9) event",
-          "description": "A canonical (WETH9) event. Core contributions by @nanexcool, facilitated the deployment on Ethereum mainnet. WETH established a standardized, secure ERC-20-compliant version of ETH, allowing users to convert ETH to WETH without using a centralized party.",
+          "description": "Core contributions by @nanexcool, facilitated the deployment on Ethereum mainnet. WETH established a standardized, secure ERC-20-compliant version of ETH, allowing users to convert ETH to WETH without using a centralized party.",
           "date": "2017",
           "year": 2017,
           "entities": [
@@ -405,8 +405,8 @@
         },
         {
           "id": "event-22",
-          "title": "First oracles & SAI",
-          "description": "First oracles & SAI. Some builders and protocols predate oracles. Maker was one of them. Argentinian developer @nanexcool helped Maker create their own oracles, the first decentralized price feeds that backed the DAI stablecoin with offchain signing and onchain aggregation. Maker's DAI was originally known as SAI (Single-Collateral Dai) when it was deployed by @nanexcool. SAI was a decentralized USD-pegged stablecoin backed solely by ETH, and it quickly became a lifesaver for Argentines facing ~50% annual inflation and strict currency controls.",
+          "title": "First oracles & SAI HIGHLIGHT",
+          "description": "Some builders and protocols predate oracles. Maker was one of them. Argentinian developer @nanexcool helped Maker create their own oracles, the first decentralized price feeds that backed the DAI stablecoin with offchain signing and onchain aggregation. Maker's DAI was originally known as SAI (Single-Collateral Dai) when it was deployed by @nanexcool. SAI was a decentralized USD-pegged stablecoin backed solely by ETH, and it quickly became a lifesaver for Argentines facing ~50% annual inflation and strict currency controls.",
           "date": "2017",
           "year": 2017,
           "entities": [
@@ -428,7 +428,7 @@
         {
           "id": "event-23",
           "title": "The first DEX",
-          "description": "The first DEX. In 2018, @dmf7z launched EasyTrade — \"a decentralized Shapeshift\" that let users swap tokens directly onchain.",
+          "description": "@dmf7z launched EasyTrade — \"a decentralized Shapeshift\" that let users swap tokens directly onchain.",
           "date": "2018",
           "year": 2018,
           "entities": [
@@ -440,7 +440,7 @@
         {
           "id": "event-24",
           "title": "ERC-721",
-          "description": "ERC-721. The NFT standard ERC-721 was formalized, and Argentine developers @smpalladino, @eordano and @facuspagnuolo played a role in its implementation and popularization. OpenZeppelin provided open-source ERC-721 library code, guides and security audits, facilitating adoption of the first NFT projects.",
+          "description": "The NFT standard was formalized, and Argentine developers @smpalladino, @eordano and @facuspagnuolo played a role in its implementation and popularization. OpenZeppelin provided open-source ERC-721 library code, guides and security audits, facilitating adoption of the first NFT projects.",
           "date": "2018",
           "year": 2018,
           "entities": [
@@ -456,8 +456,8 @@
         },
         {
           "id": "event-25",
-          "title": "The first community-organized ETHGlobal hackathon",
-          "description": "The first community-organized ETHGlobal hackathon. ETH Buenos Aires was the very first community-organized ETHGlobal hackathon. The event was led by @0xtoucan and @ornellacordoba and brought builders from all over the world together for ETHGlobal's third hackathon ever, and the first one held in Latin America. Through volunteering and hacking, ETH Buenos Aires onboarded many of today's community members into crypto.",
+          "title": "The first community-organized ETHGlobal hackathon HIGHLIGHT",
+          "description": "ETH Buenos Aires was led by @0xtoucan and @ornellacordoba and brought builders from all over the world together for ETHGlobal's third hackathon ever, and the first one held in Latin America. Through volunteering and hacking, ETH Buenos Aires onboarded many of today's community members into crypto.",
           "date": "2018",
           "year": 2018,
           "entities": [
@@ -474,7 +474,7 @@
         {
           "id": "event-26",
           "title": "Tokenized wine",
-          "description": "Tokenized wine. Mike B. launched OpenVino, an Argentine initiative to tokenize wine.  In May 2018, the entire 2018 harvest (16,384 bottles) was tokenized and offered via a public token sale at cost price.",
+          "description": "Mike B. launched OpenVino, an Argentine initiative to tokenize wine. In May 2018, the entire 2018 harvest (16,384 bottles) was tokenized and offered via a public token sale at cost price.",
           "date": "2018",
           "year": 2018,
           "entities": [],
@@ -483,7 +483,7 @@
         },
         {
           "id": "event-27",
-          "title": "Argentina's Banco Masventas became the first bank in the country and one of the first globally to...",
+          "title": "Argentina's Banco Masventas became the first bank in the country and one of the first globally to use cryptocurrency for cross-border money transfers thanks to a collaboration with Bitex that allowed them to route international payments through Bitcoin instead of Swift",
           "description": "Argentina's Banco Masventas became the first bank in the country and one of the first globally to use cryptocurrency for cross-border money transfers thanks to a collaboration with Bitex that allowed them to route international payments through Bitcoin instead of Swift.",
           "date": "May 2018",
           "year": 2018,
@@ -497,7 +497,7 @@
         {
           "id": "event-28",
           "title": "Wibson was an early company developed by Mat T",
-          "description": "Wibson was an early company developed by Mat T. of Gran Data to create a decentralized marketplace of data.",
+          "description": "of Gran Data to create a decentralized marketplace of data.",
           "date": "2018",
           "year": 2018,
           "entities": [],
@@ -507,7 +507,7 @@
         {
           "id": "event-29",
           "title": "ERC-1271",
-          "description": "ERC-1271. EOAs can easily sign messages with private keys, but contracts had no private keys. ERC-1271 proposal coauthored by Zeppelin's Fran G. solved this by defining a common interface that contract wallets can implement to prove a signature's validity.",
+          "description": "EOAs can easily sign messages with private keys, but contracts had no private keys. The proposal coauthored by Zeppelin's Fran G. solved this by defining a common interface that contract wallets can implement to prove a signature's validity.",
           "date": "2018",
           "year": 2018,
           "entities": [],
@@ -520,7 +520,7 @@
         {
           "id": "event-30",
           "title": "Buendólar",
-          "description": "Buendólar. @fedeogue launched Buenbit as a crypto exchange focused on stablecoins. By actively marketing DAI savings during the 2020–21 inflation spike with support from the Maker Foundation's outreach, Buenbit attracted thousands of Argentines to crypto.",
+          "description": "@fedeogue launched Buenbit as a crypto exchange focused on stablecoins. By actively marketing DAI savings during the 2020–21 inflation spike with support from the Maker Foundation's outreach, Buenbit attracted thousands of Argentines to crypto.",
           "date": "2018",
           "year": 2018,
           "entities": [
@@ -533,8 +533,8 @@
         },
         {
           "id": "event-31",
-          "title": "Argentina's first university blockchain lab",
-          "description": "Argentina's first university blockchain lab. Students and professors at the National Technological University in La Plata created Argentina's first university-backed blockchain lab. By the end of the year it had 19 members: 3 professors and 16 students.",
+          "title": "Argentina's first university blockchain lab HIGHLIGHT",
+          "description": "Students and professors at the National Technological University in La Plata created Argentina's first university-backed blockchain lab. By the end of the year it had 19 members: 3 professors and 16 students.",
           "date": "2018",
           "year": 2018,
           "entities": [],
@@ -561,7 +561,7 @@
         {
           "id": "event-33",
           "title": "Xivis",
-          "description": "Xivis. Xivis was a Buenos Aires-based software development agency that began contributing and developing closely together with other crypto companies.",
+          "description": "It was a Buenos Aires-based software development agency that began contributing and developing closely together with other crypto companies.",
           "date": "2018",
           "year": 2018,
           "entities": [],
@@ -571,7 +571,7 @@
         {
           "id": "event-34",
           "title": "OpenEthereum",
-          "description": "OpenEthereum. @claberus began contributing to OpenEthereum, a now deprecated client for the Ethereum mainnet. @claberus joined the project and contributed to the network resilience in collaboration with Gnosis and the Ethereum Foundation.",
+          "description": "@claberus began contributing to it, a now deprecated client for the Ethereum mainnet. @claberus joined the project and contributed to the network resilience in collaboration with Gnosis and the Ethereum Foundation.",
           "date": "2018",
           "year": 2018,
           "entities": [
@@ -591,8 +591,8 @@
       "events": [
         {
           "id": "event-35",
-          "title": "Minting memories",
-          "description": "Minting memories. In early 2019, POAP was born at ETHDenver by @worthalter, where attendees received digital badges as proof of participation. The idea spread quickly. POAPs were soon used for gated voting at EDCON Sydney and was appointed by ETHGlobal to issue POAPs to all 300+ hackers at ETHNewYork. Later that year, the Xivis team built the POAP claim system for Devcon Osaka, allowing attendees to mint NFTs on-site. What began as souvenirs became a new social layer for Ethereum.",
+          "title": "Minting memories HIGHLIGHT",
+          "description": "POAP was born at ETHDenver by @worthalter, where attendees received digital badges as proof of participation. The idea spread quickly. POAPs were soon used for gated voting at EDCON Sydney and was appointed by ETHGlobal to issue POAPs to all 300+ hackers at ETHNewYork. Later that year, the Xivis team built the POAP claim system for Devcon Osaka, allowing attendees to mint NFTs on-site. What began as souvenirs became a new social layer for Ethereum.",
           "date": "Early 2019",
           "year": 2019,
           "entities": [
@@ -609,7 +609,7 @@
         {
           "id": "event-36",
           "title": "EthereumBA",
-          "description": "EthereumBA. The meetups were organized by members of Xivis, @0xtoucan and @saldasoro. EthereumBA grew into monthly gatherings to share knowledge with collaboration of Maker, Zerion, Synthetix, among other projects.",
+          "description": "The meetups were organized by members of Xivis, @0xtoucan and @saldasoro. It grew into monthly gatherings to share knowledge with collaboration of Maker, Zerion, Synthetix, among other projects.",
           "date": "2019",
           "year": 2019,
           "entities": [
@@ -627,7 +627,7 @@
         {
           "id": "event-37",
           "title": "Argentines & Aragon",
-          "description": "Argentines & Aragon. Contributors like @facuspagnuolo joined the Aragon ecosystem, helping shape Aragon One and the early design of its dispute-resolution system, Aragon Court.",
+          "description": "Contributors like @facuspagnuolo joined the Aragon ecosystem, helping shape Aragon One and the early design of its dispute-resolution system, Aragon Court.",
           "date": "2019",
           "year": 2019,
           "entities": [
@@ -639,7 +639,7 @@
         {
           "id": "event-38",
           "title": "Lemon & retail adoption",
-          "description": "Lemon & retail adoption. In 2019, @lemoncheli and @borjamartels founded Lemon, a mobile wallet that lets users buy, sell, and earn crypto rewards. Its Visa card with Bitcoin cashback made spending crypto part of everyday retail in Argentina.",
+          "description": "@lemoncheli and @borjamartels founded a mobile wallet that lets users buy, sell, and earn crypto rewards. Its Visa card with Bitcoin cashback made spending crypto part of everyday retail in Argentina.",
           "date": "2019",
           "year": 2019,
           "entities": [
@@ -654,7 +654,7 @@
         {
           "id": "event-39",
           "title": "DiDi & verifiable history",
-          "description": "DiDi & verifiable history. NGO Bitcoin Argentina, with IDB and IOV support, launched the DIDI Project to give Buenos Aires' underserved communities a way to build a verifiable reputation history. Underbanked individuals could record microfinance loan repayments and attest through digital credentials.",
+          "description": "NGO Bitcoin Argentina, with IDB and IOV support, launched the DIDI Project to give Buenos Aires' underserved communities a way to build a verifiable reputation history. Underbanked individuals could record microfinance loan repayments and attest through digital credentials.",
           "date": "2019",
           "year": 2019,
           "entities": [],
@@ -666,7 +666,7 @@
         {
           "id": "event-40",
           "title": "NXTP Ventures's blockchain vertical",
-          "description": "NXTP Ventures's blockchain vertical. The Argentine-founded VC firm launched a vertical focused on blockchain and crypto, including the RSK Acceleration and Adoption Program to migrate Web2 products onchain.",
+          "description": "The Argentine-founded VC firm launched a vertical focused on blockchain and crypto, including the RSK Acceleration and Adoption Program to migrate Web2 products onchain.",
           "date": "2019",
           "year": 2019,
           "entities": [],
@@ -678,7 +678,7 @@
         {
           "id": "event-41",
           "title": "DevconBA at Osaka",
-          "description": "DevconBA at Osaka. If Devcon wouldn't come to Buenos Aires, Buenos Aires would come to Devcon. At Devcon 5 in Osaka, a group of Argentinians began campaigning to bring the conference home. They slipped a \"DevconBA\" slide into talks and wore DevconWine and DevconMate shirts around the venue. Devconnect has been a long time coming.",
+          "description": "If Devcon wouldn't come to Buenos Aires, Buenos Aires would come to Devcon. At Devcon 5 in Osaka, a group of Argentinians began campaigning to bring the conference home. They slipped a \"DevconBA\" slide into talks and wore DevconWine and DevconMate shirts around the venue. Devconnect has been a long time coming.",
           "date": "2019",
           "year": 2019,
           "entities": [],
@@ -695,18 +695,18 @@
       "events": [
         {
           "id": "event-42",
-          "title": "Lauch of BeloApp, a seamless crypto-fiat wallet aimed at freelancers and remote workers in Latin ...",
-          "description": "Lauch of BeloApp, a seamless crypto-fiat wallet aimed at freelancers and remote workers in Latin America.",
+          "title": "Launch of BeloApp",
+          "description": "A seamless crypto-fiat wallet aimed at freelancers and remote workers in Latin America.",
           "date": "2020",
           "year": 2020,
           "entities": [],
           "tags": [],
-          "importance": "low"
+          "importance": "high"
         },
         {
           "id": "event-43",
           "title": "DeFi LATAM",
-          "description": "DeFi LATAM. The collective, organizing meetups, sustaining the Mateando con DeFi newsletter to spread DeFi education and producing Spanish guides on using MakerDAO, Uniswap, etc. By teaching hundreds of newcomers the DeFi basics, it significantly lowered the entry barriers to DeFi for Argentinians.",
+          "description": "The collective, organizing meetups, sustaining the Mateando con DeFi newsletter to spread DeFi education and producing Spanish guides on using MakerDAO, Uniswap, etc. By teaching hundreds of newcomers the DeFi basics, it significantly lowered the entry barriers to DeFi for Argentinians.",
           "date": "2020",
           "year": 2020,
           "entities": [],
@@ -721,7 +721,7 @@
         {
           "id": "event-44",
           "title": "The Graph & Argentina",
-          "description": "The Graph & Argentina. @0xtoucan joined The Graph. Since then, contributors from Argentina have become core to The Graph's Core Devs Edge & Node and GraphOps.",
+          "description": "@0xtoucan joined The Graph. Since then, contributors from Argentina have become core to The Graph's Core Devs Edge & Node and GraphOps.",
           "date": "2020",
           "year": 2020,
           "entities": [
@@ -733,7 +733,7 @@
         {
           "id": "event-45",
           "title": "Yearn & Argentina",
-          "description": "Yearn & Argentina. Argentines like @SaltyFacu began contributing to Yearn, who pioneered yield aggregation in DeFi, automating farming across protocols to lower costs and compound rewards.",
+          "description": "Argentines like @SaltyFacu began contributing to Yearn, who pioneered yield aggregation in DeFi, automating farming across protocols to lower costs and compound rewards.",
           "date": "2020",
           "year": 2020,
           "entities": [
@@ -747,8 +747,8 @@
         },
         {
           "id": "event-46",
-          "title": "Hardhat & Nomic",
-          "description": "Hardhat & Nomic. Hardhat (f.k.a Buidler) is one of the most widely used Ethereum development environments co-founded by @zfran and @alcuadrado. The team developed hardhat's console (REPL) and Javascript tasks, its built-in network for debugging. Both team members continue to lead the Hardhat ecosystem development today.",
+          "title": "Hardhat & Nomic HIGHLIGHT",
+          "description": "Hardhat (f.k.a Buidler) is one of the most widely used Ethereum development environments co-founded by @zfran and @alcuadrado. The team developed its console (REPL) and Javascript tasks, its built-in network for debugging. Both team members continue to lead the Hardhat ecosystem development today.",
           "date": "2020",
           "year": 2020,
           "entities": [
@@ -763,7 +763,7 @@
         {
           "id": "event-47",
           "title": "KPK",
-          "description": "KPK. Karpatkey is founded by @claberus and @elbagococina to manage Gnosis DAO's treasury, introducing non-custodial DeFi solutions for underutilized DAO assets amid DeFi Summer risks. Assets under management grew to $1.8 billion in under three years.",
+          "description": "It is founded by @claberus and @elbagococina to manage Gnosis DAO's treasury, introducing non-custodial DeFi solutions for underutilized DAO assets amid DeFi Summer risks. Assets under management grew to $1.8 billion in under three years.",
           "date": "2020",
           "year": 2020,
           "entities": [
@@ -779,7 +779,7 @@
         {
           "id": "event-48",
           "title": "Beef(y)",
-          "description": "Beef(y). Beefy, a low-cost, automated yield optimizer on Ethereum-compatible chains, was created by five friends from northern Argentina: @Sirbeefalot, @0xbeefy, @roastby, @superbeefyboy, and @elcarno.",
+          "description": "A low-cost, automated yield optimizer on Ethereum-compatible chains, it was created by five friends from northern Argentina: @Sirbeefalot, @0xbeefy, @roastby, @superbeefyboy, and @elcarno.",
           "date": "2020",
           "year": 2020,
           "entities": [
@@ -797,8 +797,8 @@
         },
         {
           "id": "event-49",
-          "title": "Mountain Protocol a fully collateralized, yield-bearing stablecoin backed by short-term U",
-          "description": "Mountain Protocol a fully collateralized, yield-bearing stablecoin backed by short-term U.S. Treasury bonds was created in Argentina by @mcarrica & @mattiascaricato.",
+          "title": "Mountain Protocol",
+          "description": "A fully collateralized, yield-bearing stablecoin backed by short-term U.S. Treasury bonds was created in Argentina by @mcarrica & @mattiascaricato.",
           "date": "2020",
           "year": 2020,
           "entities": [
@@ -819,8 +819,8 @@
       "events": [
         {
           "id": "event-50",
-          "title": "Kleros and @santisiri launched Proof of Humanity, a sybil-resistant identity verification protoco...",
-          "description": "Kleros and @santisiri launched Proof of Humanity, a sybil-resistant identity verification protocol to offer decentralized human validation. UBI was launched to stream income to verified humans, it raised $1.2M but faced immediate volatility.",
+          "title": "Kleros and @santisiri launched Proof of Humanity",
+          "description": "A sybil-resistant identity verification protocol to offer decentralized human validation, UBI was launched to stream income to verified humans, it raised $1.2M but faced immediate volatility.",
           "date": "2021",
           "year": 2021,
           "entities": [
@@ -834,7 +834,7 @@
         {
           "id": "event-51",
           "title": "Balancer & Argentina",
-          "description": "Balancer & Argentina. Argentine developers played a central role in Balancer's evolution. In 2020, @facuspagnuolo contributed to V1's core contracts and protocol design. A year later, alongside @mrnventuro and @dmf7z they helped deliver Balancer V2.",
+          "description": "Argentine developers played a central role in Balancer's evolution. In 2020, @facuspagnuolo contributed to V1's core contracts and protocol design. A year later, alongside @mrnventuro and @dmf7z they helped deliver Balancer V2.",
           "date": "2021",
           "year": 2021,
           "entities": [
@@ -850,7 +850,7 @@
         {
           "id": "event-52",
           "title": "Num Finance and Real-World Assets",
-          "description": "Num Finance and Real-World Assets. Founded in Buenos Aires in 2021, Num Finance introduced stablecoins to help Latin Americans hedge inflation and access DeFi. In 2023, the team raised to expand into Brazil, Colombia, Mexico, and the Middle East, beginning early real-world asset tokenization. In 2025, Num Finance was acquired and has rebranded into Twin Finance bringing fully-backed local stablecoins to bring tokenized investment exposure.",
+          "description": "Founded in Buenos Aires in 2021, it introduced stablecoins to help Latin Americans hedge inflation and access DeFi. In 2023, the team raised to expand into Brazil, Colombia, Mexico, and the Middle East, beginning early real-world asset tokenization. In 2025, Num Finance was acquired and has rebranded into Twin Finance bringing fully-backed local stablecoins to bring tokenized investment exposure.",
           "date": "2021",
           "year": 2021,
           "entities": [],
@@ -862,7 +862,7 @@
         {
           "id": "event-53",
           "title": "Mimic, The Automation Engine",
-          "description": "Mimic, The Automation Engine. Longtime ecosystem contributors in the Argentina ecosystem @facuspagnuolo, @brunitob and @dmf7z founded Mimic Protocol, a framework to automate onchain strategies and operations. By 2023, Mimic v3 introduced, a modular framework for DeFi automation was launched and Mimic was running over 200,000 tasks monthly.",
+          "description": "Longtime ecosystem contributors in the Argentina ecosystem @facuspagnuolo, @brunitob and @dmf7z founded Mimic Protocol, a framework to automate onchain strategies and operations. By 2023, Mimic v3 introduced, a modular framework for DeFi automation was launched and it was running over 200,000 tasks monthly.",
           "date": "2021",
           "year": 2021,
           "entities": [
@@ -879,7 +879,7 @@
         {
           "id": "event-54",
           "title": "Aave & Argentina",
-          "description": "Aave & Argentina. From very early on Argentinians have not only been users, but contributors to the Aave ecosystem. Contributors like JP C., @mptherealmvp, @mgrabina, and @donosonaumczuk worked across DeFi infrastructure,smart contract development for Aave V3, Lens, V4 interfaces and ecosystem growth.",
+          "description": "From very early on Argentinians have not only been users, but contributors to the Aave ecosystem. Contributors like JP C., @mptherealmvp, @mgrabina, and @donosonaumczuk worked across DeFi infrastructure,smart contract development for Aave V3, Lens, V4 interfaces and ecosystem growth.",
           "date": "2021",
           "year": 2021,
           "entities": [
@@ -895,7 +895,7 @@
         {
           "id": "event-55",
           "title": "Exactly",
-          "description": "Exactly. Exactly Protocol was founded by @GabrielGruber, creating a credit market for fixed and variable DeFi rates. Exactly launched on Ethereum in 2022 and expanded to Optimism in 2023.",
+          "description": "Protocol was founded by @GabrielGruber, creating a credit market for fixed and variable DeFi rates. It launched on Ethereum in 2022 and expanded to Optimism in 2023.",
           "date": "2021",
           "year": 2021,
           "entities": [
@@ -910,7 +910,7 @@
         {
           "id": "event-56",
           "title": "Xeibo, an Argentine crypto venture firm, supported many Web3 startups",
-          "description": "Xeibo, an Argentine crypto venture firm, supported many Web3 startups. Including local projects like SenseiNode, WakeUp Labs, Welook, Defiant, and Pinta.",
+          "description": "Including local projects like SenseiNode, WakeUp Labs, Welook, Defiant, and Pinta.",
           "date": "2021",
           "year": 2021,
           "entities": [],
@@ -928,7 +928,7 @@
         {
           "id": "event-57",
           "title": "Identity",
-          "description": "Identity. The Buenos Aires city government released the whitepaper for TangoID, a SSI platform for citizens to store official documents in wallets and present them selectively via blockchain.",
+          "description": "The Buenos Aires city government released the whitepaper for TangoID, a SSI platform for citizens to store official documents in wallets and present them selectively via blockchain.",
           "date": "2022",
           "year": 2022,
           "entities": [],
@@ -941,7 +941,7 @@
         {
           "id": "event-58",
           "title": "The NFT boom",
-          "description": "The NFT boom. The NFT wave pulled mainstream brands. At Coachella, Absolut.Land in Decentraland drew over twenty thousand visitors from a hundred countries. A few months later, Lemon launched Lemon Nation, an NFT-driven community built around \"Lemmys.\" By midyear, more than 400,000 Lemmys had been minted and distributed to users, marking one of Argentina's largest onchain engagement experiments.",
+          "description": "The wave pulled mainstream brands. At Coachella, Absolut.Land in Decentraland drew over twenty thousand visitors from a hundred countries. A few months later, Lemon launched Lemon Nation, an NFT-driven community built around \"Lemmys.\" By midyear, more than 400,000 Lemmys had been minted and distributed to users, marking one of Argentina's largest onchain engagement experiments.",
           "date": "2022",
           "year": 2022,
           "entities": [],
@@ -954,7 +954,7 @@
         {
           "id": "event-59",
           "title": "Keep3r Network",
-          "description": "Keep3r Network. Wonderland launches Keep3r Network, one of its core initial projects. A decentralized network for projects that need external DevOps, and for external teams to find keeper jobs.",
+          "description": "Wonderland launches it, one of its core initial projects. A decentralized network for projects that need external DevOps, and for external teams to find keeper jobs.",
           "date": "2022",
           "year": 2022,
           "entities": [],
@@ -966,7 +966,7 @@
         {
           "id": "event-60",
           "title": "SenseiNode & Node Infrastructure",
-          "description": "SenseiNode & Node Infrastructure. SenseiNode began operating 50+ validator nodes across networks, expanding Latin America's presence in global blockchain infrastructure. The team launched SenseiStake, a non-custodial staking platform that used NFTs to represent tokenized validators. By June 2023, SenseiNode ranked among the world's earliest adopters of DVT, deploying the first solo cluster on Obol's Alpha mainnet release.",
+          "description": "It began operating 50+ validator nodes across networks, expanding Latin America's presence in global blockchain infrastructure. The team launched SenseiStake, a non-custodial staking platform that used NFTs to represent tokenized validators. By June 2023, SenseiNode ranked among the world's earliest adopters of DVT, deploying the first solo cluster on Obol's Alpha mainnet release.",
           "date": "2022",
           "year": 2022,
           "entities": [],
@@ -979,7 +979,7 @@
         {
           "id": "event-61",
           "title": "ETH Latam",
-          "description": "ETH Latam. A four-day event that brought the global community of builders and educators to Argentina. While ETHBuenosAires marked the first large-scale Ethereum event in the country, connecting Argentina to the broader ETHGlobal community, and EthereumBA focused on gathering the local ecosystem, ETH Latam combined both worlds: it united communities, highlighted local protocols, and introduced international projects to Argentina.",
+          "description": "A four-day event that brought the global community of builders and educators to Argentina. While ETHBuenosAires marked the first large-scale Ethereum event in the country, connecting Argentina to the broader ETHGlobal community, and EthereumBA focused on gathering the local ecosystem, ETH Latam combined both worlds: it united communities, highlighted local protocols, and introduced international projects to Argentina.",
           "date": "2022",
           "year": 2022,
           "entities": [],
@@ -992,7 +992,7 @@
         {
           "id": "event-62",
           "title": "LambdaClass",
-          "description": "LambdaClass. LambdaClass, a tech venture studio, begins work on CairoVM, a Rust implementation of the Cairo Virtual Machine. Lambda would expand to maintaining Ethereum rust clients with Ethrex, contributing to Commit-Boost among other projects.",
+          "description": "A tech venture studio, it begins work on CairoVM, a Rust implementation of the Cairo Virtual Machine. Lambda would expand to maintaining Ethereum rust clients with Ethrex, contributing to Commit-Boost among other projects.",
           "date": "2022",
           "year": 2022,
           "entities": [],
@@ -1010,7 +1010,7 @@
         {
           "id": "event-63",
           "title": "Invest in Music",
-          "description": "Invest in Music. Invest in Music was an onchain media organization cofounded by @saldasoro and Cooper T.. It focused on music NFTs, turning fans into onchain music investors via platforms like Zora and Optimism.",
+          "description": "It was an onchain media organization cofounded by @saldasoro and Cooper T.. It focused on music NFTs, turning fans into onchain music investors via platforms like Zora and Optimism.",
           "date": "2023",
           "year": 2023,
           "entities": [
@@ -1024,7 +1024,7 @@
         {
           "id": "event-64",
           "title": "The Red Guild",
-          "description": "The Red Guild. Co-founders @mattaereal @tinchoabbate announced The Red Guild as a group dedicated to safeguarding Ethereum apps and users through research, education, advocacy, and IRL activation campaigns.",
+          "description": "Co-founders @mattaereal @tinchoabbate announced it as a group dedicated to safeguarding Ethereum apps and users through research, education, advocacy, and IRL activation campaigns.",
           "date": "2023",
           "year": 2023,
           "entities": [
@@ -1041,7 +1041,7 @@
         {
           "id": "event-65",
           "title": "Bombo & NFTickets",
-          "description": "Bombo & NFTickets. Music on the front, crypto on the back. Bombo is a platform providing NFT ticketing solutions fully integrated into their entertainment services. In September 2023, Bombo had its first major Bombo implementation in Mar del Plata, for a Mariano Mellino show.",
+          "description": "Music on the front, crypto on the back. It is a platform providing NFT ticketing solutions fully integrated into their entertainment services. In September 2023, it had its first major implementation in Mar del Plata, for a Mariano Mellino show.",
           "date": "2023",
           "year": 2023,
           "entities": [],
@@ -1053,7 +1053,7 @@
         {
           "id": "event-66",
           "title": "Ethereum Argentina's first edition",
-          "description": "Ethereum Argentina's first edition. Ethereum Argentina is a non-profit holding conferences and hackathons to expand the community. Since then Ethereum Argentina held regional editions at the Universidad de Champagnat in Mendoza and in Córdoba, aiming to reach audiences beyond the capital.",
+          "description": "It is a non-profit holding conferences and hackathons to expand the community. Since then it held regional editions at the Universidad de Champagnat in Mendoza and in Córdoba, aiming to reach audiences beyond the capital.",
           "date": "2023",
           "year": 2023,
           "entities": [],
@@ -1068,7 +1068,7 @@
         {
           "id": "event-67",
           "title": "Damm Capital",
-          "description": "Damm Capital. Damm Capital launches the custodial private DAMMstable fund on Arbitrum in stealth mode for friends and family. Operated through USDT, USDC, and DAI liquidity provision on Uniswap LPs, this marked the beginning of DAMM's market-neutral stablecoin strategies.",
+          "description": "It launches the custodial private DAMMstable fund on Arbitrum in stealth mode for friends and family. Operated through USDT, USDC, and DAI liquidity provision on Uniswap LPs, this marked the beginning of DAMM's market-neutral stablecoin strategies.",
           "date": "2023",
           "year": 2023,
           "entities": [],
@@ -1080,7 +1080,7 @@
         {
           "id": "event-68",
           "title": "Aztec & Argentina",
-          "description": "Aztec & Argentina. Argentines like @mrnventuro and @smpalladino are ongoing contributors to the development of privacy in Ethereum. Among them in 2023, Fernet protocol, a fully permissionless random leader election protocol, proposed by @smpalladino was chosen as the final design for Aztec's Sequencer Selection.",
+          "description": "Argentines like @mrnventuro and @smpalladino are ongoing contributors to the development of privacy in Ethereum. Among them in 2023, Fernet protocol, a fully permissionless random leader election protocol, proposed by @smpalladino was chosen as the final design for Aztec's Sequencer Selection.",
           "date": "2023",
           "year": 2023,
           "entities": [
@@ -1096,7 +1096,7 @@
         {
           "id": "event-69",
           "title": "WakeUp & DAOs",
-          "description": "WakeUp & DAOs. WakeUp Labs began contributing open-source code to some of the largest DAOs in the crypto ecosystem, such as the \"Built Status History Search\" on the OP Blockchain. They also partnered with WIN Investments to promote the democratization of the football industry and worked with Num Finance (acquired), a company from the Argentine crypto ecosystem.",
+          "description": "WakeUp Labs began contributing open-source code to some of the largest DAOs in the crypto ecosystem, such as the \"Built Status History Search\" on the OP Blockchain. They also partnered with WIN Investments to promote the democratization of the football industry and worked with Num Finance (acquired), a company from the Argentine crypto ecosystem.",
           "date": "2023",
           "year": 2023,
           "entities": [],
@@ -1124,11 +1124,10 @@
       "events": [
         {
           "id": "event-71",
-          "title": "Argentines become part of the first set of Optimism's Security Council and @gonnaeth becomes Gran...",
+          "title": "Argentines become part of the first set of Optimism's Security Council and @gonnaeth becomes Grants Council Lead, where he continues to lead funding in the Superchain today",
           "description": "Argentines become part of the first set of Optimism's Security Council and @gonnaeth becomes Grants Council Lead, where he continues to lead funding in the Superchain today.",
-          "date": "January 2024",
+          "date": "2024",
           "year": 2024,
-          "month": 1,
           "entities": [
             "gonnaeth"
           ],
@@ -1140,7 +1139,7 @@
         {
           "id": "event-72",
           "title": "QuarkID",
-          "description": "QuarkID. QuarkID went live city-wide in Buenos Aires, using zero-knowledge proofs for secure, self-sovereign IDs. It expanded to include health data and payments, becoming the world's first zk-backed municipal ID system.",
+          "description": "It went live city-wide in Buenos Aires, using zero-knowledge proofs for secure, self-sovereign IDs. It expanded to include health data and payments, becoming the world's first zk-backed municipal ID system.",
           "date": "2024",
           "year": 2024,
           "entities": [],
@@ -1150,7 +1149,7 @@
         {
           "id": "event-73",
           "title": "BootNode & zkSync",
-          "description": "BootNode & zkSync. BootNode, Web3 venture builder, built the zkSync Azure Smart Contract Wallet dApp, integrating zkSync Era's native Account Abstraction to enable seamless, seed-less Web3 onboarding.",
+          "description": "BootNode, Web3 venture builder, built the zkSync Azure Smart Contract Wallet dApp, integrating zkSync Era's native Account Abstraction to enable seamless, seed-less Web3 onboarding.",
           "date": "2024",
           "year": 2024,
           "entities": [],
@@ -1160,7 +1159,7 @@
         {
           "id": "event-74",
           "title": "We're All Mad Here",
-          "description": "We're All Mad Here. Wonderland's contributions continue to grow. In 2024, they developed the Superchain ERC-20 standard and the opUSDC architecture for Optimism. Wonderland also delivered a private oracle solution for Aztec, encrypting both the request and the answer, ensuring no other party than the requester has access to it.",
+          "description": "Wonderland's contributions continue to grow. In 2024, they developed the Superchain ERC-20 standard and the opUSDC architecture for Optimism. Wonderland also delivered a private oracle solution for Aztec, encrypting both the request and the answer, ensuring no other party than the requester has access to it.",
           "date": "2024",
           "year": 2024,
           "entities": [],
@@ -1170,7 +1169,7 @@
         {
           "id": "event-75",
           "title": "SEAL",
-          "description": "SEAL. Argentinians @mattaereal and @pablosabatella joined SEAL, where both are ongoing contributors.",
+          "description": "Argentinians @mattaereal and @pablosabatella joined it, where both are ongoing contributors.",
           "date": "2024",
           "year": 2024,
           "entities": [
@@ -1183,7 +1182,7 @@
         {
           "id": "event-76",
           "title": "Exchange law",
-          "description": "Exchange law. The law formally defined virtual assets as digital representations of value used for payments or investments and virtual asset providers, who must register with the National Securities Commission. The law established crypto platforms and custodians as \"obliged subjects\" and created a centralized and public registry of crypto service providers.",
+          "description": "The law formally defined virtual assets as digital representations of value used for payments or investments and virtual asset providers, who must register with the National Securities Commission. The law established crypto platforms and custodians as \"obliged subjects\" and created a centralized and public registry of crypto service providers.",
           "date": "2024",
           "year": 2024,
           "entities": [],
@@ -1196,7 +1195,7 @@
         {
           "id": "event-77",
           "title": "Sonata, a music client on Farcaster built on Base, launched as the first dedicated music app there",
-          "description": "Sonata, a music client on Farcaster built on Base, launched as the first dedicated music app there. It was cofounded by @saldasoro and sweetman.eth.",
+          "description": "It was cofounded by @saldasoro and sweetman.eth.",
           "date": "2024",
           "year": 2024,
           "entities": [
@@ -1208,7 +1207,7 @@
         {
           "id": "event-78",
           "title": "Eryx, in collaboration with Manas",
-          "description": "Eryx, in collaboration with Manas.Tech, received a Ethereum Foundation ZK Grant for Noirky2: A Plonky2 Backend for Noir.",
+          "description": "Tech, received a Ethereum Foundation ZK Grant for Noirky2: A Plonky2 Backend for Noir.",
           "date": "2024",
           "year": 2024,
           "entities": [],
@@ -1219,7 +1218,7 @@
         },
         {
           "id": "event-79",
-          "title": "BoulderTech emerges with a mission to bridge Latin America's private markets to the world, offeri...",
+          "title": "BoulderTech emerges with a mission to bridge Latin America's private markets to the world, offering a platform for turning real-world assets into globally accessible, on-chain investment products",
           "description": "BoulderTech emerges with a mission to bridge Latin America's private markets to the world, offering a platform for turning real-world assets into globally accessible, on-chain investment products.",
           "date": "2024",
           "year": 2024,
@@ -1230,7 +1229,7 @@
         {
           "id": "event-80",
           "title": "Aleph, the first pop-up city",
-          "description": "Aleph, the first pop-up city. With 3000 attendees in its first iteration, Aleph served as a hub for crypto innovation and positioned Argentina as the Crypto Capital of the World. The Crecimiento movement emerged from contributors at The Mu, Solow, POAP, Beefy, The Graph and ETHLatam 2022. Later editions, like Aleph de Verano and Aleph March 2025, continued to emphasize growing startups in Argentina.",
+          "description": "With 3000 attendees in its first iteration, it served as a hub for crypto innovation and positioned Argentina as the Crypto Capital of the World. The Crecimiento movement emerged from contributors at The Mu, Solow, POAP, Beefy, The Graph and ETHLatam 2022. Later editions, like Aleph de Verano and Aleph March 2025, continued to emphasize growing startups in Argentina.",
           "date": "2024",
           "year": 2024,
           "entities": [],
@@ -1242,7 +1241,7 @@
         {
           "id": "event-81",
           "title": "The First PSE Core Argentina",
-          "description": "The First PSE Core Argentina. The program was designed for university students with programming experience who want to deepen their knowledge of privacy solutions on Ethereum. A second iteration followed in September 2025 under the name ZKET Core Program.",
+          "description": "The program was designed for university students with programming experience who want to deepen their knowledge of privacy solutions on Ethereum. A second iteration followed in September 2025 under the name ZKET Core Program.",
           "date": "2024",
           "year": 2024,
           "entities": [],
@@ -1254,7 +1253,7 @@
         },
         {
           "id": "event-82",
-          "title": "Eryx announced the release of STWO-GPU, open-source prototypes designed to accelerate the executi...",
+          "title": "Eryx announced the release of STWO-GPU, open-source prototypes designed to accelerate the execution times of Starkware's STWO prover",
           "description": "Eryx announced the release of STWO-GPU, open-source prototypes designed to accelerate the execution times of Starkware's STWO prover.",
           "date": "2024",
           "year": 2024,
@@ -1271,7 +1270,7 @@
         {
           "id": "event-83",
           "title": "Fat solutions released contributions to the privacy and zk space in Argentina",
-          "description": "Fat solutions released contributions to the privacy and zk space in Argentina. In February, they released Sumo, a zk-powered social login system using JWT proofs and account abstraction, they released Terry Escape, a multiplayer private shared-state game built with Noir, and contributed to Privacy Pools.",
+          "description": "They released Sumo, a zk-powered social login system using JWT proofs and account abstraction, they released Terry Escape, a multiplayer private shared-state game built with Noir, and contributed to Privacy Pools.",
           "date": "February 2025",
           "year": 2025,
           "month": 2,
@@ -1284,7 +1283,7 @@
         {
           "id": "event-84",
           "title": "Sovra: DID & RWA",
-          "description": "Sovra: DID & RWA. Co-founded by @fernandezdiego, Sovra is a zk-validium L2 on Ethereum focused on decentralized identity (DID) and real-world assets (RWAs). It provides infrastructure for governments and citizens to issue/verify credentials privately. It's already serving over 8 million users across Argentina, Mexico, and Colombia.",
+          "description": "Co-founded by @fernandezdiego, it is a zk-validium L2 on Ethereum focused on decentralized identity (DID) and real-world assets (RWAs). It provides infrastructure for governments and citizens to issue/verify credentials privately. It's already serving over 8 million users across Argentina, Mexico, and Colombia.",
           "date": "2025",
           "year": 2025,
           "entities": [
@@ -1298,7 +1297,7 @@
         },
         {
           "id": "event-85",
-          "title": "Bootnode co-develops the Open Intents Framework in partnership with Hyperlane and the Ethereum Fo...",
+          "title": "Bootnode co-develops the Open Intents Framework in partnership with Hyperlane and the Ethereum Foundation",
           "description": "Bootnode co-develops the Open Intents Framework in partnership with Hyperlane and the Ethereum Foundation.",
           "date": "2025",
           "year": 2025,
@@ -1310,8 +1309,8 @@
         },
         {
           "id": "event-86",
-          "title": "Exactly released the Exa App, featuring the Exa Card, a crypto-backed credit card available in ov...",
-          "description": "Exactly released the Exa App, featuring the Exa Card, a crypto-backed credit card available in over 160 countries",
+          "title": "Exactly released the Exa App",
+          "description": "It features the Exa Card, a crypto-backed credit card available in over 160 countries",
           "date": "2025",
           "year": 2025,
           "entities": [],
@@ -1321,7 +1320,7 @@
         {
           "id": "event-87",
           "title": "First regulated tokenization regime",
-          "description": "First regulated tokenization regime. Argentina launches its first regulated tokenization regime, allowing real-world assets to be issued and traded under CNV oversight, a key step toward modernizing its capital markets. It aims to launch a one-year regulatory sandbox to test and supervise tokenized asset operations and enables trading through Virtual Asset Service Providers (VASPs).",
+          "description": "Argentina launches it, allowing real-world assets to be issued and traded under CNV oversight, a key step toward modernizing its capital markets. It aims to launch a one-year regulatory sandbox to test and supervise tokenized asset operations and enables trading through Virtual Asset Service Providers (VASPs).",
           "date": "2025",
           "year": 2025,
           "entities": [],
@@ -1330,7 +1329,7 @@
         },
         {
           "id": "event-88",
-          "title": "Wonderland began working on Interoperable Addresses for Ethereum, authoring ERC-7930 and CAIP-350...",
+          "title": "Wonderland began working on Interoperable Addresses for Ethereum, authoring ERC-7930 and CAIP-350 and contributing to ERC-7828, ERC-7683",
           "description": "Wonderland began working on Interoperable Addresses for Ethereum, authoring ERC-7930 and CAIP-350 and contributing to ERC-7828, ERC-7683.",
           "date": "2025",
           "year": 2025,
@@ -1343,7 +1342,7 @@
         {
           "id": "event-89",
           "title": "Argentina, a hub for crypto startups",
-          "description": "Argentina, a hub for crypto startups. Long-term opportunities for growth happen by connecting communities, talent, entrepreneurs, and regulators. From the very first edition of Aleph, Crecimiento has aimed to grow the ecosystem of startups with mentorships, competitions and builder programs. As of November 2025, Crecimiento has already incubated 246 startups.",
+          "description": "Long-term opportunities for growth happen by connecting communities, talent, entrepreneurs, and regulators. From the very first edition of Aleph, Crecimiento has aimed to grow the ecosystem of startups with mentorships, competitions and builder programs. As of November 2025, Crecimiento has already incubated 246 startups.",
           "date": "2025",
           "year": 2025,
           "entities": [],

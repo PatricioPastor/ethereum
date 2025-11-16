@@ -6,7 +6,6 @@ import { ArrowUp, ArrowUpRight } from "lucide-react"
 import type { TimelineEvent, TimelineYear } from "@/lib/data-parser"
 import { useState, useEffect, useMemo, type RefObject, type ReactNode } from "react"
 import { ERAS } from "@/lib/era-data"
-import { generateEventTitle } from "@/lib/title-generator"
 
 type TimelineLink = NonNullable<TimelineEvent["links"]>[number]
 
@@ -276,7 +275,6 @@ export function ContinuousReadingView({
               <div className="mt-8 space-y-5">
                 {group.events.map((event) => {
                   const relatedLinks = getEventLinks(event)
-                  const generatedTitle = generateEventTitle(event.description, event.date)
                   return (
                     <article
                       key={event.id}
@@ -291,7 +289,7 @@ export function ContinuousReadingView({
                           <span>{event.date}</span>
                         </div>
                         <h3 className="text-[19px] font-semibold leading-snug text-[#191919] md:text-[20px]">
-                          {generatedTitle}
+                          {event.title}
                         </h3>
                         <p className="text-[15px] leading-[1.7] text-[#4a4038] md:text-[16px]">{linkifyDescription(event.description)}</p>
                       </div>

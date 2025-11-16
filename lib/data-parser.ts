@@ -93,35 +93,81 @@ function parseEventLine(line: string, year: number, id: number): Event | null {
   }
 
   // Extract description (everything after date)
-  const description = dateStr ? content.substring(content.indexOf(":") + 1).trim() : content
+  const fullText = dateStr ? content.substring(content.indexOf(":") + 1).trim() : content
 
-  // Extract entities (Twitter handles)
+  // Extract title (first sentence before period) and description (rest)
+  let title = ""
+  let description = ""
+  
+  // Find the first sentence ending with period, exclamation, or question mark
+  const sentenceEndMatch = fullText.match(/^([^.!?]+)([.!?])([\s\S]*)$/)
+  
+  if (sentenceEndMatch) {
+    title = sentenceEndMatch[1].trim()
+    const separator = sentenceEndMatch[2]
+    description = sentenceEndMatch[3].trim()
+    
+    // If description starts with the same words as title, remove them
+    // This handles cases where title is repeated in description
+    const titleWords = title.toLowerCase().split(/\s+/).slice(0, 3) // First 3 words
+    const descWords = description.toLowerCase().split(/\s+/).slice(0, 3)
+    
+    // Check if description starts with title words
+    if (titleWords.length > 0 && descWords.length >= titleWords.length) {
+      const matches = titleWords.every((word, idx) => descWords[idx] === word)
+      if (matches) {
+        // Remove the repeated title from description
+        const titlePattern = new RegExp(`^${titleWords.join('\\s+')}\\s+`, 'i')
+        description = description.replace(titlePattern, '').trim()
+      }
+    }
+    
+    // Ensure description doesn't start with the exact title
+    if (description.toLowerCase().startsWith(title.toLowerCase())) {
+      description = description.substring(title.length).trim()
+      // Remove leading punctuation/spaces
+      description = description.replace(/^[.!?\s,;:]+/, '').trim()
+    }
+  } else {
+    // No sentence separator found, use first part as title
+    const firstPart = fullText.length > 100 ? fullText.substring(0, 97) + "..." : fullText
+    title = firstPart
+    description = fullText.length > 100 ? fullText.substring(97) : ""
+  }
+  
+  // Fallback: if title is empty, extract from fullText
+  if (!title) {
+    title = extractTitle(fullText)
+    description = fullText
+  }
+
+  // Extract entities (Twitter handles) from full text
   const entities: string[] = []
-  const twitterHandles = description.match(/@\w+/g) || []
+  const twitterHandles = fullText.match(/@\w+/g) || []
   entities.push(...twitterHandles.map((h) => h.substring(1)))
 
-  // Extract tags based on keywords
-  const tags = extractTags(description)
+  // Extract tags based on keywords (use fullText for better tag detection)
+  const tags = extractTags(fullText)
 
-  // Determine importance
-  const importance = determineImportance(description, tags)
+  // Determine importance (use fullText for better importance detection)
+  const importance = determineImportance(fullText, tags)
 
   return {
     id: `event-${id}`,
     date: dateStr || `${actualYear}`,
     year: actualYear,
     month,
-    title: extractTitle(description),
-    description,
+    title: title || extractTitle(fullText),
+    description: description || fullText,
     entities,
     tags,
     importance,
   }
 }
 
-function extractTitle(description: string): string {
+function extractTitle(text: string): string {
   // Take first sentence or first 100 chars
-  const firstSentence = description.split(/[.!?]/)[0]
+  const firstSentence = text.split(/[.!?]/)[0]
   return firstSentence.length > 100 ? firstSentence.substring(0, 97) + "..." : firstSentence
 }
 

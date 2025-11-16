@@ -33,7 +33,7 @@ export const ERAS: Era[] = [
     descriptionEs:
       "Surgen meetups comunitarios, primeras contribuciones a estándares ERC y DeFi, justicia descentralizada, ETHBuenosAires.",
     yearStart: 2016,
-    yearEnd: 2020,
+    yearEnd: 2019,
     color: "from-purple-950 to-purple-900",
     accentColor: "text-purple-400",
   },

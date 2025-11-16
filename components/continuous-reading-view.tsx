@@ -246,6 +246,7 @@ export function ContinuousReadingView({
                   />
                   <motion.div
                     key={`${animationMode}-era-${eraMeta.id}-${group.year}`}
+                    data-era-card-id={eraMeta.id}
                     className="mb-8 flex flex-col gap-2 rounded-2xl border border-[#FF5728]/20 bg-gradient-to-r from-[#FFF5F0] to-[#FFFDF7] px-6 py-4 shadow-[0_8px_20px_rgba(255,87,40,0.08)]"
                     {...getRevealProps(12, 0.35)}
                   >
@@ -297,15 +298,24 @@ export function ContinuousReadingView({
 
                       {event.entities.length > 0 && (
                         <div className="mt-5 flex flex-wrap gap-2">
-                          {event.entities.map((entity) => (
-                            <button
-                              key={entity}
-                              onClick={() => onEntityClick?.(entity)}
-                            className="rounded-full border border-[rgba(0,0,0,0.15)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0] text-[#6d645a] transition hover:border-[#FF5728]/50 hover:text-[#191919]"
-                              aria-label={`View ${entity}`}
+                          {event.entities.map((entity, entityIndex) => (
+                            <a
+                              key={`${event.id}-entity-${entityIndex}-${entity}`}
+                              href={`https://twitter.com/${entity}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => {
+                                // Also trigger the entity click handler if provided (e.g., to open side panel)
+                                if (onEntityClick && e.metaKey) {
+                                  e.preventDefault()
+                                  onEntityClick(entity)
+                                }
+                              }}
+                              className="rounded-full border border-[rgba(0,0,0,0.15)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0] text-[#6d645a] transition hover:border-[#FF5728]/50 hover:text-[#191919] cursor-pointer"
+                              aria-label={`View ${entity} on Twitter`}
                             >
                               @{entity}
-                            </button>
+                            </a>
                           ))}
                         </div>
                       )}

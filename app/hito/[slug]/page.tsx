@@ -99,9 +99,9 @@ export default function HitoPage({ params }: { params: { slug: string } }) {
           <div className="mb-8">
             <h2 className="text-sm font-semibold text-gray-400 mb-3">PERSONAS Y ORGANIZACIONES</h2>
             <div className="flex flex-wrap gap-2">
-              {event.entities.map((entity) => (
+              {event.entities.map((entity, entityIndex) => (
                 <a
-                  key={entity}
+                  key={`${event.id}-entity-${entityIndex}-${entity}`}
                   href={`https://twitter.com/${entity.replace("@", "")}`}
                   target="_blank"
                   rel="noopener noreferrer"

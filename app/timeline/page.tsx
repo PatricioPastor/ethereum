@@ -7,10 +7,14 @@ import { ContinuousReadingView } from "@/components/continuous-reading-view"
 import { EntitySidePanel } from "@/components/entity-side-panel"
 import { SearchModal } from "@/components/search-modal"
 import { RelationsDrawer } from "@/components/relations-drawer"
-import { getEraForYear, ERAS } from "@/lib/era-data"
+import { TimelineScrollInitializer } from "@/components/timeline-scroll-initializer"
+import { ERAS } from "@/lib/era-data"
 import { timelineData } from "@/lib/timeline-data"
 import type { TimelineEvent } from "@/lib/data-parser"
 import { useYears } from "@/hooks/use-years"
+import { useTimelineNavigation } from "@/hooks/use-timeline-navigation"
+import { useScrollSync } from "@/hooks/use-scroll-sync"
+import { useEventNavigation } from "@/hooks/use-event-navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { PanelLeft, ArrowLeft } from "lucide-react"
@@ -25,15 +29,8 @@ export default function TimelinePage() {
   const [selectedEventForRelations, setSelectedEventForRelations] = useState<TimelineEvent | null>(null)
   const [relationsDrawerOpen, setRelationsDrawerOpen] = useState(false)
   const eraFilterId: string | "all" = "all"
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [activeYear, setActiveYear] = useState(2008)
-  const [activeEraId, setActiveEraId] = useState(() => getEraForYear(2008)?.id ?? ERAS[0].id)
 
   const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const navigationInProgressRef = useRef(false)
-  const hasCollapsedOnceRef = useRef(false)
-  const hasNavigatedToEventRef = useRef(false)
-  const hasInitializedScrollRef = useRef(false)
 
   const { years, filteredData } = useYears({
     timelineData,
@@ -42,26 +39,76 @@ export default function TimelinePage() {
     searchQuery,
   })
 
-  const fallbackEra = getEraForYear(activeYear)
-  const currentEra = ERAS.find((era) => era.id === activeEraId) ?? fallbackEra
+  // Centralized navigation state management
+  const {
+    activeYear,
+    activeEraId,
+    currentEra,
+    navigationState,
+    isScrolled,
+    navigateToYear,
+    navigateToEra,
+    scrollToElement,
+    handleScroll,
+    getHeaderHeight,
+  } = useTimelineNavigation({
+    initialYear: years[0] ?? 2008,
+  })
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!scrollContainerRef.current) return
-      const { scrollTop } = scrollContainerRef.current
-      if (scrollTop > 50) {
-        hasCollapsedOnceRef.current = true
-        setIsScrolled(true)
-      } else {
-        hasCollapsedOnceRef.current = false
-        setIsScrolled(false)
+  const headerHeight = getHeaderHeight()
+  const headerScrollPadding = headerHeight
+
+  // Scroll synchronization
+  useScrollSync({
+    scrollContainerRef,
+    yearGroups: filteredData,
+    activeYear,
+    headerHeight,
+    navigationState,
+    onYearChange: (year) => navigateToYear(year, { trigger: "scroll" }),
+    onEraChange: (eraId) => navigateToEra(eraId),
+  })
+
+  // Event navigation (from home page)
+  const { navigateToEvent } = useEventNavigation({
+    scrollContainerRef,
+    navigateToYear,
+    scrollToElement,
+  })
+
+  // Handle search event selection
+  const handleSearchEventSelect = useCallback(
+    async (year: number, event: TimelineEvent) => {
+      // Navigate to year first
+      navigateToYear(year, { forceCollapse: true, trigger: "manual" })
+
+      // Wait for year navigation to start
+      await new Promise((resolve) => setTimeout(resolve, 150))
+
+      // Then scroll to event
+      const container = scrollContainerRef.current
+      if (!container) return
+
+      // Wait for DOM to be ready
+      let attempts = 0
+      const maxAttempts = 20
+      const checkElement = async (): Promise<HTMLElement | null> => {
+        const eventElement = container.querySelector<HTMLElement>(`[data-event-id="${event.id}"]`)
+        if (eventElement) return eventElement
+        if (attempts++ < maxAttempts) {
+          await new Promise((resolve) => requestAnimationFrame(resolve))
+          return checkElement()
+        }
+        return null
       }
-    }
 
-    const container = scrollContainerRef.current
-    container?.addEventListener("scroll", handleScroll)
-    return () => container?.removeEventListener("scroll", handleScroll)
-  }, [])
+      const eventElement = await checkElement()
+      if (eventElement) {
+        await scrollToElement(eventElement, container, { behavior: "smooth" })
+      }
+    },
+    [navigateToYear, scrollToElement],
+  )
 
   const getRelatedEvents = (event: TimelineEvent): TimelineEvent[] => {
     const allEvents = timelineData.flatMap((group) => group.events)
@@ -75,82 +122,6 @@ export default function TimelinePage() {
       .slice(0, 10)
   }
 
-  const headerScrollPadding = isScrolled ? 140 : 260
-  // Mobile header height includes era navigation (h-16 + py-3 + border = ~88px)
-  const mobileHeaderHeight = 88
-
-  const handleYearClick = useCallback(
-    (year: number, options?: { forceCollapse?: boolean; trigger?: "arrow" | "manual" }) => {
-      if (navigationInProgressRef.current) return
-
-      navigationInProgressRef.current = true
-      setActiveYear(year)
-
-      const firstYear = years[0]
-      const shouldExpand = firstYear !== undefined && year === firstYear && !options?.forceCollapse && options?.trigger !== "arrow"
-
-      if (shouldExpand) {
-        hasCollapsedOnceRef.current = false
-        setIsScrolled(false)
-      } else {
-        hasCollapsedOnceRef.current = true
-        setIsScrolled(true)
-      }
-
-      const container = scrollContainerRef.current
-      const element = container?.querySelector<HTMLElement>(`[data-year="${year}"]`)
-      if (element) {
-        if (container) {
-          const containerRect = container.getBoundingClientRect()
-          const elementRect = element.getBoundingClientRect()
-          const currentScroll = container.scrollTop
-          const elementOffsetInContainer = elementRect.top - containerRect.top
-          const target = currentScroll + elementOffsetInContainer - headerScrollPadding
-
-          container.scrollTo({
-            top: Math.max(0, target),
-            behavior: "smooth",
-          })
-        }
-
-        setTimeout(() => {
-          const firstCard = element.querySelector<HTMLElement>('[role="article"]')
-          firstCard?.focus({ preventScroll: true })
-          navigationInProgressRef.current = false
-        }, 400)
-        return
-      }
-
-      navigationInProgressRef.current = false
-    },
-    [headerScrollPadding, years],
-  )
-
-  const handleSearchEventSelect = useCallback(
-    (year: number, event: TimelineEvent) => {
-      handleYearClick(year, { forceCollapse: true })
-      setTimeout(() => {
-        const eventElement = document.querySelector(`[data-event-id="${event.id}"]`)
-        if (eventElement && scrollContainerRef.current) {
-          eventElement.scrollIntoView({ behavior: "smooth", block: "center" })
-        }
-      }, 450)
-    },
-    [handleYearClick],
-  )
-
-  const navigateToEvent = useCallback(
-    (eventId: string) => {
-      const allEvents = timelineData.flatMap((group) => group.events)
-      const event = allEvents.find((e) => e.id === eventId)
-
-      if (event) {
-        handleSearchEventSelect(event.year, event)
-      }
-    },
-    [handleSearchEventSelect],
-  )
-
   const handleEventView = (eventTitle: string) => {
     viewedEventsRef.current.add(eventTitle)
   }
@@ -160,6 +131,7 @@ export default function TimelinePage() {
     setRelationsDrawerOpen(true)
   }
 
+  // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -171,124 +143,159 @@ export default function TimelinePage() {
 
     window.addEventListener("keydown", handleKeyDown)
     return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [searchModalOpen])
+  }, [])
 
-  useEffect(() => {
-    if (hasNavigatedToEventRef.current) return
-
-    const params = new URLSearchParams(window.location.search)
-    const eventId = params.get("event")
-
-    if (eventId) {
-      hasNavigatedToEventRef.current = true
-      setTimeout(() => {
-        navigateToEvent(eventId)
-      }, 500)
-    }
-  }, [navigateToEvent])
-
+  // Setup scroll handler
   useEffect(() => {
     const container = scrollContainerRef.current
     if (!container) return
 
-    const sections = Array.from(container.querySelectorAll<HTMLElement>("[data-year]"))
-    if (sections.length === 0) return
+    const scrollListener = (e: Event) => {
+      const scrollTop = container.scrollTop
+      handleScroll(scrollTop)
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (navigationInProgressRef.current) return
+    container.addEventListener("scroll", scrollListener, { passive: true })
+    return () => container.removeEventListener("scroll", scrollListener)
+  }, [handleScroll])
 
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+  // Handle year click from sidebar
+  const handleYearClick = useCallback(
+    (year: number) => {
+      const container = scrollContainerRef.current
+      if (!container) return
 
-        const current = visible[0]
-        if (!current) return
+      const element = container.querySelector<HTMLElement>(`[data-year="${year}"]`)
+      if (element) {
+        navigateToYear(year, { trigger: "manual" })
+        scrollToElement(element, container, { behavior: "smooth" }).then(() => {
+          // Focus first card after scroll completes
+          const firstCard = element.querySelector<HTMLElement>('[role="article"]')
+          firstCard?.focus({ preventScroll: true })
+        })
+      }
+    },
+    [navigateToYear, scrollToElement],
+  )
 
-        const yearAttr = (current.target as HTMLElement).dataset.year
-        if (!yearAttr) return
+  // Handle era click - navigates to era's start year and scrolls to it
+  const handleEraClick = useCallback(
+    (eraId: string) => {
+      const era = ERAS.find((e) => e.id === eraId)
+      if (!era) return
 
-        const year = Number(yearAttr)
-        if (!Number.isNaN(year) && year !== activeYear) {
-          setActiveYear(year)
+      const container = scrollContainerRef.current
+      if (!container) return
+
+      // Find the first year element for this era
+      const targetYear = era.yearStart
+      
+      // First update the state
+      navigateToYear(targetYear, { trigger: "manual" })
+      
+      // Wait for DOM to update, then scroll
+      const scrollToEraElement = async () => {
+        // Wait for multiple frames to ensure DOM is updated and React has re-rendered
+        await new Promise((resolve) => requestAnimationFrame(resolve))
+        await new Promise((resolve) => requestAnimationFrame(resolve))
+        await new Promise((resolve) => setTimeout(resolve, 200))
+        
+        let targetElement: HTMLElement | null = null
+        let attempts = 0
+        const maxAttempts = 15
+        
+        // Try to find the element with retries
+        while (!targetElement && attempts < maxAttempts) {
+          // First try to find the era heading card (the visible title card)
+          targetElement = container.querySelector<HTMLElement>(`[data-era-card-id="${eraId}"]`)
+          
+          // If era card not found, try the year element
+          if (!targetElement) {
+            targetElement = container.querySelector<HTMLElement>(`[data-year="${targetYear}"]`)
+          }
+          
+          // If still not found, try finding the first event card of the era
+          if (!targetElement) {
+            const yearSection = container.querySelector<HTMLElement>(`[data-year="${targetYear}"]`)
+            if (yearSection) {
+              const firstEventCard = yearSection.querySelector<HTMLElement>('[role="article"]')
+              if (firstEventCard) {
+                targetElement = firstEventCard
+              } else {
+                targetElement = yearSection
+              }
+            }
+          }
+          
+          // If still not found, try by ID
+          if (!targetElement) {
+            targetElement = container.querySelector<HTMLElement>(`#y-${targetYear}`)
+          }
+          
+          // If still not found, wait and retry
+          if (!targetElement && attempts < maxAttempts - 1) {
+            await new Promise((resolve) => requestAnimationFrame(resolve))
+            await new Promise((resolve) => setTimeout(resolve, 50))
+            attempts++
+          } else {
+            break
+          }
         }
-      },
-      {
-        root: container,
-        rootMargin: `-${headerScrollPadding}px 0px -40% 0px`,
-        threshold: [0, 0.1, 0.25, 0.5],
-      },
-    )
-
-    sections.forEach((section) => observer.observe(section))
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section))
-      observer.disconnect()
-    }
-  }, [filteredData, activeYear, headerScrollPadding])
-
-  useEffect(() => {
-    if (!fallbackEra) return
-    setActiveEraId((prev) => (prev === fallbackEra.id ? prev : fallbackEra.id))
-  }, [fallbackEra])
-
-  // Only fallback to first year on initial load, not during scrolling
-  useEffect(() => {
-    if (filteredData.length === 0) return
-    if (navigationInProgressRef.current) return
-
-    const hasActiveYear = filteredData.some((group) => group.year === activeYear)
-    if (hasActiveYear) return
-
-    const fallbackYear = filteredData[0]?.year
-    if (!fallbackYear) return
-
-    // Only navigate if this is initial load (activeYear is still default)
-    if (activeYear === 2008) {
-      requestAnimationFrame(() => {
-        handleYearClick(fallbackYear)
-      })
-    }
-  }, [filteredData, activeYear, handleYearClick])
-
-  useEffect(() => {
-    const container = scrollContainerRef.current
-    if (!container) return
-
-    const sentinels = Array.from(container.querySelectorAll<HTMLElement>("[data-era-sentinel-id]"))
-    if (sentinels.length === 0) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (navigationInProgressRef.current) return
-
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
-
-        const topEntry = visible[0]
-        if (!topEntry) return
-
-        const eraId = (topEntry.target as HTMLElement).dataset.eraSentinelId
-        if (eraId) {
-          setActiveEraId((prev) => (prev === eraId ? prev : eraId))
+        
+        if (targetElement) {
+          // Calculate scroll position relative to container
+          // This works for both mobile and desktop since we're using the container's scroll
+          const containerRect = container.getBoundingClientRect()
+          const elementRect = targetElement.getBoundingClientRect()
+          const headerHeight = getHeaderHeight()
+          // Use slightly less offset on mobile for better visibility
+          const isMobile = window.innerWidth < 768
+          const offset = isMobile ? headerHeight + 16 : headerHeight + 32
+          
+          // Calculate the scroll position needed
+          const elementTopRelativeToContainer = elementRect.top - containerRect.top + container.scrollTop
+          const targetScrollTop = Math.max(0, elementTopRelativeToContainer - offset)
+          
+          // Scroll using the container - this works for both mobile and desktop
+          container.scrollTo({
+            top: targetScrollTop,
+            behavior: "smooth",
+          })
+          
+          // After scroll completes, ensure we're at the right position
+          setTimeout(() => {
+            const yearSection = container.querySelector<HTMLElement>(`[data-year="${targetYear}"]`)
+            if (yearSection) {
+              const firstCard = yearSection.querySelector<HTMLElement>('[role="article"]')
+              if (firstCard) {
+                firstCard.focus({ preventScroll: true })
+              }
+            }
+          }, 500)
+        } else {
+          // Last resort: try scrolling to the year using direct scroll calculation
+          console.warn(`Could not find element for era ${eraId}, year ${targetYear}, trying fallback`)
+          const fallbackElement = container.querySelector<HTMLElement>(`#y-${targetYear}`)
+          if (fallbackElement) {
+            const containerRect = container.getBoundingClientRect()
+            const elementRect = fallbackElement.getBoundingClientRect()
+            const headerHeight = getHeaderHeight()
+            const isMobile = window.innerWidth < 768
+            const offset = isMobile ? headerHeight + 16 : headerHeight + 32
+            const elementTopRelativeToContainer = elementRect.top - containerRect.top + container.scrollTop
+            const targetScrollTop = Math.max(0, elementTopRelativeToContainer - offset)
+            container.scrollTo({
+              top: targetScrollTop,
+              behavior: "smooth",
+            })
+          }
         }
-      },
-      {
-        root: container,
-        threshold: [0, 0.35, 0.65],
-        rootMargin: "-25% 0px -60% 0px",
-      },
-    )
-
-    sentinels.forEach((sentinel) => observer.observe(sentinel))
-
-    return () => {
-      sentinels.forEach((sentinel) => observer.unobserve(sentinel))
-      observer.disconnect()
-    }
-  }, [filteredData])
+      }
+      
+      scrollToEraElement()
+    },
+    [navigateToYear, scrollToElement, getHeaderHeight],
+  )
 
   const relatedEvents = selectedEventForRelations ? getRelatedEvents(selectedEventForRelations) : []
   const accent = "#FF5728"
@@ -298,50 +305,17 @@ export default function TimelinePage() {
     "--text-color": textColor,
   } as CSSProperties
 
-  // Set initial scroll position to offset the header - only once on mount
-  useEffect(() => {
-    if (hasInitializedScrollRef.current) return
-
-    const container = scrollContainerRef.current
-    if (container && filteredData.length > 0) {
-      // Wait for content to render
-      const timeoutId = setTimeout(() => {
-        const firstYearElement = container.querySelector<HTMLElement>(`[data-year="${filteredData[0].year}"]`)
-        if (firstYearElement) {
-          // Calculate mobile header height (h-16 + era nav + border)
-          const isMobile = window.innerWidth < 768
-          const mobileHeaderHeight = isMobile ? 88 : 0
-          const desktopHeaderHeight = isScrolled ? 140 : 260
-          const headerHeight = isMobile ? mobileHeaderHeight : desktopHeaderHeight
-          
-          const containerRect = container.getBoundingClientRect()
-          const elementRect = firstYearElement.getBoundingClientRect()
-          const currentScroll = container.scrollTop
-          const elementOffsetInContainer = elementRect.top - containerRect.top
-          const targetScroll = currentScroll + elementOffsetInContainer - headerHeight - 32 // Extra padding for better separation
-          
-          if (targetScroll > 0) {
-            container.scrollTo({ top: targetScroll, behavior: "instant" })
-          }
-          hasInitializedScrollRef.current = true
-        }
-      }, 100)
-      
-      return () => clearTimeout(timeoutId)
-    }
-  }, [filteredData, isScrolled])
-
   return (
-    <div className="relative min-h-screen bg-[#FFFDF7] text-[color:var(--text-color)]" style={{...themeStyles, overscrollBehavior: 'none'}}>
+    <div className="relative min-h-screen bg-[#FFFDF7] text-[color:var(--text-color)]" style={{ ...themeStyles, overscrollBehavior: "none" }}>
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-0 h-64 bg-[radial-gradient(circle_at_top,_rgba(255,127,80,0.35),transparent_70%)]" />
         <div className="absolute inset-y-0 right-0 w-64 bg-[linear-gradient(180deg,rgba(255,127,80,0.12)_0%,transparent_55%,rgba(255,127,80,0.16)_100%)]" />
       </div>
-      <div className="flex h-screen overflow-hidden bg-[#FFFDF7] text-[#191919]" style={{overscrollBehavior: 'none'}}>
+      <div className="flex h-screen overflow-hidden bg-[#FFFDF7] text-[#191919]" style={{ overscrollBehavior: "none" }}>
         <YearSidebar
           years={years}
           currentYear={activeYear}
-          onYearClick={(year) => handleYearClick(year, { trigger: "manual" })}
+          onYearClick={handleYearClick}
           onSearchChange={setSearchQuery}
           yearGroups={filteredData}
           onEventSelect={handleSearchEventSelect}
@@ -367,9 +341,7 @@ export default function TimelinePage() {
                   <div className="text-[10px] font-semibold uppercase tracking-[0] text-[#7f796f]">
                     {currentEra?.yearStart}–{currentEra?.yearEnd}
                   </div>
-                  <h2 className="text-sm font-bold uppercase tracking-[-0.02em] text-[#191919]">
-                    {currentEra?.name}
-                  </h2>
+                  <h2 className="text-sm font-bold uppercase tracking-[-0.02em] text-[#191919]">{currentEra?.name}</h2>
                 </div>
 
                 <Button
@@ -382,7 +354,7 @@ export default function TimelinePage() {
                   <PanelLeft className="h-5 w-5" />
                 </Button>
               </div>
-              
+
               {/* Mobile Era Navigation */}
               <div className="border-t border-[rgba(0,0,0,0.08)] bg-[#FFFDF7] px-4 py-3">
                 <div className="flex items-center gap-2">
@@ -391,12 +363,22 @@ export default function TimelinePage() {
                     const currentIndex = ERAS.findIndex((e) => e.id === currentEra?.id)
                     const eraIndex = ERAS.findIndex((e) => e.id === era.id)
                     const isPast = eraIndex < currentIndex
-                    
+
                     return (
                       <button
                         key={era.id}
                         type="button"
-                        onClick={() => handleYearClick(era.yearStart, { trigger: "manual" })}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          handleEraClick(era.id)
+                        }}
+                        onTouchEnd={(e) => {
+                          // Ensure touch events also work
+                          e.preventDefault()
+                          e.stopPropagation()
+                          handleEraClick(era.id)
+                        }}
                         className={`flex-1 rounded-full px-3 py-2 text-[10px] font-semibold uppercase tracking-[0] transition ${
                           isActive
                             ? "bg-[#FF5728] text-white shadow-[0_4px_12px_rgba(255,87,40,0.35)]"
@@ -444,7 +426,7 @@ export default function TimelinePage() {
                     <button
                       key={era.id}
                       type="button"
-                      onClick={() => handleYearClick(era.yearStart, { trigger: "manual" })}
+                      onClick={() => handleEraClick(era.id)}
                       className={`flex h-full flex-col gap-3 rounded-3xl border px-5 py-5 text-left transition duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]/40 hover:scale-[1.01] ${
                         isEraActive
                           ? "border-transparent bg-[#FF5728] text-white shadow-[0_18px_40px_rgba(255,87,40,0.35)]"
@@ -479,11 +461,16 @@ export default function TimelinePage() {
             className="flex-1 overflow-y-auto overflow-x-hidden snap-y snap-proximity scroll-smooth"
             style={{
               scrollPaddingTop: `${headerScrollPadding}px`,
-              overscrollBehaviorY: 'none'
+              overscrollBehaviorY: "none",
             }}
           >
             <div className="mx-auto w-full max-w-5xl px-6 pt-0 pb-10 md:px-8">
-              <div className="w-full mt-[120px] md:mt-[120px]"> {/* Extra padding to separate from header */}
+              <div className="w-full mt-[120px] md:mt-[120px]">
+                <TimelineScrollInitializer
+                  scrollContainerRef={scrollContainerRef}
+                  yearGroups={filteredData}
+                  headerHeight={headerHeight}
+                />
                 <ContinuousReadingView
                   yearGroups={filteredData}
                   onEntityClick={setSelectedEntity}
@@ -499,8 +486,8 @@ export default function TimelinePage() {
       </div>
 
       <Sheet open={yearDrawerOpen} onOpenChange={setYearDrawerOpen}>
-        <SheetContent 
-          side="left" 
+        <SheetContent
+          side="left"
           className="w-full max-w-xs gap-0 p-0 bg-[#FFFDF7] text-[#191919] md:hidden"
           onOpenAutoFocus={(e) => {
             // Prevent autofocus on mobile to avoid opening keyboard
@@ -516,7 +503,7 @@ export default function TimelinePage() {
             years={years}
             currentYear={activeYear}
             onYearClick={(year) => {
-              handleYearClick(year, { trigger: "manual" })
+              handleYearClick(year)
               setYearDrawerOpen(false)
             }}
             onSearchChange={setSearchQuery}

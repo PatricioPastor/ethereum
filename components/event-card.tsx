@@ -81,15 +81,29 @@ export function EventCard({
 
         {event.entities.length > 0 && (
           <div className="flex flex-wrap gap-1">
-            {event.entities.map((entity) => (
+            {event.entities.map((entity, entityIndex) => (
               <Button
-                key={entity}
+                key={`${event.id}-entity-${entityIndex}-${entity}`}
                 variant="outline"
                 size="sm"
                 className="h-6 text-xs bg-transparent"
-                onClick={() => onEntityClick?.(entity)}
+                asChild
               >
-                @{entity}
+                <a
+                  href={`https://twitter.com/${entity}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    // Also trigger the entity click handler if provided (e.g., to open side panel)
+                    if (onEntityClick && e.metaKey) {
+                      e.preventDefault()
+                      onEntityClick(entity)
+                    }
+                  }}
+                  aria-label={`View ${entity} on Twitter`}
+                >
+                  @{entity}
+                </a>
               </Button>
             ))}
           </div>

@@ -48,7 +48,7 @@ export function useYears({ timelineData, eraId = "all", filters, searchQuery }: 
         }),
       }))
       .filter((group) => group.events.length > 0)
-  }, [timelineData, searchQuery, filters])
+  }, [timelineData, eraId, searchQuery, filters])
 
   const years = useMemo(() => {
     return filteredData.map((group) => group.year).sort((a, b) => a - b)

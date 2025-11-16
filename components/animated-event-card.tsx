@@ -171,7 +171,7 @@ export function AnimatedEventCard({
               >
                 {event.entities.slice(0, isExpanded ? undefined : isFeatured ? 5 : 3).map((entity, i) => (
                   <motion.div
-                    key={entity}
+                    key={`${event.id}-entity-${i}-${entity}`}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + i * 0.03 }}
@@ -180,9 +180,23 @@ export function AnimatedEventCard({
                       variant="outline"
                       size="sm"
                       className="h-6 text-xs bg-transparent hover:bg-primary/10"
-                      onClick={() => onEntityClick?.(entity)}
+                      asChild
                     >
-                      @{entity}
+                      <a
+                        href={`https://twitter.com/${entity}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          // Also trigger the entity click handler if provided (e.g., to open side panel)
+                          if (onEntityClick && e.metaKey) {
+                            e.preventDefault()
+                            onEntityClick(entity)
+                          }
+                        }}
+                        aria-label={`View ${entity} on Twitter`}
+                      >
+                        @{entity}
+                      </a>
                     </Button>
                   </motion.div>
                 ))}
